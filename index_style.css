@@ -11,7 +11,7 @@ body{
     display: flex;
     height: 10dvh;
     justify-content: space-between;
-    background-color: #233446;
+    background-color: #04030F;
     z-index: 1;
 }
 .nav_right, .nav_left{
@@ -28,7 +28,7 @@ body{
     height: 90dvh;
     display: flex;
     background-color: rgba(67,89,113, 0.1);
-    background-image: linear-gradient(#212529, rgba(29, 10, 92, 0.825)),url("pic/bg-header2.jpg");
+    background-image: linear-gradient(#04030F, rgba(92, 39, 10, 0.825)),url("pic/bg-header2.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -58,6 +58,5 @@ body{
     background-color: rgba(67,89,113, 0.1);
     height: 100dvh;
 }
-
 
 
