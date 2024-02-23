@@ -7,7 +7,18 @@ body{
     /*    background-color:  #04030F;*/
     font-family: "Kanit", sans-serif;
 }
+.navbar{
+    top: 0;
+    display: flex;
+}
 
+.a_nav{
+    font-size: 18px;
+    text-decoration: none;
+    color: White;
+    padding: 29px;
+    padding-bottom: 0;
+}
 h1{
     color: #FF3E1D;
 }
