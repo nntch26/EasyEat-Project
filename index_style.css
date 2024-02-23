@@ -13,6 +13,7 @@ body{
     justify-content: space-between;
     background-color: #04030F;
     z-index: 1;
+    position: fixed;
 }
 .nav_right, .nav_left{
     padding: 22px;
@@ -33,7 +34,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+    margin-top: 79px;
 }
 .smallbox1{
     flex: 50%;
