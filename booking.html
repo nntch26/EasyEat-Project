@@ -11,199 +11,168 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
     <title>จองโต๊ะล่วงหน้า</title>
 </head>
 <body>
-    <div class="navbar">
-        <a href="index.html" class="a_nav">&lt; ย้อนกลับไปหน้าหลัก</a>
-    </div>
+
+     <!--- navbar ---->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-white">
+        <div class="container">
+
+            <a href="index.html" class="navbar-brand a_nav" aria-current="page"> ย้อนกลับ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mt-3 ms-auto">
+                    <li class="nav-item">
+                        <h1 class="ms-auto">จองโต๊ะล่วงหน้า</h1>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
 
     <div class="container">
-        <div class="row">
 
-            <div class="content-header">
-                <h1>จองโต๊ะล่วงหน้า</h1>
-                <h4>โปรดเลือกโต๊ะที่คุณต้องการจะจองวันนี้</h4>
-            </div>
-    
-            <div class="content-booking">
+        <!--- content table ---->
+        <div class="row">
+            <div class="content-table">
+                <div class="content-header text-center mb-3 mt-3">
+                    <h4>โปรดเลือกโต๊ะที่คุณต้องการจะ <span style="color: #FF3E1D;"><u>จองวันนี้</u></span></h4> 
+                </div>
 
                 <div class="box-table">
 
-                    <!-- โต๊ะทั้งหมดในร้าน --->
-                    <div class="row">
+                    <!-- โต๊ะทั้งหมดในร้านแถว 1 --->
+                    <div class="row mb-2">
 
-                        <div class="col-md-3 mb-3">
-                            <div class="card">
-                                <div class="card-body d-grid">
-                                    <div class="img-table">
-                                        <img src="img/img-table.png" alt="">
-                                    </div>
-                                    <h3 class="card-title">โต๊ะที่ : A01</h3>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal">จองโต๊ะ</button>
+                        <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
+                            <div class="card card-booking1" style="width: 150px; height: 100px;">
+                                <div class="card-body">
+                                    <a href="booking_form.html"><button type="button" class="btn btn-success btn-booking">A01</button></a>
+                                   
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-3 mb-3">
-                            <div class="card">
-                                <div class="card-body d-grid">
-                                    <div class="img-table">
-                                        <img src="img/img-table.png" alt="">
-                                    </div>
-                                    <h3 class="card-title">โต๊ะที่ : A01</h3>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal">จองโต๊ะ</button>
+                        <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
+                            <div class="card card-booking1" style="width: 150px; height: 100px;">
+                                <div class="card-body">
+                                    <a href="booking_form.html"><button type="button" class="btn btn-success btn-booking">A02</button></a>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
+                            <div class="card card-booking1" style="width: 150px; height: 100px;">
+                                <div class="card-body">
+                                    <a href="booking_form.html"><button type="button" class="btn btn-success btn-booking">A03</button></a>
 
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-3 mb-3">
-                            <div class="card">
-                                <div class="card-body d-grid">
-                                    <div class="img-table">
-                                        <img src="img/img-table.png" alt="">
-                                    </div>
-                                    <h3 class="card-title">โต๊ะที่ : A01</h3>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal">จองโต๊ะ</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <div class="card">
-                                <div class="card-body d-grid">
-                                    <div class="img-table">
-                                        <img src="img/img-table.png" alt="">
-                                    </div>
-                                    <h3 class="card-title">โต๊ะที่ : A01</h3>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal">จองโต๊ะ</button>
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <div class="card">
-                                <div class="card-body d-grid">
-                                    <div class="img-table">
-                                        <img src="img/img-table.png" alt="">
-                                    </div>
-                                    <h3 class="card-title">โต๊ะที่ : A01</h3>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal">จองโต๊ะ</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mb-3 ">
-                            <div class="card">
-                                <div class="card-body d-grid">
-                                    <div class="img-table">
-                                        <img src="img/img-table.png" alt="">
-                                    </div>
-                                    <h3 class="card-title">โต๊ะที่ : A01</h3>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal">จองโต๊ะ</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <div class="card">
-                                <div class="card-body d-grid">
-                                    <div class="img-table">
-                                        <img src="img/img-table.png" alt="">
-                                    </div>
-                                    <h3 class="card-title">โต๊ะที่ : A01</h3>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal">จองโต๊ะ</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <div class="card">
-                                <div class="card-body d-grid">
-                                    <div class="img-table ">
-                                        <img src="img/img-table.png" alt="">
-                                    </div>
-                                    <h3 class="card-title">โต๊ะที่ : A01</h3>
-                                    <button type="button" class="btn btn-success d-grid" data-bs-toggle="modal" data-bs-target="#Modal">จองโต๊ะ</button>
+                        <div class="col-md-3 col-sm-5 mb-3">
+                            <div class="card card-booking1" style="width: 150px; height: 100px;">
+                                <div class="card-body">
+                                    <a href="booking_form.html"><button type="button" class="btn btn-success btn-booking">A04</button></a>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                </div>
-            </div>
 
 
+                    <!-- โต๊ะทั้งหมดในร้านแถว 2 --->
 
+                    <div class="row mb-2">
 
-            <!-- ฟอร์มสำหรับจองโต๊ะ --->
+                        <div class="col-md-4 mb-3">
+                            <div class="card card-booking1" style="height: 120px; width: 300px;">
+                                <div class="card-body">
+                                    <a href="booking_form.html"><button type="button" class="btn btn-success btn-booking">B01</button></a>
 
-            <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ModalLabel">กรอกข้อมูลจองโต๊ะล่วงหน้า</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                            </div>
                         </div>
 
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label class="col-form-label">เลขโต๊ะ</label>
-                                <div class="col-sm-4">
-                                  <input type="text" name="table_name" class="form-control" disabled value="<?php echo $row['table_name'];?>">
+                        <div class="col-md-4 mb-3">
+                            <div class="card card-booking1" style="height: 120px; width: 300px;">
+                                <div class="card-body">
+                                    <a href="booking_form.html"><button type="button" class="btn btn-success btn-booking">B02</button></a>
+
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="mb-3">
-                                <label class="col-form-label">ผู้จอง</label>
-                                <div class="mb-3">
-                                  <input type="text" name="booking_name" class="form-control" required placeholder="ชื่อผู้จอง" minlength="5">
+                        <div class="col-md-4 mb-3">
+                            <div class="card card-booking1" style="height: 120px; width: 300px;">
+                                <div class="card-body">
+                                    <a href="booking_form.html"><button type="button" class="btn btn-success btn-booking">B03</button></a>
+
                                 </div>
                             </div>
-
-                            <div class="mb-3">
-                                <label class="col-form-label">วันที่</label>
-                                <input type="date" name="booking_date" class="form-control" value="<?php echo date('Y-m-d'); ?>" required disabled >
-
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="col-form-label">เวลา</label>
-                                <input type="time" name="booking_time" class="form-control" placeholder="เวลา">
-                
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="col-form-label">เบอร์โทร</label>
-                                <input type="text" name="booking_phone" class="form-control" required placeholder="เบอร์โทร" minlength="10" maxlength="10">
-                            </div>
-
-                            
-                      
-
-                            <div class="modal-footer">
-                                <input type="hidden" name="table_id" value="<?php echo $_GET['id'];?>">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ย้อนกลับ</button>
-                                <button type="submit" class="btn btn-cus">บันทึกการจอง</button>
-                            </div>
-
-                        </form>
-                    </div>
+                        </div>
 
                     
+                    </div>
+
+                      <!-- โต๊ะทั้งหมดในร้านแถว 3 --->
+                      <div class="row">
+
+                        <div class="col-md-4 col-sm-5 mb-3">
+                            <div class="card card-booking1" style="width: 200px; height: 120px; border-radius: 50%;">
+                                <div class="card-body">
+                                    <a href="booking_form.html"><button type="button" class="btn btn-success btn-booking">C01</button></a>
+                                
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-5 mb-3">
+                            <div class="card card-booking1" style="width: 200px; height: 120px; border-radius: 50%;">
+                                <div class="card-body">
+                                    <a href="booking_form.html"><button type="button" class="btn btn-success btn-booking">C02</button></a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-5 mb-3">
+                            <div class="card card-booking1" style="width: 200px; height: 120px; border-radius: 50%;">
+                                <div class="card-body">
+                                    <a href="booking_form.html"><button type="button" class="btn btn-success btn-booking">C03</button></a>
+
+                                </div>
+                            </div>
+                        </div>
+
 
                     </div>
+
+
+
+
+
                 </div>
             </div>
+
+
+
+
 
             
             
   
 
-           
 
 
 
