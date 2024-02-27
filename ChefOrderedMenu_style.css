@@ -1,0 +1,181 @@
+body{
+    text-align: center;
+}
+h1{
+    margin: 0;
+    margin-top: 10px;
+    padding: 4px;
+    color: white;
+}
+.navbar{
+    width: 100%;
+    background-color: white;
+    display: flex;
+}
+.navbox{
+    padding: 15px;
+    flex: 90%;
+}
+.counter{
+    color: white;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.navbtn, .exitbtn{
+    height: 50px;
+    font-size: 18px;
+    background-color: white;
+    border-style: solid;
+    font-weight: bold;
+    border-radius: 5px;
+    border-color: rgb(114, 114, 114);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.navbtn{
+    margin-right: 10px;
+    text-align: left;
+    width: 15%;
+    padding-left: 30px;
+}
+.exit{
+    flex: 15%;
+    padding: 15px;
+}
+.exitbtn{
+    width: 70%;
+    height: 50px;
+}
+.navbtn:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.exitbtn:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.a_head{
+    background-color: black;
+    padding: 10px;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-bottom: 20px;
+    width: 5%;
+    text-decoration: none;
+    margin-right: 10px;
+}
+.bigbox{
+    text-align: center;
+    display: flex;
+}
+.BoxOrder{
+    flex: 90%;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(204, 204, 204);
+    width: 90%;
+    height: auto;
+}
+.smallbox{
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.537);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: 25px;
+    border-style: solid;
+    border-color: rgb(190, 188, 188);
+    height: fit-content;
+}
+.tinybox_top{
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(243, 238, 238);
+    padding: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.box_left_top{
+    margin-left: 10px;
+    padding: 5px;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+}
+.tableid{
+    font-size: 20px;
+}
+.orderid{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-size: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.box_right_top{
+    color: white;
+    border-radius: 20px;
+    width: 30%;
+    text-align: center;
+    align-self: center;
+    margin-right: 10px;
+    border-style: solid;
+    border-color: rgb(190, 188, 188);
+    font-size: 20px;
+}
+.colorRed{
+    background-color: red;
+    color: white;
+}
+.colorGreen{
+    background-color: rgb(33, 202, 33);
+    color: white;
+}
+.colorYellow{
+    background-color: rgb(240, 193, 22);
+    color: white;
+}
+.colorGray{
+    background-color: rgb(116, 115, 115);
+    color: white;
+}
+.colorBlack{
+    background-color: black;
+    color: white;
+}
+.tinybox_middle{
+    padding: 5px;
+    background-color: white;
+    height: 180px;
+    overflow-y: auto;
+    text-align: left;
+}
+.headmenu{
+    margin: 0;
+    text-align: center;
+}
+.menu{
+    padding-left: 20px;
+}
+.tinybox_bottom{
+    background-color: rgb(243, 238, 238);
+    text-align: center;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.admit, .cancel{
+    font-size: 18px;
+    width: 20%;
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
