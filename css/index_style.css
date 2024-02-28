@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pattaya&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
 *{
     box-sizing: border-box;
@@ -16,6 +16,7 @@
 }
 
 .navbar-brand {
+    font-family: "Acme", sans-serif;
     font-weight: 700;
     font-style: italic;
     font-size: 32px;
@@ -47,10 +48,12 @@
 
 /*///////////////////////////// header ///////////////////////////////*/
 .header-content{
-    background-image: linear-gradient(#04030F, #1212127f),
+    background-image: linear-gradient(#04030fa0, #1212128a),
     url("../img2/bg-header6.png");
-    background-size: cover;
+    background-attachment: fixed;
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: rgb(255, 255, 255);
     height: 100dvh;
     padding: 30px;
@@ -64,6 +67,7 @@
 }
 
 .con-text h1{
+    font-family: "Acme", sans-serif;
     font-weight: 700;
     font-style: italic;
     font-size: 150px;
@@ -119,6 +123,9 @@
 
 }
 
+p {
+    font-size: 20px;
+}
 
 
 /*///////////////////////////// about ///////////////////////////////*/
@@ -126,7 +133,7 @@
 
 .section-about {
     background-color: #04030F;
-    background-image: linear-gradient(#04030faf, #04030ff9),url("../img2/bg-header7.jpg");
+    background-image: linear-gradient(#04030f8d, #04030f9e),url("../img2/bg-header7.jpg");
     background-size: cover;
     background-position: center;
     padding-bottom: 10rem;
@@ -153,12 +160,14 @@
 /*///////////////////////////// top menu ///////////////////////////////*/
 
 .section-typemenu{
-    background-image: linear-gradient(#04030f, #121212ab),
-    url("../img2/bg-header5.jpg");
-    background-size: cover;
+    background-image: linear-gradient(#04030f9a, #121212ab),
+    url("../img2/bg-header8.jpg");
+    background-attachment: fixed;
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: rgb(255, 255, 255);
-    padding-top: 12rem;
+    padding-top: 10rem;
     padding-bottom: 5rem;
 
 
@@ -171,8 +180,8 @@
 
 .menubox{
     /*background-color: #3a3a3a;*/
-    background-color: rgba(68, 68, 68, 0.378);
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: #222;
     text-align: center;
     transform-origin: center top;
     transition-property: transform;
@@ -261,9 +270,11 @@
 
 .section-bookingtable {
     background-color: #04030F;
-    background-image: linear-gradient(#04030f, #04030fb8),url("../img2/table2.jpg");
-    background-size: cover;
+    background-image: linear-gradient(#0b0829e8, #04030fb8),url("../img2/table2.jpg");
+    background-attachment: fixed;
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-bottom: 10rem;
     padding-top: 10rem;
     color: white;
@@ -293,6 +304,16 @@ hr{
     border: 1px solid;
 }
 
+.text-footer{
+    font-family: "Acme", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 38px;
+    color: #FF3E1D;
+}
+
+
+   
 
 
 
