@@ -74,15 +74,21 @@
                         </div>
 
                         <div class="form-group row cont-date mb-5">
-                            <div class="mb-3 col-sm-6">
+                            <div class="mb-3 col-sm-4">
                                 <label class="col-form-label">วันที่</label>
                                 <input type="date" name="booking_date" class="form-control" value="<?php echo date('Y-m-d'); ?>" required readonly>
 
                             </div>
 
-                            <div class="mb-3 col-sm-6">
+                            <div class="mb-3 col-sm-4">
                                 <label class="col-form-label">เวลา</label>
                                 <input type="time" name="booking_time" class="form-control" placeholder="เวลา">
+
+                            </div>
+
+                            <div class="mb-3 col-sm-4">
+                                <label class="col-form-label">จำนวนคน</label>
+                                <input type="text" name="booking_num" class="form-control" placeholder="กรอกจำนวนคน">
 
                             </div>
                         </div>
