@@ -48,7 +48,7 @@
 /*///////////////////////////// header ///////////////////////////////*/
 .header-content{
     background-image: linear-gradient(#04030F, #1212127f),
-    url("img2/bg-header6.png");
+    url("../img2/bg-header6.png");
     background-size: cover;
     background-position: center;
     color: rgb(255, 255, 255);
@@ -126,7 +126,7 @@
 
 .section-about {
     background-color: #04030F;
-    background-image: linear-gradient(#04030faf, #04030ff9),url("img2/bg-header7.jpg");
+    background-image: linear-gradient(#04030faf, #04030ff9),url("../img2/bg-header7.jpg");
     background-size: cover;
     background-position: center;
     padding-bottom: 10rem;
@@ -154,7 +154,7 @@
 
 .section-typemenu{
     background-image: linear-gradient(#04030f, #121212ab),
-    url("img2/bg-header5.jpg");
+    url("../img2/bg-header5.jpg");
     background-size: cover;
     background-position: center;
     color: rgb(255, 255, 255);
@@ -261,7 +261,7 @@
 
 .section-bookingtable {
     background-color: #04030F;
-    background-image: linear-gradient(#04030f, #04030fb8),url("img2/table2.jpg");
+    background-image: linear-gradient(#04030f, #04030fb8),url("../img2/table2.jpg");
     background-size: cover;
     background-position: center;
     padding-bottom: 10rem;
