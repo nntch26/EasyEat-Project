@@ -88,7 +88,7 @@
 
                             <div class="mb-3 col-sm-4">
                                 <label class="col-form-label">จำนวนคน</label>
-                                <input type="text" name="booking_num" class="form-control" placeholder="กรอกจำนวนคน">
+                                <input type="text" name="booking_people_caps" class="form-control" placeholder="กรอกจำนวนคน">
 
                             </div>
                         </div>

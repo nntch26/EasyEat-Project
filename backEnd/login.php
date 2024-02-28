@@ -1,6 +1,7 @@
 <?php
-// session_start(); // Start the session
-
+include('includes/connectDB.php');
+session_start(); // Start the session
+$db = getDB();
 function loginUser($userName, $userPhoneNum, $db)
 {
     //find User
