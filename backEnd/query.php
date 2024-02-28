@@ -1,78 +1,69 @@
 <?php
 include('includes/connectDB.php');
-include('includes/login.php');
+include('login.php');
 session_start();
+$db = getDB();
 
-if (isset($_POST['submit'])) {
-    $tableNum = $_POST['tableNum'];
-    $userName = $_POST['name'];
-    $userPhoneNum = $_POST['phonenum'];
+if (isset($_POST['submit_booking_insert'])) {
+    $table_id = $_POST['table_idxD'];
+    $booking_username = $_POST['booking_username'];
+    $booking_userphone = $_POST['booking_phone'];
+    $booking_date = $_POST['booking_date'];
+    $booking_time = $_POST['booking_time'];
 
-    if (isRegister($userName, $userPhoneNum)) {
+    if (isRegister($booking_username, $booking_userphone, $db)) {
         //สมัครเป็น User แล้ว
-        if ($_SESSION['is_login'] = true){
-            //login แล้ว
-            reservationTable($tableNum, $userName, $userPhoneNum);
-        }else{
-            //ยังไม่ได้ login
-            reservationLogin($tableNum, $userName, $userPhoneNum);
-        }
+        // echo "condition :" . var_dump(isRegister($booking_username, $booking_userphone, $db));
+        // echo "1";
+        reservationTable($table_id, $booking_username, $booking_userphone, $booking_date, $booking_time, $db);
     } else {
         //ยังไม่ได้สมัคร
-        reservationRegister($tableNum, $userName, $userPhoneNum);
+        // echo "condition :" . var_dump(isRegister($booking_username, $booking_userphone, $db));
+        // echo "2";
+        reservationRegister($table_id, $booking_username, $booking_userphone, $booking_date, $booking_time, $db);
     }
-}
-
-function isRegister($userName, $userPhoneNum)
-{
-    // Start the connection to database
-    $db = getDB();
-
-    // Check if user already registered
-    $findUser1 = $db->prepare("SELECT COUNT(phoneNumber) AS amountOfPhoneNum FROM Users WHERE phoneNumber= :phoneNumber AND userName= :userName");
-    $findUser1->bindParam(':phoneNumber', $userPhoneNum);
-    $findUser1->bindParam(':userName', $userName);
-    $findUser1->execute();
-    $findUser = $findUser1->fetch(PDO::FETCH_ASSOC);
-
-    if ($findUser['amountOfPhoneNum'] == 0) {
-        // Close the connection to database
-        $db = null;
-        return false;
-    } else {
-        // Close the connection to database
-        $db = null;
-        return true;
-    }
-}
-
-
-function reservationTable($tableNum, $userName, $userPhoneNum)
-{
-    // Start the connection to database
-    $db = getDB();
-
-    // Insert table
-    $insertTable = $db->prepare("INSERT INTO booking_table (table_num, name, phone_num) VALUES (:table_num, :name, :phone_num)");
-    $insertTable->bindParam(':table_num', $tableNum);
-    $insertTable->bindParam(':name', $userName);
-    $insertTable->bindParam(':phone_num', $userPhoneNum);
-    $insertTable->execute();
-
-    // Close the connection to database
     $db = null;
 }
 
-function reservationLogin($tableNum, $userName, $userPhoneNum)
+function isRegister($booking_username, $booking_userphone, $db)
 {
-    loginUser($userName, $userPhoneNum);
-    reservationTable($tableNum, $userName, $userPhoneNum);
+
+    // Check if user already registered
+    $findUserQuery = $db->prepare("SELECT COUNT(*) AS rowCount FROM Users WHERE phone = :phoneNumber AND username = :userName");
+    $findUserQuery->bindParam(':phoneNumber', $booking_userphone);
+    $findUserQuery->bindParam(':userName', $booking_username);
+    $findUserQuery->execute();
+    $rowCount = $findUserQuery->fetch(PDO::FETCH_ASSOC)['rowCount'];
+
+    if ($rowCount != 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-function reservationRegister($tableNum, $userName, $userPhoneNum)
+
+
+function reservationTable($tableid, $booking_username, $booking_userphone, $booking_date, $booking_time, $db)
 {
-    registerUser($userName, $userPhoneNum);
-    loginUser($userName, $userPhoneNum);
-    reservationTable($tableNum, $userName, $userPhoneNum);
+    // Insert reservation
+    $insertReservation = $db->prepare("INSERT INTO Reservations (table_id, user_username, user_phonenum, res_date, res_time) VALUES (:table_id, :user_username, :user_phonenum, :res_date, :res_time)");
+    $insertReservation->bindParam(':table_id', $tableid);
+    $insertReservation->bindParam(':user_username', $booking_username);
+    $insertReservation->bindParam(':user_phonenum', $booking_userphone);
+    $insertReservation->bindParam(':res_date', $booking_date);
+    $insertReservation->bindParam(':res_time', $booking_time);
+    $insertReservation->execute();
 }
 
+
+function reservationRegister($tableNum, $booking_username, $booking_userphone, $booking_date, $booking_time, $db)
+{
+    $registerUser = $db->prepare("INSERT INTO Users (username, phone) 
+                                VALUES (:username, :phone)");
+    $registerUser->bindParam(':username', $booking_username);
+    $registerUser->bindParam(':phone', $booking_userphone);
+    $registerUser->execute();
+    
+    reservationTable($tableNum, $booking_username, $booking_userphone, $booking_date, $booking_time, $db);
+}

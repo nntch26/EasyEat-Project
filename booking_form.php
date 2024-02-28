@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
 
     <title>จองโต๊ะล่วงหน้า - กรอกฟอร์มจองโต๊ะ</title>
 </head>
+
 <body>
 
     <!--- navbar ---->
@@ -34,7 +36,7 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="container">
 
         <!-- ฟอร์มสำหรับจองโต๊ะ -->
@@ -47,12 +49,12 @@
 
 
                     <!-- ส่วนของฟอร์ม -->
-                    <form action="" method="">
+                    <form action="backEnd/query.php" method="post">
 
                         <div class="form-group row cont-numtable">
                             <label class="col-sm-5 text-num">เลขโต๊ะ : </label>
                             <div class="col-sm-6">
-                                <input type="text" name="table_name" class="form-control inp-num" disabled value="<?php echo $row['table_name'];?>">
+                                <input type="text" name="table_idxD" class="form-control inp-num" readonly value="<?php echo $_GET['table_id']; ?>">
                             </div>
                         </div>
 
@@ -60,7 +62,7 @@
                             <div class="mb-3">
                                 <label class="col-form-label">ชื่อผู้จอง : </label>
                                 <div class="mb-3">
-                                    <input type="text" name="booking_name" class="form-control" required placeholder="กรอกชื่อผู้จอง" minlength="5">
+                                    <input type="text" name="booking_username" class="form-control" required placeholder="กรอกชื่อผู้จอง" minlength="5">
                                 </div>
                             </div>
 
@@ -74,21 +76,20 @@
                         <div class="form-group row cont-date mb-5">
                             <div class="mb-3 col-sm-6">
                                 <label class="col-form-label">วันที่</label>
-                                <input type="date" name="booking_date" class="form-control" value="<?php echo date('Y-m-d'); ?>" required disabled >
-    
+                                <input type="date" name="booking_date" class="form-control" value="<?php echo date('Y-m-d'); ?>" required readonly>
+
                             </div>
-    
+
                             <div class="mb-3 col-sm-6">
                                 <label class="col-form-label">เวลา</label>
                                 <input type="time" name="booking_time" class="form-control" placeholder="เวลา">
-                
+
                             </div>
                         </div>
 
-                        
+
                         <div class="btn-footer mb-5">
-                            <input type="hidden" name="table_id" value="<?php echo $_GET['id'];?>">
-                            <button type="submit" class="btn a_nav2">บันทึกการจอง</button>
+                            <button type="submit" name="submit_booking_insert" class="btn a_nav2">บันทึกการจอง</button>
                         </div>
 
 
@@ -96,13 +97,14 @@
                 </div>
             </div>
         </div>
-            
 
-           
+
+
 
     </div>
 
 
-    
+
 </body>
+
 </html>
