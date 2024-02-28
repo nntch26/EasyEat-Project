@@ -64,7 +64,7 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 110vh;
+  height: 115vh;
   margin: 0 auto;
   width: 100%;
 
@@ -96,6 +96,13 @@ body{
 @media only screen and (max-width: 950px){
   .card-cus{
      width: 100%;
+  }
+  .a_nav{
+    font-size: 16px;
+  }
+  .a_nav:hover{
+    font-size: 16px;
+    
   }
 }
 

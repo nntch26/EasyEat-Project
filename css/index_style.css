@@ -312,7 +312,11 @@ hr{
     color: #FF3E1D;
 }
 
+.p-footer {
+    font-size: 16px;
+    padding: 20px;
 
+}
    
 
 
@@ -339,6 +343,11 @@ hr{
     .con-right{
         font-size: 16px;
 
+    }
+
+    .p-footer {
+        padding: 20px;
+        font-size: 12px;
     }
     
 }
