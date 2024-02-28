@@ -1,3 +1,6 @@
+*{
+    font-family: "Kanit", sans-serif;
+}
 body{
     text-align: center;
 }
@@ -13,7 +16,7 @@ body{
 .counter{
     color: white;
     border-radius: 20px;
-    font-size: 16px;
+    font-size: 14px;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
