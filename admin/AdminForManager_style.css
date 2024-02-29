@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pattaya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+*{
+  font-family: "Kanit", sans-serif;
+}
+body{
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.navbar {
+  width: 100%;
+  background-color: white;
+  text-align: end;
+  height: 10dvh;
+}
+.exitbtn {
+  height: 50px;
+  font-size: 18px;
+  background-color: white;
+  border-style: solid;
+  font-weight: bold;
+  border-radius: 5px;
+  border-color: rgb(114, 114, 114);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.exit {
+  padding: 15px;
+  padding-right: 40px;
+}
+.exitbtn {
+  width: 10%;
+  height: 50px;
+}
+.exitbtn:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.bigbox{
+    display: flex;
+    margin: 0;
+    height: 90dvh;
+}
+.navsidebar{
+    display: flex;
+    flex-direction: column;
+    flex: 20%;
+    background-color: black;
+    padding-top: 5%;
+}
+.btn{
+    text-decoration: none;
+    background-color: black;
+    border-style: none;
+    color: white;
+    font-size: 20px;
+    align-self: center;
+    padding: 20px;
+    border-radius: 20px;
+    width: 70%;
+}
+.btn:hover{
+    background-color: gray;
+}
+
+
+.plainPad{
+    flex: 80%;
+    overflow-y: auto;
+    background-color: rgb(209, 207, 207);
+}
+.foodmenu{
+  display: none;
+}
+.member{
+  display: none;
+}
+.history{
+  display: none;
+}
+.sale{
+  display: none;
+}
