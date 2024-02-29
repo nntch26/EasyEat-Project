@@ -22,7 +22,7 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-white">
         <div class="container">
 
-            <a href="booking.html" class="navbar-brand a_nav" aria-current="page"> ย้อนกลับ</a>
+            <a href="booking.php" class="navbar-brand a_nav" aria-current="page"> ย้อนกลับ</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -59,12 +59,20 @@
                         </div>
 
                         <div class="form-group row cont-user">
-                            <div class="mb-3">
-                                <label class="col-form-label">ชื่อผู้จอง : </label>
-                                <div class="mb-3">
-                                    <input type="text" name="booking_username" class="form-control" required placeholder="กรอกชื่อผู้จอง" minlength="5">
+                            
+
+                            <div class="row mb-3">
+                                <div class="form-outline mb-3 col-md-6">
+                                    <label class="form-label">ชื่อ : </label>
+                                    <input type="text" name="booking_firstname" id="booking_firstname" class="form-control" placeholder="กรอกชื่อของคุณ" minlength="3" pattern="[a-zA-Zก-๏\s]+" required/>
+                                </div>
+
+                                <div class="form-outline mb-3 col-md-6">
+                                    <label class="form-label">นามสกุล : </label>
+                                    <input type="text" name="booking_lastname" id="booking_lastname" class="form-control" placeholder="กรอกนามสกุลของคุณ" minlength="3" pattern="[a-zA-Zก-๏\s]+" required/>
                                 </div>
                             </div>
+
 
                             <div class="mb-3">
                                 <label class="col-form-label">เบอร์โทรติดต่อ : </label>
@@ -88,7 +96,7 @@
 
                             <div class="mb-3 col-sm-4">
                                 <label class="col-form-label">จำนวนคน</label>
-                                <input type="text" name="booking_people_caps" class="form-control" placeholder="กรอกจำนวนคน">
+                                <input type="text" name="booking_num" class="form-control" placeholder="กรอกจำนวนคน">
 
                             </div>
                         </div>

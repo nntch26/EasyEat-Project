@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pattaya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: "Kanit", sans-serif;
+}
+
+body{
+    background-color: #f2f8ff;
+}
+
+/* navbar */
+
+.navbar{
+    font-size: 18px;
+    background-color: #04030F;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+.navbar-brand {
+    font-family: "Acme", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 32px;
+    color: #FF3E1D;
+
+
+}
+
+.navbar-brand:hover{
+    color: #FF3E1D;
+
+}
+
+.btnt1{
+    color: #ffffff;
+    background-color: #FF3E1D;
+    border: 1px solid #FF3E1D;
+    width: 100px;
+
+}
+
+.btnt1:hover{
+    color: #FF3E1D;
+    border: 1px solid #FF3E1D;
+
+}
+
+
+/* /////////////////// profile //////////////////////// */
+
+
+.section-profile {
+    padding-bottom: 10rem;
+    padding-top: 9rem;
+    color: #04030F;
+}
+
+
+.box-profile{
+    padding: 30px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+
+    
+}
+
+
+
+/* ////////////// ฝั่งซ้าย ///////////////// */
+
+.con-left3{
+    text-align: center;
+    padding: 20px;
+    color: #ffffff;
+    background-image: linear-gradient(#d12102 ,#ff5537);
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+.sore{
+    padding-left: 10px;
+    padding-right: 10px;
+    /*background-color: #343434;*/
+    border-radius: 5px;
+    color: #ffd025; 
+    font-style: italic; 
+    font-size: 34px;
+
+}
+
+
+
+.picbox img{
+    width: 100%;
+    border-radius: 20px;
+    border: 5px solid #ffffff;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-color: #ffffff;
+
+
+}
+
+
+/* ////////////// ฝั่งขวา ///////////////// */
+
+
+
+
+.con-right3{
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+
+}
+
+
+/* /////////////////////// ปุ่ม //////////////////////////// */
+
+.cont-btn{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-cus2{
+    width: 200px;
+    padding: 10px;
+
+}
+.btn-cus3{
+    width: 200px;
+    padding: 10px;
+
+}
