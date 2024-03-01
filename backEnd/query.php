@@ -34,7 +34,7 @@ function isRegister($booking_firstname, $booking_lastname, $booking_userphone, $
         $rowCount = $findUserQuery->fetch(PDO::FETCH_ASSOC)['rowCount'];
         return ($rowCount != 0);
     } catch (PDOException $e) {
-        echo "isRegister";
+        //echo "isRegister";
         echo "Error: " . $e->getMessage();
         return false;
     }
@@ -63,7 +63,7 @@ function reservationTable($tableid, $booking_firstname, $booking_lastname, $book
         $changeStatus->bindValue(':table_status', "Booked");
         $changeStatus->execute();
     } catch (PDOException $e) {
-        echo "reservationTable";
+        //echo "reservationTable";
         echo "Error: " . $e->getMessage();
     }
 }
@@ -77,10 +77,10 @@ function reservationRegister($tableNum, $booking_firstname, $booking_lastname, $
         $registerUser->bindParam(':lastName', $booking_lastname);
         $registerUser->bindParam(':user_phone', $booking_userphone);
         $registerUser->execute();
-        echo "reservationRegister";
+        //echo "reservationRegister";
         reservationTable($tableNum, $booking_firstname, $booking_lastname, $booking_cap, $booking_date, $booking_time, $db);
     } catch (PDOException $e) {
-        echo "reservationRegister";
+        //echo "reservationRegister";
         echo "Error: " . $e->getMessage();
     }
 }
