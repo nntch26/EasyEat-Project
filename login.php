@@ -108,7 +108,7 @@ session_start();
 
 <?php
 if (isset($_SESSION['succ_insert']) || isset($_SESSION['error_nouser']) 
-|| $_SESSION['err_pw'] || $_SESSION['error_empty']){
+|| isset($_SESSION['err_pw']) || isset($_SESSION['error_empty'])){
     
     session_destroy();
     

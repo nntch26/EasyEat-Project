@@ -1,3 +1,6 @@
+
+
+ 
  <!--- navbar --->
  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
     <div class="container">
@@ -26,10 +29,16 @@
           </li>
 
           <!--- เช็คว่า login ยัง -->
-          <?php if ($_SESSION['is_login']):?>
+          <?php if (isset($_SESSION['is_login'])):?>
+
+            <li class="nav-item me-3">
+              <a href="profile.php" class="btn btn-outline-light btnt2" type="button">โปรไฟล์สมาชิก</a>
+            </li>
 
             <li class="nav-item">
-              <a href="profile.php" class="btn btn-outline-light btnt2" type="button">โปรไฟล์สมาชิก</a>
+              <a href="backEnd/logout.php">
+              <ion-icon name="log-out-outline" style="color: white; font-size: 38px; margin-right: 5px;"></ion-icon>
+              </a>
             </li>
 
           <?php else : ?>
@@ -37,6 +46,7 @@
             <li class="nav-item">
               <a href="login.php" class="btn btn-outline-light btnt2" type="button">เข้าสู่ระบบ</a>
             </li>
+
 
           <?php endif; ?>
 
