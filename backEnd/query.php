@@ -22,6 +22,8 @@ if (isset($_POST['submit_booking_insert'])) {
     $db = null;
 }
 
+
+
 function isRegister($booking_firstname, $booking_lastname, $booking_userphone, $db)
 {
     try {
@@ -84,3 +86,5 @@ function reservationRegister($tableNum, $booking_firstname, $booking_lastname, $
         echo "Error: " . $e->getMessage();
     }
 }
+
+// function 
