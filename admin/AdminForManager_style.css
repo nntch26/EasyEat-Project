@@ -5,12 +5,7 @@
 }
 body{
     margin: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
 }
-
 
 .bigbox{
     display: flex;
@@ -19,7 +14,7 @@ body{
 }
 .smallbox1{
   display: flex;
-  flex: 15%;
+  flex: 13%;
 }
 .smallbox2{
   display: flex;

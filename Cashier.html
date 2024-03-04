@@ -16,50 +16,83 @@
 </head>
 <body>
 
-
-    <div class="navbar">
-        <div class="navbox">
-            <button class="navbtn">ว่าง <label class="counter colorBlack">5</label></button>
-            <button class="navbtn">ไม่ว่าง <label class="counter colorGray">4</label></button>
-            <button class="navbtn">จอง <label class="counter colorYellow">3</label></button>
-        </div>
-        <div class="exit">
-            <button class="exitbtn">ออก</button>
-        </div>
+    <div class="navsidebar">
+        <a href="javascript:showmenu('btnfoodmenu')" class="btn A" id="A">ชำระเงิน</a>
+        <a href="javascript:showmenu('btnmember')" class="btn B" id="B">จัดการโต๊ะ</a>
+        <a href="javascript:showmenu('btnmember')" class="btn C" id="C">รายการขาย</a>
     </div>
 
 
     <div class="bigbox">
+
+        <div class="navbar">
+            <h1>Cashier</h1>
+            <div class="navbox">
+                <button class="navbtn">ว่าง <label class="counter colorBlack">5</label></button>
+                <button class="navbtn">ไม่ว่าง <label class="counter colorGray">4</label></button>
+                <button class="navbtn">จอง <label class="counter colorYellow">3</label></button>
+            </div>
+            <div class="exit">
+                <button class="exitbtn">ออก</button>
+            </div>
+        </div>
+
         <div class="BoxOrder">
 
+            <div class="PaymentMenu">
 
-            <div class="smallbox">
-                <div class="tinybox_top">
-                    <div class="box_left_top">
-                        <label class="orderid">1</label>
-                        <br>
-                        <label class="tableid">โต๊ะ : <label>A01</label></label>
+                <div class="smallbox">
+                    <div class="tinybox_top">
+                        <div class="box_left_top">
+                            <label class="orderid">1</label>
+                            <br>
+                            <label class="tableid">โต๊ะ : <label>A01</label></label>
+                        </div>
+                        <div class="box_right_top colorGray">
+                            <p>ว่าง</p >
+                        </div>
                     </div>
-                    <div class="box_right_top colorGray">
-                        <p>ว่าง</p >
+                    <div class="tinybox_middle">
+                        <p>วันที่ :</p>
+                        <p>เวลา :</p>
+                        <p>รวม :</p>
+                    </div>
+                    <div class="tinybox_bottom">
+                        <button class="descrip" ><a href="#popup-box-pay" class="descripAhref">แสดงรายละเอียด</a></button>
+                        <button class="bill">เช็คบิล</button>
                     </div>
                 </div>
-                <div class="tinybox_middle">
-                    <p>วันที่ :</p>
-                    <p>เวลา :</p>
-                    <p>รวม :</p>
-                </div>
-                <div class="tinybox_bottom">
-                    <button class="descrip" ><a href="#popup-box" class="descripAhref">แสดงรายละเอียด</a></button>
-                    <button class="bill">เช็คบิล</button>
+                
+            </div>
+            <div class="ManageTableMenu">
+
+                <div class="smallbox">
+                    <div class="tinybox_top">
+                        <div class="box_left_top">
+                            <label class="orderid">1</label>
+                            <br>
+                            <label class="tableid">โต๊ะ : <label>A01</label></label>
+                        </div>
+                        <div class="box_right_top colorGray">
+                            <p>ว่าง</p >
+                        </div>
+                    </div>
+                    <div class="tinybox_middle">
+                        <label>จำนวนลูกค้า :</label>
+                        <input type="number" style="width: 20%; font-size: 16px;">
+                    </div>
+                    <div class="tinybox_bottom">
+                        <button class="descrip" ><a href="#popup-box-table" class="descripAhref">ตกลง</a></button>
+                    </div>
                 </div>
 
             </div>
+            
         </div>
     </div>
 
 <!--popup แสดงรายละเอียด-->
-    <div id="popup-box" class="modal">
+    <div id="popup-box-pay" class="modal">
         <div class="content">
             <h3>รายละเอียด</h3>
             <hr>
@@ -78,6 +111,20 @@
         </div>
     </div>
 
+    <div id="popup-box-table" class="modal">
+        <div class="content">
+            <h3>QR</h3>
+            <hr>
+            <div class="list">
+                <h1>ใส่ qr ตรงช่องนี้</h1>
+                <hr>
+            </div>
+            <a href="#" class="box-close">
+                x
+            </a>
+        </div>
+    </div>
+<!------------------------->
     
 </body>
 </html>
