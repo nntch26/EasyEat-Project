@@ -61,14 +61,14 @@ else{
             <ul class="navbar-nav ms-auto mt-3">
 
                 <li class="nav-item me-2">
-                    <a class="nav-link active text-white" aria-current="page" href="#home">หน้าแรก</a>
+                    <a class="nav-link active text-white" aria-current="page" href="index.php">หน้าแรก</a>
                 </li>
 
                 <li class="nav-item me-2">
-                    <a class="nav-link active text-white" aria-current="page" href="#about">เกี่ยวกับ</a>
+                    <a class="nav-link active text-white" aria-current="page" href="index.php">เกี่ยวกับ</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link active text-white  mb-1" aria-current="page" href="#menu">เมนูยอดนิยม</a>
+                    <a class="nav-link active text-white  mb-1" aria-current="page" href="index.php">เมนูยอดนิยม</a>
                 </li>
 
                 <li class="nav-item me-3">
