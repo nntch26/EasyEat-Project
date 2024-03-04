@@ -37,7 +37,7 @@
 
             <li class="nav-item">
               <a href="backEnd/logout.php">
-              <ion-icon name="log-out-outline" style="color: white; font-size: 38px; margin-right: 5px;"></ion-icon>
+              <i class="fs-5 bi bi-box-arrow-in-right"></i><span class="ms-1 d-none d-sm-inline">ออกจากระบบ</span>
               </a>
             </li>
 

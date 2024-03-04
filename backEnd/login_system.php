@@ -72,7 +72,7 @@ function loginUser($username, $password, $db)
     $sqlUser->execute();
 
      // กรณีที่ไม่มีข้อมูลในระบบ
-     if ($sqlUser->rowCount() == 0) {
+    if ($sqlUser->rowCount() == 0) {
 
         $_SESSION['error_nouser'] = "<b>ข้อผิดพลาด : </b> ไม่มี <b> ชื่อผู้ใช้ </b>นี้แล้วในระบบ! โปรดลองอีกครั้ง";
         header('location: ../login.php');
@@ -82,8 +82,29 @@ function loginUser($username, $password, $db)
 
         // มีข้อมูลในระบบ
         $rowuser = $sqlUser->fetch(PDO::FETCH_ASSOC);
+
+
+        // เช็ค role Admin
+        if ($rowuser['user_role'] == "Admin") {
+
+            header('location: ../admin/index.html');
+
+        }
+
+        else if ($rowuser['user_role'] == "Chef") {
+
+            header('location: ../index.php');
+
+        }
         
-        if (password_verify($password, $rowuser['user_pass'])) {
+        else if ($rowuser['user_role'] == "Cashier"){
+            header('location: ../index.php');
+
+        }
+
+
+        // เข้าสู่ระบบสำหรับ user
+        else if (password_verify($password, $rowuser['user_pass'])) {
             
             $_SESSION["username"] = $username;
             $_SESSION["userid"] = $rowuser['user_id'];
@@ -92,22 +113,8 @@ function loginUser($username, $password, $db)
 
             $_SESSION['is_login'] = true;
 
-
-            // เช็ค role
+            header('location: ../index.php');
             
-            if ($rowuser['user_role'] == "Admin") {
-                header('location: ../Admin/admin.php');
-
-            } else if ($rowuser['user_role'] == "Chef") {
-
-                header('location: ../index.php');
-
-            }else if ($rowuser['user_role'] == "Cashier"){
-                header('location: ../index.php');
-
-            }else{
-                header('location: ../index.php');
-            }
 
 
         } 
