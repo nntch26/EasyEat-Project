@@ -1,0 +1,122 @@
+body{
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background-color: #222;
+}
+a{
+    font-size: 18px;
+    text-decoration: none;
+    color: #fcfdfdbe;
+}
+.topbar{
+    padding: 20px;
+    border-bottom-style: outset;
+    background-color: #04030F;
+    display: flex;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+  
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    font-size: 36px;
+    margin-right: 50px;
+}
+.openbtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 11px;
+    font-size: 36px;
+    margin-right: 22px;
+    color: #ffffff;
+}
+.menubox{
+    padding: 15px;
+    border-radius: 20px;
+    background-color: #222;
+    margin-bottom: 10px;
+}
+.price{
+    color: white;
+}
+.add-de, .onadd{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fa{
+    color: white;
+}
+form{
+    padding-left: 15px;
+}
+input{
+    border-radius: 50px;
+    max-width: 100px;
+}
+.butbox{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    height: 10%;
+    padding: 20px;
+}
+.btn-order{
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #FF3E1D;
+    border: 2px solid #FF3E1D;
+}
+h4{
+    padding-left: 20px;
+    display: flex;
+    justify-content: start;
+    color: white;
+}
+.head-line-1{
+    padding-left: 20px;
+    text-align: start;
+    color: #FF3E1D;
+}
+hr{
+    color: white;
+}
+.bigbox{
+    width: 100%;
+    padding: 20px;
+}
+.menus{
+    display: flex;
+}
+.menus-1, .menus-2, .menus-3{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    margin: 0 9px 9px 0;
+}

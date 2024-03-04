@@ -67,6 +67,17 @@ input{
     padding: 20px;
     background-color: #222;
 }
+.see-more{
+    max-width: 95%;
+    display: flex;
+    justify-content: end;
+}
+.more{
+    border-radius: 20px;
+    padding: 5px;
+    color: white;
+    border: 3px solid white;
+}
 .one, .two, .three{
     display: flex;
     justify-content: space-around;
@@ -173,4 +184,3 @@ h4{
       height: auto;
   }
 }
-  
