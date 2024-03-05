@@ -2,184 +2,184 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Document</title>
-    
+
     <!--- stylesheet --->
-    <link rel="stylesheet" href="css\Cashier_style.css">
+    <link href="css\Cashier_style.css" rel="stylesheet">
 
     <!--- fonts.google --->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
 
 </head>
 <body>
 
-    <div class="navsidebar">
-        <a href="javascript:showmenu('btn_payment')" class="btn A" id="A">ชำระเงิน</a>
-        <a href="javascript:showmenu('btn_table')" class="btn B" id="B">จัดการโต๊ะ</a>
-        <a href="javascript:showmenu('btn_history')" class="btn C" id="C">ประวัติการขาย</a>
-    </div>
+<div class="navsidebar">
+    <a class="btn A" href="javascript:showmenu('btn_payment')" id="A">ชำระเงิน</a>
+    <a class="btn B" href="javascript:showmenu('btn_table')" id="B">จัดการโต๊ะ</a>
+    <a class="btn C" href="javascript:showmenu('btn_history')" id="C">ประวัติการขาย</a>
+</div>
 
 
-    <div class="bigbox">
+<div class="bigbox">
 
-        <div class="navbar">
-            <h1>Cashier</h1>
-            <div class="navbox" id="navbox">
-                <button class="navbtn">ว่าง <label class="counter colorBlack">5</label></button>
-                <button class="navbtn">ไม่ว่าง <label class="counter colorGray">4</label></button>
-                <button class="navbtn">จอง <label class="counter colorYellow">3</label></button>
-            </div>
-            <div class="exit">
-                <button class="exitbtn">ออก</button>
-            </div>
+    <div class="navbar">
+        <h1>Cashier</h1>
+        <div class="navbox" id="navbox">
+            <button class="navbtn">ว่าง <label class="counter colorBlack">5</label></button>
+            <button class="navbtn">ไม่ว่าง <label class="counter colorGray">4</label></button>
+            <button class="navbtn">จอง <label class="counter colorYellow">3</label></button>
         </div>
-
-        <div class="BoxOrder">
-
-            <div class="PaymentMenu" id="PaymentMenu">
-
-                <div class="smallbox">
-                    <div class="tinybox_top">
-                        <div class="box_left_top">
-                            <label class="orderid">1</label>
-                            <br>
-                            <label class="tableid">โต๊ะ : <label>A01</label></label>
-                        </div>
-                        <div class="box_right_top colorGray">
-                            <p>ว่าง</p >
-                        </div>
-                    </div>
-                    <div class="tinybox_middle">
-                        <p>วันที่ :</p>
-                        <p>เวลา :</p>
-                        <p>รวม :</p>
-                    </div>
-                    <div class="tinybox_bottom">
-                        <button class="descrip" ><a href="#popup-box-pay" class="descripAhref">แสดงรายละเอียด</a></button>
-                        <button class="bill"><a href="" class="descripAhref">เช็คบิล</a></button>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="ManageTableMenu" id="ManageTableMenu">
-
-                <div class="smallbox">
-                    <div class="tinybox_top">
-                        <div class="box_left_top">
-                            <label class="orderid">1</label>
-                            <br>
-                            <label class="tableid">โต๊ะ : <label>A01</label></label>
-                        </div>
-                        <div class="box_right_top colorGray">
-                            <p>ว่าง</p >
-                        </div>
-                    </div>
-                    <div class="tinybox_bottom">
-                        <button class="descrip" ><a href="#popup-box-table1" class="descripAhref">รับลูกค้า</a></button>
-                        <button class="descrip" ><a href="#" class="descripAhref">ยกเลิก</a></button>
-                    </div>
-                </div>
-
-            </div>
-            <div class="HistoryMenu" id="HistoryMenu">
-                <h2>ประวัติการขาย</h2>
-                <table class="tablemain">
-                    <tr>
-                        <th>ID</th>
-                        <th>สถานะ</th>
-                        <th>วันที่ทำรายการ</th>
-                        <th>ราคารวม</th>
-                    </tr>
-                    <tr>
-                        <td>1150</td>
-                        <td>ยังไม่ตาย</td>
-                        <td>วัน ทู ทรี โฟ</td>
-                        <td>เป็นล้านเลยพี่</td>
-                    </tr>
-                    <tr>
-                        <td>1150</td>
-                        <td>ยังไม่ตาย</td>
-                        <td>วัน ทู ทรี โฟ</td>
-                        <td>เป็นล้านเลยพี่</td>
-                    </tr>
-                </table>
-
-            </div>
-            
+        <div class="exit">
+            <button class="exitbtn">ออก</button>
         </div>
     </div>
+
+    <div class="BoxOrder">
+
+        <div class="PaymentMenu" id="PaymentMenu">
+
+            <div class="smallbox">
+                <div class="tinybox_top">
+                    <div class="box_left_top">
+                        <label class="orderid">1</label>
+                        <br>
+                        <label class="tableid">โต๊ะ : <label>A01</label></label>
+                    </div>
+                    <div class="box_right_top colorGray">
+                        <p>ว่าง</p>
+                    </div>
+                </div>
+                <div class="tinybox_middle">
+                    <p>วันที่ :</p>
+                    <p>เวลา :</p>
+                    <p>รวม :</p>
+                </div>
+                <div class="tinybox_bottom">
+                    <button class="descrip"><a class="descripAhref" href="#popup-box-pay">แสดงรายละเอียด</a></button>
+                    <button class="bill"><a class="descripAhref" href="">เช็คบิล</a></button>
+                </div>
+            </div>
+
+        </div>
+        <div class="ManageTableMenu" id="ManageTableMenu">
+
+            <div class="smallbox">
+                <div class="tinybox_top">
+                    <div class="box_left_top">
+                        <label class="orderid">1</label>
+                        <br>
+                        <label class="tableid">โต๊ะ : <label>A01</label></label>
+                    </div>
+                    <div class="box_right_top colorGray">
+                        <p>ว่าง</p>
+                    </div>
+                </div>
+                <div class="tinybox_bottom">
+                    <button class="descrip"><a class="descripAhref" href="#popup-box-table1">รับลูกค้า</a></button>
+                    <button class="descrip"><a class="descripAhref" href="#">ยกเลิก</a></button>
+                </div>
+            </div>
+
+        </div>
+        <div class="HistoryMenu" id="HistoryMenu">
+            <h2>ประวัติการขาย</h2>
+            <table class="tablemain">
+                <tr>
+                    <th>ID</th>
+                    <th>สถานะ</th>
+                    <th>วันที่ทำรายการ</th>
+                    <th>ราคารวม</th>
+                </tr>
+                <tr>
+                    <td>1150</td>
+                    <td>ยังไม่ตาย</td>
+                    <td>วัน ทู ทรี โฟ</td>
+                    <td>เป็นล้านเลยพี่</td>
+                </tr>
+                <tr>
+                    <td>1150</td>
+                    <td>ยังไม่ตาย</td>
+                    <td>วัน ทู ทรี โฟ</td>
+                    <td>เป็นล้านเลยพี่</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+</div>
 
 <!--popup แสดงรายละเอียด-->
-    <div id="popup-box-pay" class="modal">
-        <div class="content">
-            <h3>รายละเอียด</h3>
+<div class="modal" id="popup-box-pay">
+    <div class="content">
+        <h3>รายละเอียด</h3>
+        <hr>
+        <div class="list">
+            <p>กล้วย</p>
+            <p>มาม่า</p>
+            <p>ส้ม</p>
             <hr>
-            <div class="list">
-                <p>กล้วย</p>
-                <p>มาม่า</p>
-                <p>ส้ม</p>
-                <hr>
-                <h3>รวม</h3>
-                <p>เป็นล้านเลยพี่</p>
-                <hr>
-            </div>
-            <a href="#" class="box-close">
-                x
-            </a>
-        </div>
-    </div>
-
-    <div id="popup-box-table1" class="modal">
-        <div class="content">
-            <h3>โต๊ะที่ : A01</h3>
+            <h3>รวม</h3>
+            <p>เป็นล้านเลยพี่</p>
             <hr>
-            <div class="list">
-                <label>จำนวนคน : </label>
-                <input type="number" style="width: 10%; font-size: 18px;">
-                <hr>
-                <button class="descrip"><a href="#popup-box-table1.5" class="descripAhref">สั่งอาหาร</a></button>
-            </div>
-            <a href="#" class="box-close">
-                x
-            </a>
         </div>
+        <a class="box-close" href="#">
+            x
+        </a>
     </div>
+</div>
 
-    <div id="popup-box-table1.5" class="modal">
-        <div class="content">
-            <h3>QR Code</h3>
-            <div class="list">
-                <h1>ใส่ QR ตรงนี้เด้อจ่ะ</h1>
-            </div>
-            <a href="#" class="box-close">
-                x
-            </a>
+<div class="modal" id="popup-box-table1">
+    <div class="content">
+        <h3>โต๊ะที่ : A01</h3>
+        <hr>
+        <div class="list">
+            <label>จำนวนคน : </label>
+            <input style="width: 10%; font-size: 18px;" type="number">
+            <hr>
+            <button class="descrip"><a class="descripAhref" href="#popup-box-table1.5">สั่งอาหาร</a></button>
         </div>
+        <a class="box-close" href="#">
+            x
+        </a>
     </div>
+</div>
 
-    
-    
+<div class="modal" id="popup-box-table1.5">
+    <div class="content">
+        <h3>QR Code</h3>
+        <div class="list">
+            <h1>ใส่ QR ตรงนี้เด้อจ่ะ</h1>
+        </div>
+        <a class="box-close" href="#">
+            x
+        </a>
+    </div>
+</div>
+
+
 <!------------------------->
-    <script>
-        function showmenu(btnvalue){
-            document.getElementById("PaymentMenu").style.display = "none";
-            document.getElementById("ManageTableMenu").style.display = "none";
-            document.getElementById("HistoryMenu").style.display = "none";
-            document.getElementById("navbox").style.display = "none";
-            if(btnvalue == "btn_payment"){
-                document.getElementById("PaymentMenu").style.display = "flex";
-                document.getElementById("navbox").style.display = "block";
-            }else if(btnvalue == "btn_table"){
-                document.getElementById("ManageTableMenu").style.display = "flex";
-                document.getElementById("navbox").style.display = "block";
-            }else if(btnvalue == "btn_history"){
-                document.getElementById("HistoryMenu").style.display = "flex";
-                document.getElementsById("navbox").style.display = "none";
-            }
+<script>
+    function showmenu(btnvalue) {
+        document.getElementById("PaymentMenu").style.display = "none";
+        document.getElementById("ManageTableMenu").style.display = "none";
+        document.getElementById("HistoryMenu").style.display = "none";
+        document.getElementById("navbox").style.display = "none";
+        if (btnvalue == "btn_payment") {
+            document.getElementById("PaymentMenu").style.display = "flex";
+            document.getElementById("navbox").style.display = "block";
+        } else if (btnvalue == "btn_table") {
+            document.getElementById("ManageTableMenu").style.display = "flex";
+            document.getElementById("navbox").style.display = "block";
+        } else if (btnvalue == "btn_history") {
+            document.getElementById("HistoryMenu").style.display = "flex";
+            document.getElementsById("navbox").style.display = "none";
         }
-    </script>
+    }
+</script>
 </body>
 </html>

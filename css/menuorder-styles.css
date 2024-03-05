@@ -1,104 +1,125 @@
-body{
+body {
     margin: 0;
     font-family: "Kanit", sans-serif;
     background-color: rgb(255, 255, 255);
 }
-a{
+
+a {
     font-size: 18px;
     text-decoration: none;
     color: #fcfdfdbe;
 }
-.main-menu{
+
+.main-menu {
     display: flex;
     text-align: center;
     flex-direction: row;
 }
-.topbar{
+
+.topbar {
     padding: 20px;
     border-bottom-style: outset;
     background-color: #04030F;
     display: flex;
 }
-.fa{
+
+.fa {
     color: white;
 }
-form{
+
+form {
     padding-left: 15px;
 }
-input{
+
+input {
     border-radius: 50px;
     max-width: 100px;
 }
-.add-de, .onadd{
+
+.add-de, .onadd {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.price{
+
+.price {
     color: white;
 }
-.menubox{
+
+.menubox {
     padding: 15px;
     border-radius: 20px;
     background-color: #222;
     margin-bottom: 10px;
 }
-.menus{
+
+.menus {
     border-radius: 20px;
     padding: 5px;
     border: 3px solid #404040;
 }
-.butbox{
+
+.butbox {
     width: 100%;
     display: flex;
     text-align: center;
     height: 10%;
     padding: 20px;
 }
-.btn-order{
+
+.btn-order {
     width: 100%;
     padding: 5px;
     border-radius: 10px;
     background-color: #FF3E1D;
     border: 2px solid #FF3E1D;
 }
-.right-menu{
+
+.right-menu {
     width: 100%;
     padding: 20px;
     background-color: #222;
 }
-.see-more{
+
+.see-more {
     max-width: 95%;
     display: flex;
     justify-content: end;
 }
-.more{
+
+.more {
     border-radius: 20px;
     padding: 5px;
     color: white;
     border: 3px solid white;
 }
-.one, .two, .three{
+
+.one, .two, .three {
     display: flex;
     justify-content: space-around;
 }
-.head-line-1, .head-line-2, .head-line-3, .head-line-4{
+
+.head-line-1, .head-line-2, .head-line-3, .head-line-4 {
     padding-left: 20px;
     text-align: start;
     color: #FF3E1D;
 }
-hr{
+
+hr {
     color: white;
 }
-h4{
+
+h4 {
     padding-left: 20px;
     display: flex;
     justify-content: start;
     color: white;
 }
-.slide-one, .slide-three{
+
+.slide-one, .slide-three {
     margin-bottom: 30px;
 }
+
 .carousel-indicators {
     position: absolute;
     right: 0;
@@ -112,9 +133,11 @@ h4{
     margin-bottom: 0;
     margin-left: 15%;
 }
-.carousel-control-next, .carousel-control-prev{
+
+.carousel-control-next, .carousel-control-prev {
     z-index: 0;
 }
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -127,7 +150,7 @@ h4{
     transition: 0.5s;
     padding-top: 60px;
 }
-  
+
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -136,15 +159,18 @@ h4{
     display: block;
     transition: 0.3s;
 }
+
 .sidenav a:hover {
     color: #f1f1f1;
 }
+
 .sidenav .closebtn {
     position: absolute;
     top: 0;
     font-size: 36px;
     margin-right: 50px;
 }
+
 .openbtn {
     position: absolute;
     top: 0;
@@ -155,32 +181,37 @@ h4{
     color: #ffffff;
 }
 
-  
+
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
 
 /* ปรับแต่งขนาดของการ์ดเมื่อหน้าจอเล็ก */
 @media (max-width: 768px) {
-  .card {
-      width: 100%;
-      margin-bottom: 20px;
-  }
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
-  
-  /* ปรับแต่งขนาดของการ์ดเมื่อหน้าจอขนาดเล็กกว่า */
+
+/* ปรับแต่งขนาดของการ์ดเมื่อหน้าจอขนาดเล็กกว่า */
 @media (max-width: 576px) {
-  .card {
-      width: 100%;
-  }
+    .card {
+        width: 100%;
+    }
 }
-  
-  /* ปรับแต่งขนาดของภาพในการ์ดเมื่อหน้าจอขนาดเล็ก */
+
+/* ปรับแต่งขนาดของภาพในการ์ดเมื่อหน้าจอขนาดเล็ก */
 @media (max-width: 576px) {
-  .card img {
-      width: 100%;
-      height: auto;
-  }
+    .card img {
+        width: 100%;
+        height: auto;
+    }
 }

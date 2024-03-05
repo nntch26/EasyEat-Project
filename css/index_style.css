@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pattaya&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
-*{
+* {
     box-sizing: border-box;
     font-family: "Kanit", sans-serif;
 }
 
 /* navbar */
 
-.navbar{
+.navbar {
     font-size: 18px;
     background-color: #04030F;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
@@ -25,12 +25,12 @@
 
 }
 
-.navbar-brand:hover{
+.navbar-brand:hover {
     color: #FF3E1D;
 
 }
 
-.btnt1{
+.btnt1 {
     color: #ffffff;
     background-color: #FF3E1D;
     border: 1px solid #FF3E1D;
@@ -38,16 +38,15 @@
 
 }
 
-.btnt1:hover{
+.btnt1:hover {
     color: #FF3E1D;
     border: 1px solid #FF3E1D;
 
 }
 
 
-
 /*///////////////////////////// header ///////////////////////////////*/
-.header-content{
+.header-content {
     background-image: linear-gradient(#04030fa0, #1212128a),
     url("../img2/bg-header6.png");
     background-attachment: fixed;
@@ -57,7 +56,7 @@
     color: rgb(255, 255, 255);
     height: 100dvh;
     padding: 30px;
-    
+
 }
 
 .con-text {
@@ -66,7 +65,7 @@
 
 }
 
-.con-text h1{
+.con-text h1 {
     font-family: "Acme", sans-serif;
     font-weight: 700;
     font-style: italic;
@@ -74,14 +73,14 @@
 
 }
 
-.con-text p{
-    font-style: italic; 
+.con-text p {
+    font-style: italic;
     font-size: 40px;
-   
+
 }
 
 
-.btnh1{
+.btnh1 {
     color: #ffffff;
     background-color: #FF3E1D;
     border: 1px solid #FF3E1D;
@@ -94,7 +93,7 @@
 
 }
 
-.btnh1:hover{
+.btnh1:hover {
     color: #FF3E1D;
     border: 1px solid #FF3E1D;
     transform: scale(1.1, 1.1);
@@ -102,7 +101,7 @@
 
 }
 
-.btnh2{
+.btnh2 {
     color: #ffffff;
     border: 1px solid #ffffff;
     font-size: 28px;
@@ -114,7 +113,7 @@
 
 }
 
-.btnh2:hover{
+.btnh2:hover {
     color: #0e0e0e;
     border: 1px solid #ffffff;
     background-color: white;
@@ -133,7 +132,7 @@ p {
 
 .section-about {
     background-color: #04030F;
-    background-image: linear-gradient(#04030f8d, #04030f9e),url("../img2/bg-header7.jpg");
+    background-image: linear-gradient(#04030f8d, #04030f9e), url("../img2/bg-header7.jpg");
     background-size: cover;
     background-position: center;
     padding-bottom: 10rem;
@@ -141,7 +140,7 @@ p {
     color: white;
 }
 
-.picbox img{
+.picbox img {
     width: 100%;
     border-radius: 20px;
     border: 3px solid #ffffff;
@@ -155,11 +154,9 @@ p {
 }
 
 
-
-
 /*///////////////////////////// top menu ///////////////////////////////*/
 
-.section-typemenu{
+.section-typemenu {
     background-image: linear-gradient(#04030f9a, #121212ab),
     url("../img2/bg-header8.jpg");
     background-attachment: fixed;
@@ -173,12 +170,12 @@ p {
 
 }
 
-.topmenu{
+.topmenu {
     margin-bottom: 50px;
 }
 
 
-.menubox{
+.menubox {
     /*background-color: #3a3a3a;*/
     background-color: rgb(255, 255, 255);
     color: #222;
@@ -188,18 +185,17 @@ p {
     transition-duration: 0.3s;
 }
 
-.menubox:hover{
+.menubox:hover {
     transform: scale(1.1, 1.1);
-    
+
 }
 
-.card-title{
+.card-title {
     font-size: 30px;
 }
 
 
-
-.section-menu{
+.section-menu {
     background-color: #222;
     color: rgb(255, 255, 255);
     padding-top: 5rem;
@@ -207,15 +203,15 @@ p {
 
 }
 
-.box-food{
+.box-food {
     padding: 15px;
     border: 1px solid #ffffff;
     border-radius: 5px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-    
+
 }
 
-.con-card{
+.con-card {
     padding: 10px;
     flex-direction: row;
     border: 1px solid #ffffff;
@@ -236,28 +232,27 @@ p {
 
 }
 
-.card-text1{
+.card-text1 {
     color: #ffffff;
 }
 
-.text-price{
-    font-style: italic; 
+.text-price {
+    font-style: italic;
     font-size: 18px;
     color: #FF3E1D;
 
 }
 
-.con-card{
+.con-card {
     transform-origin: center top;
     transition-property: transform;
     transition-duration: 0.3s;
 }
 
-.con-card:hover{
+.con-card:hover {
     transform: scale(0.95, 0.95);
-    
-}
 
+}
 
 
 /*///////////////////////////// booking table ///////////////////////////////*/
@@ -265,7 +260,7 @@ p {
 
 .section-bookingtable {
     background-color: #04030F;
-    background-image: linear-gradient(#0b0829e8, #04030fb8),url("../img2/table2.jpg");
+    background-image: linear-gradient(#0b0829e8, #04030fb8), url("../img2/table2.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -275,31 +270,31 @@ p {
     color: white;
 }
 
-.box-booking{
+.box-booking {
     padding: 30px;
     border: 1px solid #ffffff;
     border-radius: 10px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-    
+
 }
 
 
-.con-right2{
+.con-right2 {
     text-align: center;
     color: white;
 
 }
 
-.text4{
+.text4 {
     margin-top: 80px;
 }
 
-hr{
+hr {
     margin: 0 auto;
     border: 1px solid;
 }
 
-.text-footer{
+.text-footer {
     font-family: "Acme", sans-serif;
     font-weight: 700;
     font-style: italic;
@@ -312,30 +307,30 @@ hr{
     padding: 20px;
 
 }
-   
 
 
-
-@media only screen and (max-width: 600px){
-    .con-text h1{
+@media only screen and (max-width: 600px) {
+    .con-text h1 {
         font-size: 64px;
-    
+
     }
-    .con-text h3{
-        font-size: 18px;
-    }
-    .con-text p{
+
+    .con-text h3 {
         font-size: 18px;
     }
 
-    .btnh1, .btnh2{
+    .con-text p {
+        font-size: 18px;
+    }
+
+    .btnh1, .btnh2 {
         width: 100%;
         font-size: 16px;
-    
+
     }
 
 
-    .con-right{
+    .con-right {
         font-size: 16px;
 
     }
@@ -344,5 +339,5 @@ hr{
         padding: 20px;
         font-size: 12px;
     }
-    
+
 }

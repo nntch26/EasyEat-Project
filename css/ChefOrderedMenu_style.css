@@ -1,22 +1,26 @@
-body{
+body {
     text-align: center;
 }
-h1{
+
+h1 {
     margin: 0;
     margin-top: 10px;
     padding: 4px;
     color: white;
 }
-.navbar{
+
+.navbar {
     width: 100%;
     background-color: white;
     display: flex;
 }
-.navbox{
+
+.navbox {
     padding: 15px;
     flex: 90%;
 }
-.counter{
+
+.counter {
     color: white;
     border-radius: 20px;
     font-size: 16px;
@@ -24,7 +28,8 @@ h1{
     padding-left: 10px;
     padding-right: 10px;
 }
-.navbtn, .exitbtn{
+
+.navbtn, .exitbtn {
     height: 50px;
     font-size: 18px;
     background-color: white;
@@ -34,30 +39,35 @@ h1{
     border-color: rgb(114, 114, 114);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-.navbtn{
+
+.navbtn {
     margin-right: 10px;
     text-align: left;
     width: 15%;
     padding-left: 30px;
 }
-.exit{
+
+.exit {
     flex: 15%;
     padding: 15px;
 }
-.exitbtn{
+
+.exitbtn {
     width: 70%;
     height: 50px;
 }
-.navbtn:hover{
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-.exitbtn:hover{
+
+.navbtn:hover {
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.a_head{
+.exitbtn:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.a_head {
     background-color: black;
     padding: 10px;
     color: white;
@@ -68,11 +78,13 @@ h1{
     text-decoration: none;
     margin-right: 10px;
 }
-.bigbox{
+
+.bigbox {
     text-align: center;
     display: flex;
 }
-.BoxOrder{
+
+.BoxOrder {
     flex: 90%;
     padding: 10px;
     border-radius: 20px;
@@ -82,7 +94,8 @@ h1{
     width: 90%;
     height: auto;
 }
-.smallbox{
+
+.smallbox {
     width: 30%;
     background-color: rgba(255, 255, 255, 0.537);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -93,7 +106,8 @@ h1{
     border-color: rgb(190, 188, 188);
     height: fit-content;
 }
-.tinybox_top{
+
+.tinybox_top {
     margin: 0;
     display: flex;
     justify-content: space-between;
@@ -102,17 +116,20 @@ h1{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-.box_left_top{
+
+.box_left_top {
     margin-left: 10px;
     padding: 5px;
     display: flex;
     border-radius: 20px;
     flex-direction: column;
 }
-.tableid{
+
+.tableid {
     font-size: 20px;
 }
-.orderid{
+
+.orderid {
     background-color: black;
     color: white;
     border-radius: 10px;
@@ -120,7 +137,8 @@ h1{
     padding-left: 5px;
     padding-right: 5px;
 }
-.box_right_top{
+
+.box_right_top {
     color: white;
     border-radius: 20px;
     width: 30%;
@@ -131,47 +149,57 @@ h1{
     border-color: rgb(190, 188, 188);
     font-size: 20px;
 }
-.colorRed{
+
+.colorRed {
     background-color: red;
     color: white;
 }
-.colorGreen{
+
+.colorGreen {
     background-color: rgb(33, 202, 33);
     color: white;
 }
-.colorYellow{
+
+.colorYellow {
     background-color: rgb(240, 193, 22);
     color: white;
 }
-.colorGray{
+
+.colorGray {
     background-color: rgb(116, 115, 115);
     color: white;
 }
-.colorBlack{
+
+.colorBlack {
     background-color: black;
     color: white;
 }
-.tinybox_middle{
+
+.tinybox_middle {
     padding: 5px;
     background-color: white;
     height: 180px;
     overflow-y: auto;
     text-align: left;
 }
-.headmenu{
+
+.headmenu {
     margin: 0;
     text-align: center;
 }
-.menu{
+
+.menu {
     padding-left: 20px;
 }
-.tinybox_bottom{
+
+.tinybox_bottom {
     background-color: rgb(243, 238, 238);
     text-align: center;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-.admit, .cancel{
+
+.admit, .cancel {
     font-size: 18px;
     width: 20%;
     height: 35px;

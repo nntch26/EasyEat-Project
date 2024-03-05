@@ -2,8 +2,7 @@
 include('includes/connectDB.php');
 session_start(); // Start the session
 $db = getDB();
-function loginUser($userName, $userPhoneNum, $db)
-{
+function loginUser($userName, $userPhoneNum, $db) {
     //find User
     $select_user = $db->prepare("SELECT * FROM Users WHERE phone = :phoneNumber AND username = :userName");
     $select_user->bindParam(':phoneNumber', $userPhoneNum);
@@ -24,8 +23,7 @@ function loginUser($userName, $userPhoneNum, $db)
     }
 }
 
-function registerUser($userName, $userPhoneNum, $db)
-{
+function registerUser($userName, $userPhoneNum, $db) {
 
     $registerUser = $db->prepare("INSERT INTO Users (username, phone) 
                                 VALUES (:username, :phone)");

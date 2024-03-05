@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $insert_menu->bindParam(':type', $menu_type);
         $insert_menu->bindParam(':img_name', $uploadedFilename);
         $insert_menu->execute();
-        
+
         // ต่อไปคุณสามารถเพิ่มการเชื่อมต่อกับฐานข้อมูลและเพิ่มข้อมูลลงในตารางได้ตามต้องการ
     } else {
         // ถ้ามีข้อผิดพลาดในการอัปโหลดไฟล์
@@ -28,8 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $db = null;  // Close database connection
 }
-function handleImageUpload($fileInputName, $destinationDirectory)
-{
+function handleImageUpload($fileInputName, $destinationDirectory) {
     // Check if it's a POST request
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
         exit('POST request method required');

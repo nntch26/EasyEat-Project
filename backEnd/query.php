@@ -23,9 +23,7 @@ if (isset($_POST['submit_booking_insert'])) {
 }
 
 
-
-function isRegister($booking_firstname, $booking_lastname, $booking_userphone, $db)
-{
+function isRegister($booking_firstname, $booking_lastname, $booking_userphone, $db) {
     try {
         // Check if user already registered
         $findUserQuery = $db->prepare("SELECT COUNT(*) AS rowCount FROM Users WHERE user_phonenum = :phoneNumber AND user_fname = :firstName AND user_lname = :lastName");
@@ -35,15 +33,15 @@ function isRegister($booking_firstname, $booking_lastname, $booking_userphone, $
         $findUserQuery->execute();
         $rowCount = $findUserQuery->fetch(PDO::FETCH_ASSOC)['rowCount'];
         return ($rowCount != 0);
-    } catch (PDOException $e) {
+    }
+    catch (PDOException $e) {
         //echo "isRegister";
         echo "Error: " . $e->getMessage();
         return false;
     }
 }
 
-function reservationTable($tableid, $booking_firstname, $booking_lastname, $booking_cap, $booking_date, $booking_time, $db)
-{
+function reservationTable($tableid, $booking_firstname, $booking_lastname, $booking_cap, $booking_date, $booking_time, $db) {
     try {
         // Find user_id
         $selectUserID = $db->prepare("SELECT user_id FROM Users WHERE user_fname = :fname && user_lname = :lastName");
@@ -64,14 +62,14 @@ function reservationTable($tableid, $booking_firstname, $booking_lastname, $book
         $changeStatus->bindValue(':table_id', $tableid);
         $changeStatus->bindValue(':table_status', "Booked");
         $changeStatus->execute();
-    } catch (PDOException $e) {
+    }
+    catch (PDOException $e) {
         //echo "reservationTable";
         echo "Error: " . $e->getMessage();
     }
 }
 
-function reservationRegister($tableNum, $booking_firstname, $booking_lastname, $booking_userphone, $booking_cap, $booking_date, $booking_time, $db)
-{
+function reservationRegister($tableNum, $booking_firstname, $booking_lastname, $booking_userphone, $booking_cap, $booking_date, $booking_time, $db) {
     try {
         $registerUser = $db->prepare("INSERT INTO Users (user_fname, user_lname, user_phonenum) 
                                 VALUES (:firstName, :lastName, :user_phone)");
@@ -81,7 +79,8 @@ function reservationRegister($tableNum, $booking_firstname, $booking_lastname, $
         $registerUser->execute();
         //echo "reservationRegister";
         reservationTable($tableNum, $booking_firstname, $booking_lastname, $booking_cap, $booking_date, $booking_time, $db);
-    } catch (PDOException $e) {
+    }
+    catch (PDOException $e) {
         //echo "reservationRegister";
         echo "Error: " . $e->getMessage();
     }

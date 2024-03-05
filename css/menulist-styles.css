@@ -1,19 +1,22 @@
-body{
+body {
     margin: 0;
     font-family: "Kanit", sans-serif;
     background-color: #222;
 }
-a{
+
+a {
     font-size: 18px;
     text-decoration: none;
     color: #fcfdfdbe;
 }
-.topbar{
+
+.topbar {
     padding: 20px;
     border-bottom-style: outset;
     background-color: #04030F;
     display: flex;
 }
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -26,7 +29,7 @@ a{
     transition: 0.5s;
     padding-top: 60px;
 }
-  
+
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -35,15 +38,18 @@ a{
     display: block;
     transition: 0.3s;
 }
+
 .sidenav a:hover {
     color: #f1f1f1;
 }
+
 .sidenav .closebtn {
     position: absolute;
     top: 0;
     font-size: 36px;
     margin-right: 50px;
 }
+
 .openbtn {
     position: absolute;
     top: 0;
@@ -53,70 +59,85 @@ a{
     margin-right: 22px;
     color: #ffffff;
 }
-.menubox{
+
+.menubox {
     padding: 15px;
     border-radius: 20px;
     background-color: #222;
     margin-bottom: 10px;
 }
-.price{
+
+.price {
     color: white;
 }
-.add-de, .onadd{
+
+.add-de, .onadd {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.fa{
+
+.fa {
     color: white;
 }
-form{
+
+form {
     padding-left: 15px;
 }
-input{
+
+input {
     border-radius: 50px;
     max-width: 100px;
 }
-.butbox{
+
+.butbox {
     width: 100%;
     display: flex;
     text-align: center;
     height: 10%;
     padding: 20px;
 }
-.btn-order{
+
+.btn-order {
     width: 100%;
     padding: 5px;
     border-radius: 10px;
     background-color: #FF3E1D;
     border: 2px solid #FF3E1D;
 }
-h4{
+
+h4 {
     padding-left: 20px;
     display: flex;
     justify-content: start;
     color: white;
 }
-.head-line-1{
+
+.head-line-1 {
     padding-left: 20px;
     text-align: start;
     color: #FF3E1D;
 }
-hr{
+
+hr {
     color: white;
 }
-.bigbox{
+
+.bigbox {
     width: 100%;
     padding: 20px;
 }
-.menus{
+
+.menus {
     display: flex;
 }
-.menus-1, .menus-2, .menus-3{
+
+.menus-1, .menus-2, .menus-3 {
     width: 50%;
     display: flex;
     flex-wrap: wrap;
 }
-.card{
+
+.card {
     margin: 0 9px 9px 0;
 }

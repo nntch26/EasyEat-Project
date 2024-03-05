@@ -1,13 +1,13 @@
 <?php
 include('includes/connectDB.php');
 
-session_start(); 
-$db = getDB(); 
+session_start();
+$db = getDB();
 
 
 // ถ้ากดปุ่มบันทึกข้อมูล อัพเดท
 
-if (isset($_POST['upbtn'])){
+if (isset($_POST['upbtn'])) {
 
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
@@ -19,16 +19,14 @@ if (isset($_POST['upbtn'])){
 
     $sql->execute();
 
-     // อีเมลที่ผู้ใช้กรอกเข้ามา ซ้ำ มั้ย
-    if ($sql->rowCount() != 0){
+    // อีเมลที่ผู้ใช้กรอกเข้ามา ซ้ำ มั้ย
+    if ($sql->rowCount() != 0) {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> มี <b> อีเมล </b> นี้แล้วในระบบ! โปรดกรอกข้อมูลใหม่";
         header('location: ../profile.php');
         exit();
-    }
+    } // ข้อมูลครบ ไม่ซ้ำ
 
-    // ข้อมูลครบ ไม่ซ้ำ
-
-    else{
+    else {
 
         $update_sql = $db->prepare("UPDATE Easyeat.Users
         SET user_fname = :firstname, 
@@ -48,9 +46,7 @@ if (isset($_POST['upbtn'])){
         if ($update_sql) {
             $_SESSION['profile_update'] = "อัปเดตข้อมูลของคุณเรียบร้อยแล้ว";
             header('location: ../profile.php');
-        }
-
-        // เพิ่มข้อมูลไม่สำเร็จ
+        } // เพิ่มข้อมูลไม่สำเร็จ
         else {
             $_SESSION['err_update'] = "ไม่สามารถนำเข้าข้อมูลได้";
             header('location: ../profile.php');
@@ -62,15 +58,7 @@ if (isset($_POST['upbtn'])){
     }
 
 
-
-
-
-
-
 }
-
-
-
 
 
 ?>
