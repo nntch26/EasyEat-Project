@@ -1,107 +1,112 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pattaya&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
-* {
+*{
 
-    font-family: "Kanit", sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
-body {
+body{
     margin: 0;
 }
 
 
-.foodmenu {
-    display: none;
+.foodmenu{
+  display: none;
 }
 
-.member {
-    display: none;
+.member{
+  display: none;
+}
+.history{
+  display: none;
+}
+.sale{
+  display: none;
 }
 
-.history {
-    display: none;
+
+
+
+.nav-link{
+  color: white;
 }
 
-.sale {
-    display: none;
+.nav-link:hover, .nav-link:focus{
+  color: #ff7b00;
 }
 
-
-.nav-link {
-    color: white;
-}
-
-.nav-link:hover, .nav-link:focus {
-    color: #ff7b00;
-}
-
-.nav-item:hover, .nav-item:focus {
-    background-color: rgb(47, 53, 58);
-    width: 100%;
-    border-radius: 10px;
+.nav-item:hover, .nav-item:focus{
+  background-color: rgb(47, 53, 58);
+  width: 100%;
+  border-radius: 10px;
 }
 
 
 /* //////////////////// dashboard ////////////////////// */
 
-.content-das, .content-das2 {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+.content-das, .content-das2{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.show1, .show2, .show3, .show4 {
-    background-color: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+.show1, .show2, .show3, .show4{
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
+
+
+
+
+
+
+
+/* //////////////////// dashboard ////////////////////////////// */
+
+.dashboard{
+  background-color: #ff7b00;
+}
+.dashboard, .member, .sale{
+  background-color: #eef3fe;
+  padding: 50px;
+}
+
+.content-table{
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+
+}
+
+.text-header{
+  margin-top: 30px;
+
+}
+
+.content-search{
+  margin-top: 40px;
+}
+
+.btn-cus{
+  width: 150px;
+}
+
+.content-search{
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
 
 
 /* //////////////////// member ////////////////////////////// */
 
-.dashboard {
-    background-color: #ff7b00;
-}
-
-.dashboard, .member, .sale {
-    background-color: #eef3fe;
-    padding: 50px;
-}
-
-.content-table {
-    margin-top: 20px;
-    background-color: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-
-}
-
-.text-header {
-    margin-top: 30px;
-
-}
-
-.content-search {
-    margin-top: 40px;
-}
-
-.btn-cus {
-    width: 150px;
-}
-
-.content-search {
-    background-color: white;
-    border-radius: 20px;
-    padding: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-
-/* //////////////////// member ////////////////////////////// */
-
-.member {
-    background-color: #eef3fe;
+.member{
+  background-color: #eef3fe;
 }

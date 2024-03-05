@@ -41,7 +41,7 @@
 
                 <ul class="nav">
                     <li class="nav-item">
-                        <a href="#home" class="nav-link" onclick="showmenu('btnhome')">
+                        <a href="#" class="nav-link" onclick="showmenu('btnhome')">
                             <i class="fs-5 bi bi-bar-chart-fill"></i><span class="ms-1">รายงานผล</span>
                         </a>
                     </li>
@@ -69,7 +69,7 @@
 
 
                     <li class="nav-item">
-                        <a href="/backEnd/logout.php" class="nav-link">
+                        <a href="../backEnd/logout.php" class="nav-link">
                             <i class="fs-5 bi bi-box-arrow-in-right"></i><span class="ms-1">ออกจากระบบ</span>
                         </a>
                     </li>
@@ -82,24 +82,209 @@
 
         <!-- content --->
 
-        <div class="col py-3 home" id="home">
-            <h1>Homessssss</h1>
+        <div class="col py-3 dashboard" id="home">
+            <div class="container">
+                <div class="row">
+
+                    <div class="text-header">
+                        <h1>รายงานผลทั้งหมด</h1>
+                    </div>
+
+
+                    <!-- ส่วนสรุปผล --->
+                    <div class="content-das">
+                        <div class="show1 col-3 me-3">
+                            <h3>ยอดขาย</h3>
+                            <h6>ทั้งหมด 188,365.00 บาท</h6>
+
+                        </div>
+
+                        <div class="show2 col-3 me-3">
+                            <h3>จำนวนบิล</h3>
+                            <h6>418.00 รายการ</h6>
+
+
+                        </div>
+
+                        <div class="show3 col-3 me-3">
+                            <h3>จำนวนอาหาร</h3>
+                            <h6>36 รายการ</h6>
+
+
+                        </div>
+
+                        <div class="show4 col-3">
+                            <h3>สมาชิกทั้งหมด</h3>
+                            <h6>205 คน</h6>
+
+
+                        </div>
+
+                    </div>
+
+                    <!-- ตารางข้อมูล --->
+                    <div class="content-das2">
+                        
+                        <!-- รายการอาหาร --->
+
+                        <div class="content-table col-5 me-3 ">
+                            <div style="height: 100%; overflow: auto;">
+
+                                <div class="title d-flex mb-3">
+                                    <h3>รายการอาหาร</h3>
+
+                                    <a href="" class="ms-4">
+                                        <button type="button" class="btn btn-warning">
+                                            <i class="fs-5 bi bi-eye-fill"></i>
+                                            <span class="ms-1">ทั้งหมด</span>
+                                        </button>
+                                    </a>
+                                </div>
+
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Phone</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+
+
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+
+
+
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+
+
+
+
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <!-- ระบบสมาชิก --->
+
+                        <div class="content-table col-7">
+                            <div style="height: 100%; overflow: auto;">
+
+                                <div class="title d-flex mb-3">
+                                    <h3>ระบบสมาชิก</h3>
+
+                                    <a href="" class="ms-4">
+                                        <button type="button" class="btn btn-warning">
+                                            <i class="fs-5 bi bi-eye-fill"></i>
+                                            <span class="ms-1">ทั้งหมด</span>
+                                        </button>
+                                    </a>
+                                </div>
+
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Phone</th>
+                                            <th>Address</th>
+                                            <th>Location</th>
+                                            <th>Postcode</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+
+
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+
+
+
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
+
+        
+
+       
 
         <div class="col py-3 foodmenu" id="foodmenu">
             Content area...1
         </div>
 
         <div class="col py-3 member" id="member">
-            Content area...2
-        </div>
 
-        <div class="col py-3 history" id="history">
-            Content area...3
+            <?php include("admin_member.php"); ?>
+
         </div>
 
         <div class="col py-3 sale" id="sale">
-            Content area...4
+        Content area...4
+            <?php include("admin_sale.php"); ?>
+            
         </div>
 
 
