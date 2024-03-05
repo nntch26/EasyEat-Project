@@ -41,3 +41,9 @@ body{
   width: 100%;
   border-radius: 10px;
 }
+
+/* //////////////////// member ////////////////////////////// */
+
+.member{
+  background-color: #eef3fe;
+}
