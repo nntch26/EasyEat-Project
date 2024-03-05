@@ -79,7 +79,7 @@
             <!-- content --->
 
             <div class="col py-3 home" id="home">
-                <h1>Home</h1>
+                <h1>Homessssss</h1>
             </div>
 
             <div class="col py-3 foodmenu" id="foodmenu">
