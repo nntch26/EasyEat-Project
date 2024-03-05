@@ -87,7 +87,7 @@ function loginUser($username, $password, $db)
         // เช็ค role Admin
         if ($rowuser['user_role'] == "Admin") {
 
-            header('location: ../admin/admin.html');
+            header('location: ../admin/index.html');
 
         }
 
