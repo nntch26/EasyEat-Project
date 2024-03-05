@@ -41,3 +41,66 @@ body{
   width: 100%;
   border-radius: 10px;
 }
+
+
+/* //////////////////// dashboard ////////////////////// */
+
+.content-das, .content-das2{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.show1, .show2, .show3, .show4{
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+
+/* //////////////////// member ////////////////////////////// */
+
+.dashboard{
+  background-color: #ff7b00;
+}
+.dashboard, .member, .sale{
+  background-color: #eef3fe;
+  padding: 50px;
+}
+
+.content-table{
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+
+}
+
+.text-header{
+  margin-top: 30px;
+
+}
+
+.content-search{
+  margin-top: 40px;
+}
+
+.btn-cus{
+  width: 150px;
+}
+
+.content-search{
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
