@@ -36,7 +36,7 @@
 
                     <li class="nav-item">
                         <a href="backEnd/logout.php">
-                            <i class="fs-5 bi bi-box-arrow-in-right"></i><span class="ms-1 d-none d-sm-inline">ออกจากระบบ</span>
+                            <i class="bi bi-box-arrow-in-right" style="color: white; font-size: 28px;"></i>
                         </a>
                     </li>
 
