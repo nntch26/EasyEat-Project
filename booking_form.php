@@ -58,8 +58,8 @@
                     <div class="form-group row cont-numtable">
                         <label class="col-sm-5 text-num">เลขโต๊ะ : </label>
                         <div class="col-sm-6">
-                            <input type="text" name="table_idxD" class="form-control inp-num" readonly value="<?php
-                            echo $_GET['table_id']; ?>">
+                            <input type="text" name="table_idxD" class="form-control inp-num" readonly
+                                   value="<?php echo $_GET['table_id']; ?>">
                         </div>
                     </div>
 

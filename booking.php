@@ -53,50 +53,73 @@
                 <h4>โปรดเลือกโต๊ะที่คุณต้องการจะ <span style="color: #FF3E1D;"><u>จองวันนี้</u></span></h4>
             </div>
 
-            <div class="box-table">
+            <div class="box-table mt-5">
 
                 <!-- โต๊ะทั้งหมดในร้านแถว 1 --->
                 <div class="row mb-2">
 
                     <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
-                        <div class="card card-booking1" style="width: 150px; height: 100px;">
+
+                        <div class="card text-center card-booking1" style="width: 200px;">
+                            <div class="card-header d-flex">
+                                <h6 class="mt-2 ">สถานะ : </h6>
+                                <button type="button" class="btn btn-success ms-3">ว่าง</button>
+                            </div>
+
                             <div class="card-body">
+                                <h5 class="card-title">โต๊ะ A01</h5>
                                 <a href="booking_form.php?table_id=A01">
-                                    <button type="button" class="btn btn-success btn-booking">A01</button>
+                                    <button type="button" class="btn btn-success btn-booking">จอง</button>
                                 </a>
-
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
-                        <div class="card card-booking1" style="width: 150px; height: 100px;">
-                            <div class="card-body">
-                                <a href="booking_form.php?table_id=A02">
-                                    <button type="button" class="btn btn-success btn-booking">A02</button>
-                                </a>
+                        <div class="card text-center card-booking2" style="width: 200px;">
+                            <div class="card-header d-flex">
+                                <h6 class="mt-2 ">สถานะ : </h6>
+                                <button type="button" class="btn btn-danger  ms-3">ไม่ว่าง</button>
+                            </div>
 
+                            <div class="card-body">
+                                <h5 class="card-title">โต๊ะ A02</h5>
+
+                                <!--<a href="booking_form.php?table_id=A02" disabled>
+                                    <button type="button" class="btn btn-secondary btn-booking">จอง</button>
+                                </a>-->
                             </div>
                         </div>
                     </div>
 
 
                     <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
-                        <div class="card card-booking1" style="width: 150px; height: 100px;">
-                            <div class="card-body">
-                                <a href="booking_form.php?table_id=A03">
-                                    <button type="button" class="btn btn-success btn-booking">A03</button>
-                                </a>
+                        <div class="card text-center card-booking1" style="width: 200px;">
+                            <div class="card-header d-flex">
+                                <h6 class="mt-2 ">สถานะ : </h6>
+                                <button type="button" class="btn btn-warning ms-3">จอง</button>
+                            </div>
 
+                            <div class="card-body">
+                                <h5 class="card-title">โต๊ะ A03</h5>
+                                <!--<a href="booking_form.php?table_id=A03">
+                                    <button type="button" class="btn btn-warning btn-booking">จอง</button>
+                                </a>-->
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-5 mb-3">
-                        <div class="card card-booking1" style="width: 150px; height: 100px;">
+                    <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
+                        <div class="card text-center card-booking1" style="width: 200px;">
+                            <div class="card-header d-flex">
+                                <h6 class="mt-2 ">สถานะ : </h6>
+                                <button type="button" class="btn btn-success ms-3">ว่าง</button>
+                            </div>
+
                             <div class="card-body">
+                                <h5 class="card-title">โต๊ะ A04</h5>
                                 <a href="booking_form.php?table_id=A04">
-                                    <button type="button" class="btn btn-success btn-booking">A04</button>
+                                    <button type="button" class="btn btn-success btn-booking">จอง</button>
                                 </a>
                             </div>
                         </div>
@@ -110,37 +133,53 @@
                 <div class="row mb-2">
 
                     <div class="col-md-4 mb-3">
-                        <div class="card card-booking1" style="height: 120px; width: 300px;">
+                        <div class="card text-center card-booking1" style="width: 400px;">
+                            <div class="card-header d-flex">
+                                <h6 class="mt-2 ">สถานะ : </h6>
+                                <button type="button" class="btn btn-success ms-3">ว่าง</button>
+                            </div>
+
                             <div class="card-body">
+                                <h5 class="card-title">โต๊ะ B01</h5>
                                 <a href="booking_form.php?table_id=B01">
-                                    <button type="button" class="btn btn-success btn-booking">B01</button>
+                                    <button type="button" class="btn btn-success btn-booking">จอง</button>
                                 </a>
-
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <div class="card card-booking1" style="height: 120px; width: 300px;">
+                        <div class="card text-center card-booking1" style="width: 400px;">
+                            <div class="card-header d-flex">
+                                <h6 class="mt-2 ">สถานะ : </h6>
+                                <button type="button" class="btn btn-success ms-3">ว่าง</button>
+                            </div>
+
                             <div class="card-body">
+                                <h5 class="card-title">โต๊ะ B02</h5>
                                 <a href="booking_form.php?table_id=B02">
-                                    <button type="button" class="btn btn-success btn-booking">B02</button>
+                                    <button type="button" class="btn btn-success btn-booking">จอง</button>
                                 </a>
-
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <div class="card card-booking1" style="height: 120px; width: 300px;">
-                            <div class="card-body">
-                                <a href="booking_form.php?table_id=B03">
-                                    <button type="button" class="btn btn-success btn-booking">B03</button>
-                                </a>
+                        <div class="card text-center card-booking1" style="width: 400px;">
+                            <div class="card-header d-flex">
+                                <h6 class="mt-2 ">สถานะ : </h6>
+                                <button type="button" class="btn btn-success ms-3">ว่าง</button>
+                            </div>
 
+                            <div class="card-body">
+                                <h5 class="card-title">โต๊ะ B03</h5>
+                                <a href="booking_form.php?table_id=B03">
+                                    <button type="button" class="btn btn-success btn-booking">จอง</button>
+                                </a>
                             </div>
                         </div>
                     </div>
+
 
 
                 </div>
@@ -148,37 +187,53 @@
                 <!-- โต๊ะทั้งหมดในร้านแถว 3 --->
                 <div class="row">
 
-                    <div class="col-md-4 col-sm-5 mb-3">
-                        <div class="card card-booking1" style="width: 200px; height: 120px; border-radius: 50%;">
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-center card-booking1" style="width: 300px">
+                            <div class="card-header d-flex">
+                                <h6 class="mt-2 ">สถานะ : </h6>
+                                <button type="button" class="btn btn-success ms-3">ว่าง</button>
+                            </div>
+
                             <div class="card-body">
+                                <h5 class="card-title">โต๊ะ C01</h5>
                                 <a href="booking_form.php?table_id=C01">
-                                    <button type="button" class="btn btn-success btn-booking">C01</button>
+                                    <button type="button" class="btn btn-success btn-booking">จอง</button>
                                 </a>
-
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-5 mb-3">
-                        <div class="card card-booking1" style="width: 200px; height: 120px; border-radius: 50%;">
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-center card-booking1" style="width: 300px">
+                            <div class="card-header d-flex">
+                                <h6 class="mt-2 ">สถานะ : </h6>
+                                <button type="button" class="btn btn-success ms-3">ว่าง</button>
+                            </div>
+
                             <div class="card-body">
+                                <h5 class="card-title">โต๊ะ C02</h5>
                                 <a href="booking_form.php?table_id=C02">
-                                    <button type="button" class="btn btn-success btn-booking">C02</button>
+                                    <button type="button" class="btn btn-success btn-booking">จอง</button>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-5 mb-3">
-                        <div class="card card-booking1" style="width: 200px; height: 120px; border-radius: 50%;">
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-center card-booking1" style="width: 300px">
+                            <div class="card-header d-flex">
+                                <h6 class="mt-2 ">สถานะ : </h6>
+                                <button type="button" class="btn btn-success ms-3">ว่าง</button>
+                            </div>
+
                             <div class="card-body">
+                                <h5 class="card-title">โต๊ะ C03</h5>
                                 <a href="booking_form.php?table_id=C03">
-                                    <button type="button" class="btn btn-success btn-booking">C03</button>
+                                    <button type="button" class="btn btn-success btn-booking">จอง</button>
                                 </a>
                             </div>
                         </div>
                     </div>
-
 
                 </div>
 
