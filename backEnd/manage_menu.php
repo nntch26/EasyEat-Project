@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($uploadedFilename) {
             // ถ้าไฟล์ถูกอัปโหลดสำเร็จ
-            echo "File uploaded successfully: " . $uploadedFilename;
+            //echo "File uploaded successfully: " . $uploadedFilename;
             // Insert ชื่อไฟล์ลง Database
             $insert_menu = $db->prepare("INSERT INTO Menus (menu_name, menu_price, menu_type, menu_pic) 
                                         VALUES (:name, :price, :type, :img_name)");
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $insert_menu->bindParam(':type', $menu_type);
             $insert_menu->bindParam(':img_name', $uploadedFilename);
             $insert_menu->execute();
-            header('location: ../index.html');
+            header('location: ../index.php');
         } else {
             // ถ้ามีข้อผิดพลาดในการอัปโหลดไฟล์
             echo "Error uploading file!";
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($uploadedFilename) {
             // ถ้าไฟล์ถูกอัปโหลดสำเร็จ
-            echo "File uploaded successfully: " . $uploadedFilename;
+            //echo "File uploaded successfully: " . $uploadedFilename;
             // Update รายการอาหาร
             $update_menu = $db->prepare("UPDATE Menus 
                              SET menu_name = :name, 
@@ -52,11 +52,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $update_menu->bindParam(':img_name', $uploadedFilename);
             $update_menu->bindParam(':menu_id', $menu_id);
             $update_menu->execute();
-            header('location: ../index.html');
+            header('location: ../index.php');
         } else {
             echo "Error uploading file!";
         }
         $db = null;  // Close database connection
+    } else if (isset($_POST['sumbit_delete_menu'])) {
+        $menu_id = $_POST['menu_id'];
+        $delete_menu = $db->prepare("DELETE FROM Menus WHERE menu_id = :menu_id");
+        $delete_menu->bindParam(':menu_id', $menu_id);
+        $delete_menu->execute();
+        header('location: ../index.php');
     }
 }
 

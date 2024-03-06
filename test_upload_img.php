@@ -10,7 +10,7 @@
 <body>
 <form action="backEnd/manage_menu.php" method="post" enctype="multipart/form-data">
     <label for="menu_name">Menu Name:</label>
-    <input type="hidden" name="menu_id" id="menu_id" value="5">
+    <input type="hidden" name="menu_id" id="menu_id" value="51">
     <input type="text" name="menu_name" id="menu_name"><br><br>
 
     <label for="menu_price">Menu Price:</label>
@@ -24,5 +24,6 @@
 
     <button type="submit" name="sumbit_update_menu">Update Menu</button>
     <button type="submit" name="sumbit_new_menu">Insert New Menu</button>
+    <button type="submit" name="sumbit_delete_menu">Delete Menu</button>
 </form>
 </body>
