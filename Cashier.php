@@ -65,100 +65,70 @@
             </div>
 
         </div>
+<!------------------------------------------------------------->
         <div class="ManageTableMenu" id="ManageTableMenu">
-
-            <div class="smallbox">
-                <div class="tinybox_top">
-                    <div class="box_left_top">
-                        <label class="orderid">1</label>
-                        <br>
-                        <label class="tableid">โต๊ะ : <label>A01</label></label>
-                    </div>
-                    <div class="box_right_top colorGray">
-                        <p>ว่าง</p>
-                    </div>
-                </div>
-                <div class="tinybox_bottom">
-                    <button class="descrip"><a class="descripAhref" href="#popup-box-table1">รับลูกค้า</a></button>
-                    <button class="descrip"><a class="descripAhref" href="#">ยกเลิก</a></button>
-                </div>
-            </div>
+            
+            <?php include("Cashier_managetable.php"); ?>
 
         </div>
         <div class="HistoryMenu" id="HistoryMenu">
-            <h2>ประวัติการขาย</h2>
-            <table class="tablemain">
-                <tr>
-                    <th>ID</th>
-                    <th>สถานะ</th>
-                    <th>วันที่ทำรายการ</th>
-                    <th>ราคารวม</th>
-                </tr>
-                <tr>
-                    <td>1150</td>
-                    <td>ยังไม่ตาย</td>
-                    <td>วัน ทู ทรี โฟ</td>
-                    <td>เป็นล้านเลยพี่</td>
-                </tr>
-                <tr>
-                    <td>1150</td>
-                    <td>ยังไม่ตาย</td>
-                    <td>วัน ทู ทรี โฟ</td>
-                    <td>เป็นล้านเลยพี่</td>
-                </tr>
-            </table>
+
+            <?php include("Cashier_history.php"); ?>
 
         </div>
-
+<!------------------------------------------------------------->
     </div>
 </div>
 
 <!--popup แสดงรายละเอียด-->
-<div class="modal" id="popup-box-pay">
-    <div class="content">
-        <h3>รายละเอียด</h3>
-        <hr>
-        <div class="list">
-            <p>กล้วย</p>
-            <p>มาม่า</p>
-            <p>ส้ม</p>
+<div class="popup-box">
+    <div class="modal" id="popup-box-pay">
+        <div class="content">
+            <h3>รายละเอียด</h3>
             <hr>
-            <h3>รวม</h3>
-            <p>เป็นล้านเลยพี่</p>
+            <div class="list">
+                <p>กล้วย</p>
+                <p>มาม่า</p>
+                <p>ส้ม</p>
+                <hr>
+                <h3>รวม</h3>
+                <p>เป็นล้านเลยพี่</p>
+                <hr>
+            </div>
+            <a class="box-close" href="#">
+                x
+            </a>
+        </div>
+    </div>
+    
+    <div class="modal" id="popup-box-table1">
+        <div class="content">
+            <h3>โต๊ะที่ : A01</h3>
             <hr>
+            <div class="list">
+                <label>จำนวนคน : </label>
+                <input style="width: 10%; font-size: 18px;" type="number">
+                <hr>
+                <button class="descrip"><a class="descripAhref" href="#popup-box-table1.5">สั่งอาหาร</a></button>
+            </div>
+            <a class="box-close" href="#">
+                x
+            </a>
         </div>
-        <a class="box-close" href="#">
-            x
-        </a>
     </div>
-</div>
-
-<div class="modal" id="popup-box-table1">
-    <div class="content">
-        <h3>โต๊ะที่ : A01</h3>
-        <hr>
-        <div class="list">
-            <label>จำนวนคน : </label>
-            <input style="width: 10%; font-size: 18px;" type="number">
-            <hr>
-            <button class="descrip"><a class="descripAhref" href="#popup-box-table1.5">สั่งอาหาร</a></button>
+    
+    <div class="modal" id="popup-box-table1.5">
+        <div class="content">
+            <h3>QR Code</h3>
+            <div class="list">
+                <h1>ใส่ QR ตรงนี้เด้อจ่ะ</h1>
+            </div>
+            <a class="box-close" href="#">
+                x
+            </a>
         </div>
-        <a class="box-close" href="#">
-            x
-        </a>
     </div>
-</div>
-
-<div class="modal" id="popup-box-table1.5">
-    <div class="content">
-        <h3>QR Code</h3>
-        <div class="list">
-            <h1>ใส่ QR ตรงนี้เด้อจ่ะ</h1>
-        </div>
-        <a class="box-close" href="#">
-            x
-        </a>
-    </div>
+    
 </div>
 
 
