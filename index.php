@@ -12,11 +12,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--- bootstrap --->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!--- stylesheet --->
@@ -99,7 +96,7 @@ require('inc/navbar.php'); ?>
 
         <!--- แถวที่ 1 --->
         <div class="row g-4 mb-5 bigmenubox">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card h-100 menubox">
                     <img src="img2/food_item9.jpg" class="card-img-top" alt="thai food"/>
 
@@ -110,7 +107,7 @@ require('inc/navbar.php'); ?>
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card h-100 menubox">
                     <img src="img2/food_item6.jpg" class="card-img-top" alt="thai food"/>
 
@@ -121,7 +118,29 @@ require('inc/navbar.php'); ?>
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
+                <div class="card h-100 menubox">
+                    <img src="img2/food_item12.jpg" class="card-img-top" alt="thai food"/>
+
+                    <div class="card-body">
+                        <h5 class="card-title">เมนูอาหารจานเดียว</h5>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 menubox">
+                    <img src="img2/food_item11.jpg" class="card-img-top" alt="thai food"/>
+
+                    <div class="card-body">
+                        <h5 class="card-title">เมนูทานเล่น</h5>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
                 <div class="card h-100 menubox">
                     <img src="img2/food_item7.jpg" class="card-img-top" alt="thai food"/>
 
@@ -132,7 +151,7 @@ require('inc/navbar.php'); ?>
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card h-100 menubox">
                     <img src="img2/food_item10.jpg" class="card-img-top" alt="thai food"/>
 
@@ -155,8 +174,8 @@ require('inc/navbar.php'); ?>
 <div class="section-menu" id="menu">
     <div class="container">
         <div class="topmenu text-center">
-            <h1 style="font-size: 48px;">- เมนูยอดนิยม - </h1>
-            <p>รายการอาหารที่ได้ความนิยมมาก</p>
+            <h1 style="font-size: 48px;">- เมนูแนะนำ - </h1>
+            <p>รายการอาหารที่ทางร้านแนะนำให้คุณลอง!</p>
         </div>
 
         <div class="row g-4 mb-5">
