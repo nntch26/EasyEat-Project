@@ -59,9 +59,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $db = null;  // Close database connection
     } else if (isset($_POST['sumbit_delete_menu'])) {
         $menu_id = $_POST['menu_id'];
+
+        //เอารูปมา
+        $get_menu_pic = $db->prepare("SELECT menu_pic FROM Menus WHERE menu_id = :menu_id");
+        $get_menu_pic->bindParam(':menu_id', $menu_id);
+        $get_menu_pic->execute();
+        $menu_pic_row = $get_menu_pic->fetch(PDO::FETCH_ASSOC);
+        $menu_pic_filename = $menu_pic_row['menu_pic'];
+
+        // ลบรูปออกจาก folder
+        if ($menu_pic_filename && file_exists(__DIR__ . "/menu_img/" . $menu_pic_filename)) {
+            unlink(__DIR__ . "/menu_img/" . $menu_pic_filename);
+        }
+
+        //ลบข้อมูลใน database
         $delete_menu = $db->prepare("DELETE FROM Menus WHERE menu_id = :menu_id");
         $delete_menu->bindParam(':menu_id', $menu_id);
         $delete_menu->execute();
+
         header('location: ../index.php');
     }
 }
