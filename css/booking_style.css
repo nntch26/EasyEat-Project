@@ -97,8 +97,7 @@ img {
 }
 
 .card-booking2{
-    background-color: #e8e8e8;
-    color: #222222;
+    background-color: rgba(196, 196, 199, 0.42);
     display: flex;
     justify-content: center;
     transform-origin: center top;
