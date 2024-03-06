@@ -1,7 +1,8 @@
 <?php
 include('includes/connectDB.php');
 session_start(); // Start the session
-function gens_table() {
+function gens_table()
+{
     $db = getDB();
 
     $gens_menu = $db->prepare("SELECT * from Menus");

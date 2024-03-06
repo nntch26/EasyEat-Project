@@ -1,7 +1,6 @@
 <?php
 
 
-
 ?>
 
 
@@ -20,78 +19,77 @@
         </form>
 
 
-
         <div class="content-table">
             <div style="height: 100%; overflow: auto;">
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Address</th>
-                            <th>Location</th>
-                            <th>Postcode</th>
-                            <th>Description</th>
-                            <th>Action</th>
-                        </tr>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Location</th>
+                        <th>Postcode</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
                     </thead>
                     <tbody>
 
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
 
-                            <td>
-                                <button type="button" class="btn btn-info">
-                                    <i class="fs-5 bi bi-eye-fill"></i>
-                                    <span class="ms-1">เรียกดู</span>
-                                </button>
-                            </td>
-
-
-                        </tr>
-
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>
-                                <button type="button" class="btn btn-info">
-                                    <i class="fs-5 bi bi-eye-fill"></i>
-                                    <span class="ms-1">เรียกดู</span>
-                                </button>
-                            </td>
+                        <td>
+                            <button type="button" class="btn btn-info">
+                                <i class="fs-5 bi bi-eye-fill"></i>
+                                <span class="ms-1">เรียกดู</span>
+                            </button>
+                        </td>
 
 
-                        </tr>
+                    </tr>
 
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>
-                                <button type="button" class="btn btn-info">
-                                    <i class="fs-5 bi bi-eye-fill"></i>
-                                    <span class="ms-1">เรียกดู</span>
-                                </button>
-                            </td>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>
+                            <button type="button" class="btn btn-info">
+                                <i class="fs-5 bi bi-eye-fill"></i>
+                                <span class="ms-1">เรียกดู</span>
+                            </button>
+                        </td>
 
 
-                        </tr>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>
+                            <button type="button" class="btn btn-info">
+                                <i class="fs-5 bi bi-eye-fill"></i>
+                                <span class="ms-1">เรียกดู</span>
+                            </button>
+                        </td>
+
+
+                    </tr>
 
 
                     </tbody>

@@ -44,7 +44,8 @@ else if (isset($_POST['submitLogin'])) {
 
 // ฟังก์ชัน เข้าสู่ระบบ
 
-function loginUser($username, $password, $db) {
+function loginUser($username, $password, $db)
+{
 
 
     $sqlUser = $db->prepare("SELECT * FROM Users 
@@ -105,7 +106,8 @@ function loginUser($username, $password, $db) {
 
 // ฟังก์ชัน สมัครสมาชิก
 
-function registerUser($fname, $lname, $username, $email, $password, $phone, $db) {
+function registerUser($fname, $lname, $username, $email, $password, $phone, $db)
+{
 
 
     //เช็คข้อมูลที่กรอกเข้ามาซ้ำ ใน database หรือไม่

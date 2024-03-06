@@ -124,7 +124,7 @@
 
                     <!-- ตารางข้อมูล --->
                     <div class="content-das2">
-                        
+
                         <!-- รายการอาหาร --->
 
                         <div class="content-table col-5 me-3 ">
@@ -144,43 +144,38 @@
 
                                 <table class="table">
                                     <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Phone</th>
 
-                                        </tr>
+                                    </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
 
 
+                                    </tr>
 
-                                        </tr>
-
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
 
 
+                                    </tr>
 
-                                        </tr>
-
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
 
 
-
-                                        </tr>
+                                    </tr>
 
 
                                     </tbody>
@@ -208,51 +203,49 @@
 
                                 <table class="table">
                                     <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Address</th>
-                                            <th>Location</th>
-                                            <th>Postcode</th>
-                                        </tr>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Phone</th>
+                                        <th>Address</th>
+                                        <th>Location</th>
+                                        <th>Postcode</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
 
 
-                                        </tr>
+                                    </tr>
 
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-
-
-
-                                        </tr>
-
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
 
 
+                                    </tr>
 
-                                        </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+
+
+                                    </tr>
 
 
                                     </tbody>
@@ -267,9 +260,6 @@
 
         </div>
 
-        
-
-       
 
         <div class="col py-3 foodmenu" id="foodmenu">
             Content area...1
@@ -282,9 +272,9 @@
         </div>
 
         <div class="col py-3 sale" id="sale">
-        Content area...4
+            Content area...4
             <?php include("admin_sale.php"); ?>
-            
+
         </div>
 
 
