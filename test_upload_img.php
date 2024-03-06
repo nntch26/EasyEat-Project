@@ -8,8 +8,9 @@
 </head>
 
 <body>
-<form action="backEnd/insert_img.php" method="post" enctype="multipart/form-data">
+<form action="backEnd/manage_menu.php" method="post" enctype="multipart/form-data">
     <label for="menu_name">Menu Name:</label>
+    <input type="hidden" name="menu_id" id="menu_id" value="5">
     <input type="text" name="menu_name" id="menu_name"><br><br>
 
     <label for="menu_price">Menu Price:</label>
@@ -21,6 +22,7 @@
     <label for="bill_img">Select Image:</label>
     <input type="file" name="bill_img" id="bill_img"><br><br>
 
-    <button type="submit" name="submit">Upload Image</button>
+    <button type="submit" name="sumbit_update_menu">Update Menu</button>
+    <button type="submit" name="sumbit_new_menu">Insert New Menu</button>
 </form>
 </body>
