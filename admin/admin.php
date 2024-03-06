@@ -1,3 +1,12 @@
+<?php
+
+include('../backend/includes/connectDB.php');
+$db = getDB();
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,14 +21,20 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <link rel="stylesheet" href="admin_style.css">
+    
+    <!--- DataTable --->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap5.css">
+    
+    <link rel="stylesheet" href="adminStyle/admin_style.css">
 
     <!--- fonts.google --->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
           rel="stylesheet">
+
+    
 
 </head>
 <body>
@@ -90,6 +105,57 @@
                         <h1>รายงานผลทั้งหมด</h1>
                     </div>
 
+                     <!------ alert ----->
+
+                        <!-- อัพเดทข้อมูลสำเร็จ -->
+                        <?php
+                        if (isset($_SESSION['profile_update'])) : ?>
+                            <div class="alert alert-success" role="alert">
+                            <?php echo $_SESSION['profile_update']; ?>
+                            </div>
+                        <?php
+                        endif; ?>
+
+                         <!-- ลบข้อมูลสำเร็จ -->
+                         <?php
+                        if (isset($_SESSION['profile_delete'])) : ?>
+                            <div class="alert alert-success" role="alert">
+                            <?php echo $_SESSION['profile_delete']; ?>
+                            </div>
+                        <?php
+                        endif; ?>
+
+                        <!-- ข้อมูลซ้ำ -->
+                        <?php
+                        if (isset($_SESSION['error_chck'])) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $_SESSION['error_chck']; ?>
+                            </div>
+                        <?php
+                        endif; ?>
+
+
+                        <!-- อัพเดทข้อมูลไม่สำเร็จ -->
+                        <?php
+                        if (isset($_SESSION['err_update'])) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php
+                                echo $_SESSION['err_update']; ?>
+                            </div>
+                        <?php
+                        endif; ?>
+
+                        <!-- ลบข้อมูลไม่สำเร็จ -->
+                        <?php
+                        if (isset($_SESSION['err_delete'])) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php
+                                echo $_SESSION['err_delete']; ?>
+                            </div>
+                        <?php
+                        endif; ?>
+
+
 
                     <!-- ส่วนสรุปผล --->
                     <div class="content-das">
@@ -124,7 +190,7 @@
 
                     <!-- ตารางข้อมูล --->
                     <div class="content-das2">
-
+                        
                         <!-- รายการอาหาร --->
 
                         <div class="content-table col-5 me-3 ">
@@ -144,38 +210,43 @@
 
                                 <table class="table">
                                     <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Phone</th>
 
-                                    </tr>
+                                        </tr>
                                     </thead>
                                     <tbody>
 
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
 
 
-                                    </tr>
 
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
+                                        </tr>
 
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
 
 
-                                    </tr>
+
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+
+
+
+
+                                        </tr>
 
 
                                     </tbody>
@@ -192,7 +263,7 @@
                                 <div class="title d-flex mb-3">
                                     <h3>ระบบสมาชิก</h3>
 
-                                    <a href="" class="ms-4">
+                                    <a href="#" class="ms-4" onclick="showmenu('btnmember')">
                                         <button type="button" class="btn btn-warning">
                                             <i class="fs-5 bi bi-eye-fill"></i>
                                             <span class="ms-1">ทั้งหมด</span>
@@ -201,54 +272,38 @@
                                 </div>
 
 
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Address</th>
-                                        <th>Location</th>
-                                        <th>Postcode</th>
-                                    </tr>
+                                <table class="table table-striped ">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>รหัส</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>ชื่อผู้ใช้</th>
+                                            <th>เบอร์โทรศัพท์</th>
+                                            <th>คะแนนสะสม</th>
+                                    
+                                        </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+                                    $sqlUser = $db->prepare("SELECT * FROM Users WHERE user_role = 'Member' LIMIT 5");
+                                    $sqlUser->execute();
+
+                                    while ($rowUser= $sqlUser->fetch(PDO::FETCH_ASSOC)) :
+
+
+                                    ?>
 
                                     <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-
-
+                                        <td><?php echo $rowUser['user_id'] ?></td>
+                                        <td><?php echo $rowUser['user_fname']." ".$rowUser['user_lname'] ?></td>
+                                        <td><?php echo $rowUser['user_username'] ?></td>
+                                        <td><?php echo $rowUser['user_phonenum'] ?></td>
+                                        <td><?php echo $rowUser['user_points'] ?></td>
                                     </tr>
 
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
+                                <?php endwhile ?>
 
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-
-
-                                    </tr>
-
-
-                                    </tbody>
+                                </tbody>
                                 </table>
                             </div>
 
@@ -260,21 +315,24 @@
 
         </div>
 
+        
 
-        <div class="col py-3 foodmenu" id="foodmenu">
+       
+
+        <div class="col foodmenu" id="foodmenu">
             Content area...1
         </div>
 
-        <div class="col py-3 member" id="member">
+        <div class="col member" id="member">
 
             <?php include("admin_member.php"); ?>
 
         </div>
 
-        <div class="col py-3 sale" id="sale">
-            Content area...4
+        <div class="col sale" id="sale">
+        Content area...4
             <?php include("admin_sale.php"); ?>
-
+            
         </div>
 
 
@@ -314,5 +372,49 @@
     }
 </script>
 
+<!--- DataTable --->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.0.1/js/dataTables.bootstrap5.js"></script>
+
+<script>
+
+
+    $(document).ready(function() {
+    $('#dataTable').DataTable( {
+        "language": {
+            "lengthMenu": "แสดงข้อมูล  _MENU_  แถว",
+            "zeroRecords": "ไม่พบอะไรเลย - ขออภัย",
+            "info": "แสดงหน้า  _PAGE_ จาก _PAGES_",
+            "infoEmpty": "ไม่มีข้อมูลในระบบ",
+            "infoFiltered": "(กรองจากข้อมูลทั้งหมด _MAX_ รายการ)",
+            "search": "ค้นหา :"
+        }
+
+
+    } );
+} );
+</script>
+
+
 </body>
 </html>
+
+<?php
+ $db = null;
+
+// ล้าง session 
+
+ if (isset($_SESSION['profile_update']) 
+ || isset($_SESSION['error_chck']) || isset($_SESSION['err_update']) 
+ || isset($_SESSION['profile_delete']) ||isset($_SESSION['err_delete'])) {
+
+    unset($_SESSION['error_chck']);
+    unset($_SESSION['err_update']);
+    unset($_SESSION['profile_update']);
+    unset($_SESSION['profile_delete']);
+    unset($_SESSION['err_delete']);
+
+}
+?>
