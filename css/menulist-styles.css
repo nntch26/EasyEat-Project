@@ -122,3 +122,14 @@ hr{
     margin: 0 4.5px 9px 4.5px;
     text-align: center;
 }
+.card-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.back{
+    text-align: end;
+}
+.card-price{
+    color: #FF3E1D;
+}
