@@ -59,7 +59,7 @@
 
 
             <li class="nav-item">
-                <a href="../backEnd/logout.php" class="nav-link">
+                <a href="backEnd/logout.php" class="nav-link">
                     <i class="fs-5 bi bi-box-arrow-in-right"></i><span class="ms-1">ออกจากระบบ</span>
                 </a>
             </li>
