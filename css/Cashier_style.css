@@ -8,41 +8,12 @@ body {
     margin: 0;
 }
 
-h1 {
+h2 {
     margin: 0;
     padding-top: 15px;
     padding-left: 15px;
 }
 
-/* ----------------navsidebar-------------------- */
-.navsidebar {
-    display: flex;
-    flex-direction: column;
-    background-color: #222;
-    width: 100%;
-    flex: 15%;
-    padding-top: 85px;
-}
-
-.btn {
-    text-decoration: none;
-    background-color: 222;
-    border-style: none;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    border-radius: 20px;
-    margin: 10px;
-}
-
-.btn:hover {
-    background-color: rgb(81, 81, 81);
-    text-decoration: underline;
-    transition: all .35s ease;
-    color: #ff7b00;
-}
-
-/* -------------------------------------------- */
 
 /* --------------------กล่องใหญ่สุด---------------*/
 .bigbox {
@@ -52,17 +23,18 @@ h1 {
     text-align: center;
 }
 
-
-.navbar {
-    width: 100%;
-    background-color: white;
-    display: flex;
-}
-
 .navbox {
-    display: block;
+    display: flex;
     padding: 15px;
-    flex: 85%;
+    width: 100%;
+    justify-content: center;
+}
+.navborderstyle{
+    background-color: white;
+    border-radius: 20px;
+    width: 50%;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .counter {
@@ -74,8 +46,7 @@ h1 {
     padding-right: 10px;
 }
 
-.navbtn,
-.exitbtn {
+.navbtn{
     font-size: 18px;
     background-color: white;
     border-style: solid;
@@ -83,35 +54,17 @@ h1 {
     border-radius: 5px;
     border-color: rgb(114, 114, 114);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    width: 70%;
     height: 50px;
-}
-
-.navbtn {
+    width: 150px;
     margin-right: 10px;
+    margin-left: 10px;
     text-align: left;
-    width: 15%;
     padding-left: 30px;
 }
 
-.exit {
-    flex: 15%;
-    padding: 15px;
-    padding-right: 45px;
-    text-align: right;
-}
 
-.exitbtn {
-    width: 120px;
-    height: 50px;
-}
 
 .navbtn:hover {
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.exitbtn:hover {
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -120,7 +73,7 @@ h1 {
 .BoxOrder {
     flex: 90%;
     padding: 10px;
-    background-color: rgb(204, 204, 204);
+    background-color: #eef3fe;
     overflow-y: auto;
 }
 
@@ -128,6 +81,10 @@ h1 {
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
+}
+.title_top{
+    width: 100%;
+    text-align: left;
 }
 
 .HistoryMenu {
@@ -175,10 +132,8 @@ tr, td {
     margin: 10px;
     margin-left: 25px;
     background-color: rgba(255, 255, 255, 0.537);
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    border-style: solid;
-    border-color: rgb(190, 188, 188);
 }
 
 .tinybox_top {
@@ -216,12 +171,12 @@ tr, td {
     color: white;
     border-radius: 20px;
     width: 30%;
-    text-align: center;
     align-self: center;
     margin-right: 10px;
     border-style: solid;
     border-color: rgb(190, 188, 188);
     font-size: 20px;
+    padding-top: 15px;
 }
 
 .tinybox_middle {
