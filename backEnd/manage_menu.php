@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // ลบข้อมูลแล้ว
         if ($delete_menu) {
-            $_SESSION['menu_delete'] = "ลบเรียบร้อยแล้ว";
+            $_SESSION['menu_delete'] = "ลบเมนูอาหารเรียบร้อยแล้ว";
             header('location: ../admin/admin.php#');
 
         } // ลบข้อมูลไม่สำเร็จ
