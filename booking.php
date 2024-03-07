@@ -101,6 +101,7 @@ $db = getDB();
 
                                 <div class="card-body">
                                     <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
+                                    <button type="button" class="btn btn-secondary btn-booking" disabled>จอง</button>
 
                                     <!--<a href="booking_form.php?table_id=A02" disabled>
                                         <button type="button" class="btn btn-secondary btn-booking">จอง</button>
@@ -169,7 +170,8 @@ $db = getDB();
 
                                 <div class="card-body">
                                     <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
-                                    
+                                    <button type="button" class="btn btn-secondary btn-booking" disabled>จอง</button>
+
 
                                     <!--<a href="booking_form.php?table_id=A02" disabled>
                                         <button type="button" class="btn btn-secondary btn-booking">จอง</button>
@@ -240,6 +242,7 @@ $db = getDB();
 
                                 <div class="card-body">
                                     <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
+                                    <button type="button" class="btn btn-secondary btn-booking" disabled>จอง</button>
 
                                     <!--<a href="booking_form.php?table_id=A02" disabled>
                                         <button type="button" class="btn btn-secondary btn-booking">จอง</button>
