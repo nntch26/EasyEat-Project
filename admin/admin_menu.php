@@ -37,8 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         <div class="boxBtn mb-1">
             <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <div class="btnadd d-flex">
+
                     <div class="con-btnAdd me-2">
-                        <button type="submit" class="btn btn-dark" name="btn0">
+                        <button type="submit" class="btn btn-dark" name="btn0" >
                             <span class="ms-1">ทั้งหมด</span>
                         </button>
                     </div>
@@ -73,11 +74,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                             <span class="ms-1">เครื่องดื่ม</span>
                         </button>
                     </div>
+
                     <div class="con-btnAdd ms-auto">
-                        <button type="button" class="btn btn-primary btnAdd" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                        <a href="addMenu.php" class="btn btn-primary btnAdd">
                             <i class="fs-5 bi bi-plus-circle-fill"></i><span class="ms-1">เพิ่มเมนูอาหาร</span>
-                        </button>
+                        </a>
                     </div>
+
                 </div>
             </form>
         </div>
@@ -119,12 +122,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                             <td>
 
 
-                                <button type="button" class="btn btn-warning btnEdit" data-bs-toggle="modal" data-bs-target="#editProfileModal<?php echo $rowUser['user_id']; ?>">
+                                <button type="button" class="btn btn-warning btnEdit" data-bs-toggle="modal" data-bs-target="#editProfileModal<?php echo $row['menu_id']; ?>">
                                     <i class="fs-5 bi bi-pencil-square"></i>
                                 </button>
 
 
-                                <button type="button" class="btn btn-danger btnDelete" data-bs-toggle="modal" data-bs-target="#DeleteModal<?php echo $rowUser['user_id']; ?>">
+                                <button type="button" class="btn btn-danger btnDelete" data-bs-toggle="modal" data-bs-target="#DeleteModal<?php echo $row['menu_id']; ?>">
                                     <i class="fs-5 bi-trash3-fill"></i>
                                 </button>
 
@@ -133,9 +136,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                             </td>
                         </tr>
 
+
+
                         <!---- model แก้ไขข้อมูลสมาชิก ----->
 
-                        <div class="modal fade" id="editProfileModal<?php echo $rowUser['user_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="editProfileModal<?php echo $row['menu_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
 
@@ -201,7 +206,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
                         <!-- Modal  ยืนยันการลบข้อมูล -->
 
-                        <div class="modal fade"  id="DeleteModal<?php echo $rowUser['user_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade"  id="DeleteModal<?php echo $row['menu_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -211,16 +216,15 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                                     <div class="modal-body">
                                         <h4 class="mb-3" style="color:crimson;">คุณต้องการจะลบข้อมูลนี้จริงๆ ใช่ไหม?</h4>
                                         <p>
-                                            <b>ชื่อ-นามสกุล :</b>  <?php echo $rowUser['user_fname']." ".$rowUser['user_lname'] ?> <br>
-                                            <b>ชื่อผู้ใช้ :</b> <?php echo $rowUser['user_username'] ?><br>
-                                            <b>เบอร์โทรศัพท์ :</b> <?php echo $rowUser['user_phonenum'] ?><br>
-                                            <b>อีเมล :</b> <?php echo $rowUser['user_email'] ?>
+                                            <b>ชื่อเมนู :</b>  <?php echo $row['menu_name'] ?> <br>
+                                            <b>ราคา :</b> <?php echo $row['menu_price'] ?><br>
+                                            <b>ประเภท :</b> <?php echo $row['menu_type']?><br>
                                         </p>
 
                                     </div>
                                     <div class="modal-footer">
                                         <form action="admin_profile_system.php" method="post">
-                                            <input type="hidden" name="user_id" value="<?php echo $rowUser['user_id']; ?>">
+                                            <input type="hidden" name="user_id" value="<?php echo $row['menu_id']; ?>">
 
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
                                             <button type="submit" class="btn btn-danger" name="deletebtn">ยืนยัน</button>

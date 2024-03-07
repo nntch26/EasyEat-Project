@@ -1,6 +1,19 @@
 <?php
 
+global $db;
 include('../backend/includes/connectDB.php');
+
+$menu = $db->prepare("SELECT COUNT(menu_id) AS count_menu FROM Easyeat.Menus;");
+$user = $db->prepare("SELECT COUNT(user_id) AS count_users FROM Easyeat.Users;");
+$bill = $db->prepare("SELECT COUNT(Bill_id) AS count_bill FROM Easyeat.Bills;");
+
+$menu->execute();
+$user->execute();
+$bill->execute();
+
+$rowMenu = $menu->fetch(PDO::FETCH_ASSOC);
+$rowUser = $user->fetch(PDO::FETCH_ASSOC);
+$rowBill = $bill->fetch(PDO::FETCH_ASSOC);
 
 session_start();
 
@@ -166,21 +179,21 @@ session_start();
 
                         <div class="show2 col-3 me-3">
                             <h3>จำนวนบิล</h3>
-                            <h6>418.00 รายการ</h6>
+                            <h6><?php echo $rowBill['count_bill'] ?> รายการ</h6>
 
 
                         </div>
 
                         <div class="show3 col-3 me-3">
                             <h3>จำนวนอาหาร</h3>
-                            <h6>36 รายการ</h6>
+                            <h6><?php echo $rowMenu['count_menu'] ?> รายการ</h6>
 
 
                         </div>
 
                         <div class="show4 col-3">
                             <h3>สมาชิกทั้งหมด</h3>
-                            <h6>205 คน</h6>
+                            <h6><?php echo $rowUser['count_users'] ?> คน</h6>
 
 
                         </div>
@@ -272,7 +285,7 @@ session_start();
 
 
                                 <table class="table table-striped ">
-                                    <thead class="table-dark">
+                                    <thead>
                                         <tr>
                                             <th>รหัส</th>
                                             <th>ชื่อ-นามสกุล</th>
