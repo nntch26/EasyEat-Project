@@ -217,8 +217,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
                                     </div>
                                     <div class="modal-footer">
-                                        <form action="admin_profile_system.php" method="post">
-                                            <input type="hidden" name="user_id" value="<?php echo $row['menu_id']; ?>">
+                                        <form action="../backEnd/manage_menu.php" method="post" enctype="multipart/form-data">
+                                            <input type="hidden" name="menu_id" value="<?php echo $row['menu_id']; ?>">
 
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
                                             <button type="submit" class="btn btn-danger" name="deletebtn">ยืนยัน</button>

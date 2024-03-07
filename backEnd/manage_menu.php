@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $db = null;  // Close database connection
 
 
-    // ------------- อัปเดตเมนูอาหาร --------------------
+        // ------------- อัปเดตเมนูอาหาร --------------------
 
     } else if (isset($_POST['upbtn'])) {
 
@@ -81,9 +81,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $db = null;  // Close database connection
 
 
-    // ------------- ลบเมนูอาหาร--------------------
+        // ------------- ลบเมนูอาหาร--------------------
 
-    } else if (isset($_POST['sumbit_delete_menu'])) {
+    } else if (isset($_POST['deletebtn'])) {
 
         $menu_id = $_POST['menu_id'];
 
@@ -104,8 +104,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $delete_menu->bindParam(':menu_id', $menu_id);
         $delete_menu->execute();
 
-        header('location: ../index.php');
+        // ลบข้อมูลแล้ว
+        if ($delete_menu) {
+            $_SESSION['menu_delete'] = "ลบเรียบร้อยแล้ว";
+            header('location: ../admin/admin.php#');
+
+        } // ลบข้อมูลไม่สำเร็จ
+        else {
+            $_SESSION['err_delete'] = "ไม่สามารถลบข้อมูลได้";
+            header('location: ../admin/admin.php#');
+
+        }
+
+
+
+
     }
+
 }
 
 function handleImageUpload($fileInputName, $destinationDirectory)
