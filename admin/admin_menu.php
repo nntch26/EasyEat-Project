@@ -138,64 +138,58 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 
 
-                        <!---- model แก้ไขข้อมูลสมาชิก ----->
+                        <!---- model แก้ไขข้อมูล ----->
 
                         <div class="modal fade" id="editProfileModal<?php echo $row['menu_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูล</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">แก้ไขเมนูอาหาร</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
 
                                     <div class="modal-body">
 
-                                        <form action="admin_profile_system.php" method="post">
+                                        <form action="../backEnd/manage_menu.php" method="post" enctype="multipart/form-data">
 
-                                            <div class="row">
-                                                <div class="form-outline mb-3 col-md-6">
-                                                    <label class="form-label">ชื่อ</label>
-                                                    <input type="text" name="firstname" id="firstname" class="form-control" minlength="3"
-                                                           value="<?php
-                                                           echo $rowUser['user_fname'] ?>"/>
-                                                </div>
-
-                                                <div class="form-outline mb-3 col-md-6">
-                                                    <label class="form-label">นามสกุล</label>
-                                                    <input type="text" name="lastname" id="lastname" class="form-control" minlength="3"
-                                                           value="<?php
-                                                           echo $rowUser['user_lname']; ?>"/>
-                                                </div>
+                                            <div class="form-outline mb-3 col-md-12">
+                                                <label class="form-label">ชื่อเมนูอาหาร</label>
+                                                <input type="text" name="menu_name" class="form-control" minlength="3"
+                                                       value="<?php echo $row['menu_name'] ?>" required/>
                                             </div>
 
 
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="username">ชื่อผู้ใช้</label>
-                                                <input type="text" name="username" id="username" class="form-control" minlength="5"
-                                                       value="<?php echo $rowUser['user_username']; ?>"/>
+                                            <div class="form-outline mb-3 col-md-12">
+                                                <label class="form-label" for="username">ราคา</label>
+                                                <input type="text" name="menu_price" id="username" class="form-control"
+                                                       value="<?php echo $row['menu_price'] ?>" required/>
                                             </div>
 
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="email">อีเมล</label>
-                                                <input type="email" name="email" id="email" class="form-control" value="<?php
-                                                echo $rowUser['user_email']; ?>"/>
+                                            <div class="col-md-12 ps-0 mb-3">
+                                                <label class="form-label">ประเภทอาหาร</label>
+                                                <select name="menu_type" class="form-select shadow-none" required>
+                                                    <option value="0" selected hidden>---เลือกประเภท---</option>
+                                                    <option value="ทานเล่น">ทานเล่น</option>
+                                                    <option value="กับข้าว">กับข้าว</option>
+                                                    <option value="อาหารจานเดียว">อาหารจานเดียว</option>
+                                                    <option value="แกง">แกง</option>
+                                                    <option value="ขนมหวาน">ขนมหวาน</option>
+                                                    <option value="เครื่องดื่ม">เครื่องดื่ม</option>
+                                                </select>
                                             </div>
 
 
-                                            <div class="form-outline mb-3">
-                                                <label for="tel" class="form-label">เบอร์โทรศัพท์</label>
-                                                <input type="tel" name="phone" class="form-control" value="<?php
-                                                echo $rowUser['user_phonenum']; ?>">
+                                            <div class="col-md-12 ps-0 mb-3">
+                                                <label class="form-label">อัปโหลดรูปภาพอาหาร</label>
+                                                <input type="file" name="food_img" class="form-control shadow-none" required>
                                             </div>
-
-
 
                                             <div class="cont-btn mt-3" style="text-align:right; ">
-                                                <input type="hidden" name="user_id" value="<?php echo $rowUser['user_id']; ?>">
+                                                <input type="hidden" name="menu_id" value="<?php echo $row['menu_id']; ?>">
 
                                                 <button type="button" class="btn btn-secondary btn-cus2 me-2" data-bs-dismiss="modal">ยกเลิก</button>
-                                                <button type="submit" class="btn btn-primary btn-cus2 me-5" name="upbtn" > บันทึก</button>
+                                                <button type="submit" class="btn btn-primary btn-cus2 " name="upbtn" > บันทึก</button>
                                             </div>
 
                                         </form>

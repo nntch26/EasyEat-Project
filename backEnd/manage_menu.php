@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // ------------- เพิ่มเมนูอาหารใหม่ --------------------
 
     if (isset($_POST['food_update'])) {
+
         $menu_name = $_POST['menu_name'];
         $menu_price = $_POST['menu_price'];
         $menu_type = $_POST['menu_type'];
@@ -42,11 +43,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // ------------- อัปเดตเมนูอาหาร --------------------
 
-    } else if (isset($_POST['sumbit_update_menu'])) {
+    } else if (isset($_POST['upbtn'])) {
+
         $menu_id = $_POST['menu_id'];
         $menu_name = $_POST['menu_name'];
         $menu_price = $_POST['menu_price'];
         $menu_type = $_POST['menu_type'];
+
         //ช่อง input แรก คือ ชื่อ ID, NAME ของที่เราตั้งใน FORM
         $uploadedFilename = handleImageUpload("food_img", __DIR__ . "/menu_img");
 
@@ -66,9 +69,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $update_menu->bindParam(':img_name', $uploadedFilename);
             $update_menu->bindParam(':menu_id', $menu_id);
             $update_menu->execute();
-            header('location: ../index.php');
+
+            $_SESSION['menu_update'] = "อัปเดตข้อมูลเรียบร้อยแล้ว";
+            header('location: ../admin/admin.php');
+
         } else {
-            echo "Error uploading file!";
+            $_SESSION['err_update'] = "<b>ข้อผิดพลาด:</b> ไม่สามารถนำเข้าข้อมูลได้";
+            header('location: ../admin/admin.php');
+
         }
         $db = null;  // Close database connection
 

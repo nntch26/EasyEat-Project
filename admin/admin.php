@@ -128,6 +128,15 @@ session_start();
                         <?php
                         endif; ?>
 
+                        <!-- อัพเดทข้อมูลเมนูสำเร็จ -->
+                        <?php
+                        if (isset($_SESSION['menu_update'])) : ?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo $_SESSION['menu_update']; ?>
+                            </div>
+                        <?php
+                        endif; ?>
+
                          <!-- ลบข้อมูลสำเร็จ -->
                          <?php
                         if (isset($_SESSION['profile_delete'])) : ?>
@@ -166,6 +175,8 @@ session_start();
                             </div>
                         <?php
                         endif; ?>
+
+
 
 
 
@@ -420,13 +431,15 @@ session_start();
 
  if (isset($_SESSION['profile_update']) 
  || isset($_SESSION['error_chck']) || isset($_SESSION['err_update']) 
- || isset($_SESSION['profile_delete']) ||isset($_SESSION['err_delete'])) {
+ || isset($_SESSION['profile_delete']) ||isset($_SESSION['err_delete'])
+ || isset($_SESSION['menu_update'])) {
 
     unset($_SESSION['error_chck']);
     unset($_SESSION['err_update']);
     unset($_SESSION['profile_update']);
     unset($_SESSION['profile_delete']);
     unset($_SESSION['err_delete']);
+    unset($_SESSION['menu_update']);
 
 }
 ?>

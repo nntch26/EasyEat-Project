@@ -67,7 +67,7 @@ session_start();
 
                         <div class="col-md-12 ps-0 mb-3">
                             <label class="form-label">ชื่อเมนูอาหาร</label>
-                            <input type="text" name="menu_name"  class="form-control shadow-none" required>
+                            <input type="text" name="menu_name"  class="form-control shadow-none" required minlength="3">
                         </div>
 
                         <div class="col-md-12 ps-0 mb-3">
