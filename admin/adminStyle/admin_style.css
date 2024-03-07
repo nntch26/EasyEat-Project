@@ -71,7 +71,7 @@ body{
 .dashboard{
   background-color: #ff7b00;
 }
-.dashboard, .member, .sale{
+.dashboard, .member, .sale, .foodmenu{
   background-color: #eef3fe;
   padding: 30px;
 }
@@ -80,7 +80,7 @@ body{
   margin-top: 20px;
   background-color: white;
   border-radius: 20px;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 
 }
@@ -104,6 +104,12 @@ body{
   padding: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
+/* //////////////////// foodMenu ////////////////////////////// */
+
+.foodmenu{
+  background-color: #eef3fe;
+}
+
 
 
 

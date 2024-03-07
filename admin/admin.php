@@ -33,7 +33,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
           rel="stylesheet">
 
-    
+
 
 </head>
 <body>
@@ -55,26 +55,26 @@ session_start();
 
                 <ul class="nav">
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="showmenu('btnhome')">
+                        <a href="#home" class="nav-link" onclick="showmenu('btnhome')">
                             <i class="fs-5 bi bi-bar-chart-fill"></i><span class="ms-1">รายงานผล</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="showmenu('btnfoodmenu')">
+                        <a href="#menu" class="nav-link" onclick="showmenu('btnfoodmenu')">
                             <i class="fs-5 bi-grid"></i><span class="ms-1">จัดการเมนูอาหาร</span>
                         </a>
                     </li>
 
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="showmenu('btnmember')">
+                        <a href="#member" class="nav-link" onclick="showmenu('btnmember')">
                             <i class="fs-5 bi bi-people-fill"></i><span class="ms-1">จัดการระบบสมาชิก</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="showmenu('btnsale')">
+                        <a href="#sale" class="nav-link" onclick="showmenu('btnsale')">
                             <i class="fs-5 bi bi-table"></i><span class="ms-1">ดูประวัติการขาย</span>
                         </a>
                     </li>
@@ -319,7 +319,7 @@ session_start();
        
 
         <div class="col foodmenu" id="foodmenu">
-            Content area...1
+            <?php include("admin_menu.php"); ?>
         </div>
 
         <div class="col member" id="member">
