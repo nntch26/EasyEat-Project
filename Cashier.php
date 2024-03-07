@@ -104,10 +104,16 @@
                     <p>รวม :</p>
                 </div>
                 <div class="tinybox_bottom">
-                    <button class="descrip"><a class="descripAhref" href="#popup-box-pay">แสดงรายละเอียด</a></button>
-                    <button class="bill"><a class="descripAhref" href="">เช็คบิล</a></button>
+                    <button class="btnstyle"><a class="descripAhref" href="#popup-box-pay">แสดงรายละเอียด</a></button>
+                    <button class="btnstyle"><a class="descripAhref" onclick="showmenu('btn_payment_info')">เช็คบิล</a></button>
                 </div>
             </div>
+
+        </div>
+
+        <div class ="PaymentBox"id="PaymentBox">
+
+            <?php include("Cashier_payment.php"); ?>
 
         </div>
 <!------------------------------------------------------------->
@@ -173,6 +179,19 @@
             </a>
         </div>
     </div>
+
+    <div class="modal" id="popup-box-print">
+        <div class="content">
+            <h4>ต้องการพิมพ์ใบเสร็จใช่หรือไม่?</h4>
+            <div class="list">
+                <button class="btnstyle">พิมพ์</button>
+                <button class="btnstyle"><a class="descripAhref" href="#">ยกเลิก</a></button>
+            </div>
+            <a class="box-close" href="#">
+                x
+            </a>
+        </div>
+    </div>
     
 </div>
 
@@ -184,6 +203,7 @@
         document.getElementById("ManageTableMenu").style.display = "none";
         document.getElementById("HistoryMenu").style.display = "none";
         document.getElementById("navbox").style.display = "none";
+        document.getElementById("PaymentBox").style.display = "none";
         if (btnvalue == "btn_payment") {
             document.getElementById("PaymentMenu").style.display = "flex";
             document.getElementById("navbox").style.display = "flex";
@@ -192,6 +212,9 @@
             document.getElementById("navbox").style.display = "flex";
         } else if (btnvalue == "btn_history") {
             document.getElementById("HistoryMenu").style.display = "flex";
+            document.getElementsById("navbox").style.display = "none";
+        } else if (btnvalue == "btn_payment_info"){
+            document.getElementById("PaymentBox").style.display = "flex";
             document.getElementsById("navbox").style.display = "none";
         }
     }
