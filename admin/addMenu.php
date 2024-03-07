@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +34,81 @@
 <body>
 
 <div class="container">
+    <div class="cus-cont">
+        <form action="../backEnd/manage_menu.php" method="post" enctype="multipart/form-data">
+            <h1 class="mt-5 mb-5">เพิ่มเมนูอาหารใหม่!</h1>
+
+            <!---alert -->
+
+            <!-- เพิ่มข้อมูลสำเร็จ -->
+            <?php
+            if (isset($_SESSION['succ_insert'])) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?php
+                    echo $_SESSION['succ_insert']; ?>
+                </div>
+            <?php
+            endif; ?>
+
+            <!-- เพิ่มข้อมูลไม่สำเร็จ -->
+            <?php
+            if (isset($_SESSION['error_insert'])) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php
+                    echo $_SESSION['error_insert']; ?>
+                </div>
+            <?php
+            endif; ?>
 
 
+            <div class="contentMenu-body">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12 ps-0 mb-3">
+                            <label class="form-label">ชื่อเมนูอาหาร</label>
+                            <input type="text" name="menu_name"  class="form-control shadow-none" required>
+                        </div>
+
+                        <div class="col-md-12 ps-0 mb-3">
+                            <label class="form-label">ราคา</label>
+                            <input type="text" name="menu_price" class="form-control shadow-none" required>
+                        </div>
+
+
+                        <div class="col-md-6 ps-0 mb-3">
+                            <label class="form-label">ประเภทอาหาร</label>
+                            <select name="menu_type" class="form-select shadow-none" required>
+                                <option value="0" selected hidden>---เลือกประเภท---</option>
+                                <option value="ทานเล่น">ทานเล่น</option>
+                                <option value="กับข้าว">กับข้าว</option>
+                                <option value="อาหารจานเดียว">อาหารจานเดียว</option>
+                                <option value="แกง">แกง</option>
+                                <option value="ขนมหวาน">ขนมหวาน</option>
+                                <option value="เครื่องดื่ม">เครื่องดื่ม</option>
+                            </select>
+                        </div>
+
+
+                        <div class="col-md-6 ps-0 mb-3">
+                            <label class="form-label">อัปโหลดรูปภาพอาหาร</label>
+                            <input type="file" name="food_img" class="form-control shadow-none" required>
+                        </div>
+
+
+
+
+                        <div class="text-center my-1">
+                               <a href="admin.php" class="btn btn-secondary  mb-4 mt-4 me-2">ยกเลิก</a>
+                               <button type="submit" name="food_update" class="btn btn-primary mb-4 mt-4  me-2">เพิ่มข้อมูล</button>
+
+                        </div>
+
+                    </div>
+                </div>
+        </form>
+
+    </div>
 </div>
 
 
@@ -45,15 +123,11 @@ $db = null;
 
 // ล้าง session
 
-if (isset($_SESSION['profile_update'])
-    || isset($_SESSION['error_chck']) || isset($_SESSION['err_update'])
-    || isset($_SESSION['profile_delete']) ||isset($_SESSION['err_delete'])) {
+if (isset($_SESSION['succ_insert']) || isset($_SESSION['error_insert'])) {
 
-    unset($_SESSION['error_chck']);
-    unset($_SESSION['err_update']);
-    unset($_SESSION['profile_update']);
-    unset($_SESSION['profile_delete']);
-    unset($_SESSION['err_delete']);
+    unset($_SESSION['succ_insert']);
+    unset($_SESSION['error_insert']);
+
 
 }
 ?>
