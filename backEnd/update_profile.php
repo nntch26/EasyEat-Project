@@ -2,8 +2,6 @@
 include('includes/connectDB.php');
 
 session_start();
-$db = getDB();
-
 
 // ถ้ากดปุ่มบันทึกข้อมูล อัพเดท
 

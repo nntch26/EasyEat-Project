@@ -1,7 +1,6 @@
 <?php
 include('includes/connectDB.php');
 session_start();
-$db = getDB();
 
 if (isset($_POST['submit_booking_insert'])) {
     $table_id = $_POST['table_idxD'];

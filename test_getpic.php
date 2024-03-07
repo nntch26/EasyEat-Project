@@ -1,6 +1,5 @@
 <?php
 include('backEnd/includes/connectDB.php');
-$db = getDB();
 $stmt = $db->prepare("SELECT * FROM Menus");
 $stmt->execute();
 // SQL query to fetch menu data

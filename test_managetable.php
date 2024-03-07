@@ -1,6 +1,5 @@
 <?php
 include('backEnd/includes/connectDB.php');
-$db = getDB();
 $stmt = $db->prepare("SELECT t.table_id, t.table_status, u.*
                     FROM Tables t
                     INNER JOIN Reservations r ON t.table_id = r.table_id

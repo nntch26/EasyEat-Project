@@ -7,8 +7,6 @@ if (!isset($_SESSION['is_login'])) {
     header('location: login.php');
 } else {
 
-    $db = getDB();
-
     $select_sql = $db->prepare("SELECT * FROM Users WHERE user_id = :userid");
     $select_sql->bindParam(':userid', $_SESSION["userid"]);
     $select_sql->execute();
