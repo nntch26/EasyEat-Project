@@ -3,7 +3,7 @@
 include '../connectDB.php';
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-$db = getDB();
+
 
 // Get the JSON data sent from the client
 $Data = json_decode(file_get_contents("php://input"));
