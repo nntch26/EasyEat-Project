@@ -1,7 +1,7 @@
 <?php
-include('backEnd/includes/connectDB.php');
-session_start();
 
+include('backEnd/includes/connectDB.php');
+global $db;
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +71,8 @@ session_start();
                         $sql1->execute();
 
                         while ($row1= $sql1->fetch(PDO::FETCH_ASSOC)) :
-                        if ($row1['table_status'] == 'Available'): 
+
+                        if ($row1['table_status'] == 'ว่าง'):
                     ?>
 
                     <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
@@ -90,7 +91,7 @@ session_start();
                             </div>
                         </div>
                     </div>
-                    <?php elseif ($row1['table_status'] == 'Occupied') : ?>
+                    <?php elseif ($row1['table_status'] == 'ไม่ว่าง') : ?>
                         <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
                             <div class="card text-center card-booking2" style="width: 200px;">
                                 <div class="card-header d-flex">
@@ -108,7 +109,8 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                    <?php elseif ($row1['table_status'] == 'Booked') : ?>
+
+                    <?php elseif ($row1['table_status'] == 'จอง') : ?>
                         <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
                             <div class="card text-center card-booking1" style="width: 200px;">
                                 <div class="card-header d-flex">
@@ -140,7 +142,8 @@ session_start();
                         $sql1->execute();
 
                         while ($row1= $sql1->fetch(PDO::FETCH_ASSOC)) :
-                        if ($row1['table_status'] == 'Available'): 
+
+                        if ($row1['table_status'] == 'ว่าง'):
                     ?>
 
                     <div class="col-md-4 mb-3">
@@ -159,7 +162,9 @@ session_start();
                             </div>
                         </div>
                     </div>
-                    <?php elseif ($row1['table_status'] == 'Occupied') : ?>
+
+
+                    <?php elseif ($row1['table_status'] == 'ไม่ว่าง') : ?>
                         <div class="col-md-4 mb-3">
                             <div class="card text-center card-booking2" style="width: 400px;">
                                 <div class="card-header d-flex">
@@ -178,7 +183,8 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                    <?php elseif ($row1['table_status'] == 'Booked') : ?>
+
+                    <?php elseif ($row1['table_status'] == 'จอง') : ?>
                         <div class="col-md-4 mb-3">
                             <div class="card text-center card-booking1" style="width: 400px;">
                                 <div class="card-header d-flex">
@@ -210,7 +216,7 @@ session_start();
                         $sql1->execute();
 
                         while ($row1= $sql1->fetch(PDO::FETCH_ASSOC)) :
-                        if ($row1['table_status'] == 'Available'): 
+                        if ($row1['table_status'] == 'ว่าง'):
                     ?>
 
                     <div class="col-md-4 mb-3">
@@ -230,7 +236,7 @@ session_start();
                         </div>
                     </div>
 
-                    <?php elseif ($row1['table_status'] == 'Occupied') : ?>
+                    <?php elseif ($row1['table_status'] == 'ไม่ว่าง') : ?>
 
                         <div class="col-md-4 mb-3">
                             <div class="card text-center card-booking2" style="width: 300px;">
@@ -250,7 +256,7 @@ session_start();
                             </div>
                         </div>
 
-                    <?php elseif ($row1['table_status'] == 'Booked') : ?>
+                    <?php elseif ($row1['table_status'] == 'จอง') : ?>
 
                         <div class="col-md-4 mb-3">
                             <div class="card text-center card-booking1" style="width: 300px;">
