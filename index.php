@@ -316,7 +316,7 @@ require('inc/navbar.php'); ?>
 <!--- footer --->
 <footer class="text-center text-white" style="background-color: #222;">
 
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center" style="margin-right: 15px">
 
 
         <div class="col-lg-8 mb-3">
