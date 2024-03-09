@@ -24,7 +24,7 @@ if (isset($_POST['submit_booking_insert'])) {
         $insertReservation->execute();
 
         // Update table status
-        $changeStatus = $db->prepare("UPDATE Tables SET table_status = 'Booked' WHERE table_id = :table_id");
+        $changeStatus = $db->prepare("UPDATE Tables SET table_status = 'จอง' WHERE table_id = :table_id");
         $changeStatus->bindParam(':table_id', $table_id);
         $changeStatus->execute();
     } catch (PDOException $e) {
