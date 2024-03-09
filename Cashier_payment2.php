@@ -1,12 +1,8 @@
 <?php
 
-
 ?>
 
-    <div style="text-align:left;">
-        <button onclick="showmenu('btn_payment')" class="btnstyle">ย้อนกลับ</button>
-    </div>
-    <form action="#" method="post"id="printJS-form">
+<form action="#" method="post"id="printJS-form2">
         <div>
             <div style="text-align : center;">
                 <h3>EasyEat</h3>
@@ -39,6 +35,14 @@
                 <th colspan="4">รวม</th>
                 <td>54646165.0 บาท</td>
             </tr>
+            <tr>
+                <th colspan="4">รับมา</th>
+                <td>54646165.0 บาท</td>
+            </tr>
+            <tr>
+                <th colspan="4">ทอน</th>
+                <td>54646165.0 บาท</td>
+            </tr>
         </table>
         <style>
             table {
@@ -63,9 +67,3 @@
                 }
         </style>
     </form>
-
-<br>
-<div>
-    <button class="btnstyle"><a onclick="printJS('printJS-form', 'html')" class="descripAhref">พิมพ์ใบเสร็จ</a></button>
-    <button class="btnstyle"><a href="#popup-box-pay" class="descripAhref">เช็คบิล</a></button>
-</div>

@@ -125,6 +125,7 @@
                 </a>
             </div>
         </div>
+    
 
         <div class="modal" id="popup-box-pay">
             <div class="content">
@@ -137,8 +138,12 @@
                     <br>
                     <label>ทอน : ....</label>
                     <hr>
-                    <button class="btnstyle" onclick="printJS('printJS-form', 'html')">เช็คบิล</button>
+                    <button class="btnstyle" onclick="printJS('printJS-form2', 'html')">เช็คบิล</button>
                     <button class="btnstyle"><a class="descripAhref" href="#">ยกเลิก</a></button>
+                    <div style="display: none;">
+                        <?php include("Cashier_payment2.php"); ?>
+                    </div>
+
                 </div>
                 <a class="box-close" href="#">
                     x
@@ -174,20 +179,7 @@
             </div>
         </div>
 
-        <div class="modal" id="popup-box-print">
-            <div class="content">
-                <h4>ต้องการพิมพ์ใบเสร็จใช่หรือไม่?</h4>
-                <div class="list">
-                    <button class="btnstyle" onclick="printJS('printJS-form', 'html')">พิมพ์</button>
-                    <button class="btnstyle"><a class="descripAhref" href="#">ยกเลิก</a></button>
-                </div>
-                <a class="box-close" href="#">
-                    x
-                </a>
-            </div>
-        </div>
         
-
     </div>
 
 
