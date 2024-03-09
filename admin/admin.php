@@ -16,7 +16,6 @@ $rowUser = $user->fetch(PDO::FETCH_ASSOC);
 $rowBill = $bill->fetch(PDO::FETCH_ASSOC);
 
 session_start();
-
 ?>
 
 <!DOCTYPE html>
