@@ -18,16 +18,34 @@
 <body>
     <script>
         function opendetail(){
-            document.getElementById("detail").style.width = "100%";
-            document.getElementById("detail").style.height = "100%";
+        var detail = document.getElementById("detail");
+            if (detail.style.width === "100%") {
+                detail.style.width = "0";
+                detail.style.height = "0";
+            } else {
+                detail.style.width = "100%";
+                detail.style.height = "100%";
+            }
         }
         function opendetail2(){
-            document.getElementById("detail-2").style.width = "100%";
-            document.getElementById("detail-2").style.height = "100%";
+            var detail2 = document.getElementById("detail-2");
+            if (detail2.style.width === "100%") {
+                detail2.style.width = "0";
+                detail2.style.height = "0";
+            } else {
+                detail2.style.width = "100%";
+                detail2.style.height = "100%";
+            }
         }
         function opendetail3(){
-            document.getElementById("detail-3").style.width = "100%";
-            document.getElementById("detail-3").style.height = "100%";
+            var detail3 = document.getElementById("detail-3");
+            if (detail3.style.width === "100%") {
+                detail3.style.width = "0";
+                detail3.style.height = "0";
+            } else {
+                detail3.style.width = "100%";
+                detail3.style.height = "100%";
+            }
         }
     </script>
     <div class="topbar">
@@ -85,6 +103,13 @@
                         </div>
                         <label class="de-right" for="">ราคา</label>
                     </div>
+                    <hr>
+                    <div class="order">
+                        <div class="de-left">
+                            <label for="">รวมทั้งหมด</label>
+                        </div>
+                        <label class="de-right" for="">ราคา</label>
+                    </div>
                 </div>
             </div>
             <div class="box">
@@ -118,6 +143,13 @@
                         </div>
                         <label class="de-right" for="">ราคา</label>
                     </div>
+                    <hr>
+                    <div class="order">
+                        <div class="de-left">
+                            <label for="">รวมทั้งหมด</label>
+                        </div>
+                        <label class="de-right" for="">ราคา</label>
+                    </div>
                 </div>
             </div>
             <div class="box">
@@ -148,6 +180,13 @@
                         <div class="de-left">
                             <label for="">ชื่ออาหาร </label>
                             <label for="">x จำนวน</label>
+                        </div>
+                        <label class="de-right" for="">ราคา</label>
+                    </div>
+                    <hr>
+                    <div class="order">
+                        <div class="de-left">
+                            <label for="">รวมทั้งหมด</label>
                         </div>
                         <label class="de-right" for="">ราคา</label>
                     </div>
