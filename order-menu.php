@@ -28,7 +28,7 @@
         flex-direction: column;
     }
 </style>
-<body>
+<body onload="loadallmenu()";>
     <!-- ส่วนของแถบข้าง ๆ -->
     <div class="topbar">
         <div id="mySidenav" class="sidenav">
@@ -184,7 +184,7 @@ function loadmenu(type, num, ele){
                 var row = `<div class="carousel-item active">
                                 <div class="one">
                                     <div class="card" style="width: 18rem;">
-                                        <img src="img2/`+menu.menu_pic+`" class="card-img-top" alt="">
+                                        <img src="backEnd/menu_img/`+menu.menu_pic+`" class="card-img-top" alt="">
                                         <div class="card-body">
                                             <h5 class="card-title">`+menu.menu_name+`Card title2</h5>
                                             <div class="back">
@@ -201,7 +201,7 @@ function loadmenu(type, num, ele){
             var row = `<div class="carousel-item">
                                 <div class="one">
                                     <div class="card" style="width: 18rem;">
-                                        <img src="img2/`+menu.menu_pic+`" class="card-img-top" alt="">
+                                        <img src="backEnd/menu_img/`+menu.menu_pic+`" class="card-img-top" alt="">
                                         <div class="card-body">
                                             <h5 class="card-title">`+menu.menu_name+`Card title2</h5>
                                             <div class="back">
@@ -333,7 +333,7 @@ var showMenu = function(parameter) {
             <div class="card" style="width: 18rem;">
                 <img alt="`+menu.menu_pic+`"
                      class="card-img-top"
-                     src="img2/`+menu.menu_pic+`">
+                     src="backEnd/menu_img/`+menu.menu_pic+`">
                 <div class="card-body">
                     <h5 class="card-title">`+menu.menu_name+ +menu.menu_price+`</h5>
                     <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>

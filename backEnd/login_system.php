@@ -73,10 +73,10 @@ function loginUser($username, $password, $db)
 
         } else if ($rowuser['user_role'] == "Chef") {
 
-            header('location: ../ChefOrderedMenu.php');
+            header('location: ../index.php');
 
         } else if ($rowuser['user_role'] == "Cashier") {
-            header('location: ../Cashier.php');
+            header('location: ../index.php');
 
         } // เข้าสู่ระบบสำหรับ user
         else if (password_verify($password, $rowuser['user_pass'])) {

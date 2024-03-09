@@ -2,7 +2,7 @@
 include '../connectDB.php';
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-$db = getDB();
+
 $data = json_decode(file_get_contents("php://input"));
 try {
     $stmt = $db->prepare("SELECT *
