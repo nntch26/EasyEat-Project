@@ -23,7 +23,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 </head>
-
 <body>
 
     <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
@@ -108,7 +107,7 @@
 
     <!--popup แสดงรายละเอียด-->
     <div class="popup-box">
-        <div class="modal" id="popup-box-pay">
+        <div class="modal" id="popup-box-info">
             <div class="content">
                 <h3>รายละเอียด</h3>
                 <hr>
@@ -120,6 +119,26 @@
                     <h3>รวม</h3>
                     <p>เป็นล้านเลยพี่</p>
                     <hr>
+                </div>
+                <a class="box-close" href="#">
+                    x
+                </a>
+            </div>
+        </div>
+
+        <div class="modal" id="popup-box-pay">
+            <div class="content">
+                <h4>เช็คบิล โต๊ะ ..... เลขที่ใบเสร็จ .....</h4>
+                <div class="list" style="font-size: 20px;">
+                    <label>รวมทั้งสิ้น : .....</label>
+                    <br>
+                    <label>รับเงินมา :</label>
+                    <input type="text" style="width: 50%;">
+                    <br>
+                    <label>ทอน : ....</label>
+                    <hr>
+                    <button class="btnstyle" onclick="printJS('printJS-form', 'html')">เช็คบิล</button>
+                    <button class="btnstyle"><a class="descripAhref" href="#">ยกเลิก</a></button>
                 </div>
                 <a class="box-close" href="#">
                     x
@@ -167,6 +186,7 @@
                 </a>
             </div>
         </div>
+        
 
     </div>
 

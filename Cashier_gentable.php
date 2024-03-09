@@ -53,7 +53,7 @@ try {
         echo '<p>รวม :</p>';
         echo '</div>';
         echo '<div class="tinybox_bottom">';
-        echo '<button class="btnstyle" style="margin-right:20px;"><a class="descripAhref" href="#popup-box-pay">แสดงรายละเอียด</a></button>';
+        echo '<button class="btnstyle" style="margin-right:20px;"><a class="descripAhref" href="#popup-box-info">แสดงรายละเอียด</a></button>';
         echo '<button class="btnstyle"><a class="descripAhref" onclick="showmenu(\'btn_payment_info\')">เช็คบิล</a></button>';
         echo '</div>';
         echo '</div>';

@@ -2,17 +2,18 @@
 
 
 ?>
+
+    <div style="text-align:left;">
+        <button onclick="showmenu('btn_payment')" class="btnstyle">ย้อนกลับ</button>
+    </div>
     <form action="#" mrthod="post"id="printJS-form">
-        <div class="smallbox_pay_info">
-            <div style="text-align:left;">
-                <button onclick="showmenu('btn_payment')" class="btnstyle">ย้อนกลับ</button>
-            </div>
-            <div>
+        <div>
+            <div style="text-align : center;">
                 <h3>EasyEat</h3>
                 <p>เลขที่บิล : ....</p>
                 <p>รายการโต๊ะ ...... จำนวน ...... คน วันที่/เวลา ........</p>
             </div>
-            <div>
+            <div style="text-align : center;">
                 <input type="radio" name="smt">something
                 <input type="radio" name="smt">something
                 <hr>
@@ -39,9 +40,32 @@
                 <td>54646165.0 บาท</td>
             </tr>
         </table>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+                
+            th {
+                border-collapse: collapse;
+                background-color: lightblue;
+                border-color: gray;
+                border-style: solid;
+                border-width: thin;
+            }
+                
+            tr, td {
+                    border-color: gray;
+                    border-style: solid;
+                    border-width: thin;
+                    background-color: white;
+                    font-weight: normal;
+                }
+        </style>
     </form>
 
 <br>
 <div>
     <button class="btnstyle"><a href="#popup-box-print" class="descripAhref">พิมพ์ใบเสร็จ</a></button>
+    <button class="btnstyle"><a href="#popup-box-pay" class="descripAhref">เช็คบิล</a></button>
 </div>
