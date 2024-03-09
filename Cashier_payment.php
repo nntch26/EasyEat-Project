@@ -67,5 +67,6 @@
 <br>
 <div>
     <button class="btnstyle"><a onclick="printJS('printJS-form', 'html')" class="descripAhref">พิมพ์ใบเสร็จ</a></button>
-    <button class="btnstyle"><a href="#popup-box-pay" class="descripAhref">เช็คบิล</a></button>
+    <button class="btnstyle"><a href="#popup-box-pay" class="descripAhref">เงินสด</a></button>
+    <button class="btnstyle"><a href="#popup-box-promppay" class="descripAhref">โอนเงิน</a></button>
 </div>

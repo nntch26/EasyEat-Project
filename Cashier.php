@@ -137,13 +137,32 @@
                     <input type="text" style="width: 50%;">
                     <br>
                     <label>ทอน : ....</label>
+                    <br>
+                    <label>เบอร์โทร</label>
+                    <input type="text" style="width: 50%;">
                     <hr>
                     <button class="btnstyle" onclick="printJS('printJS-form2', 'html')">เช็คบิล</button>
                     <button class="btnstyle"><a class="descripAhref" href="#">ยกเลิก</a></button>
                     <div style="display: none;">
                         <?php include("Cashier_payment2.php"); ?>
                     </div>
+                </div>
+                <a class="box-close" href="#">
+                    x
+                </a>
+            </div>
+        </div>
 
+        <div class="modal" id="popup-box-promppay">
+            <div class="content">
+                <h3>QR Code</h3>
+                <div class="list">
+                    <h1>ใส่ QR ตรงนี้เด้อจ่ะ</h1>
+                    <label>เบอร์โทร</label>
+                    <input type="text" style="width: 50%;">
+                    <hr>
+                    <button class="btnstyle" onclick="printJS('printJS-form2', 'html')">เสร็จสิ้น</button>
+                    <button class="btnstyle"><a class="descripAhref" href="#">ยกเลิก</a></button>
                 </div>
                 <a class="box-close" href="#">
                     x
