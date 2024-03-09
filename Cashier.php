@@ -157,7 +157,7 @@
                 <hr>
                 <div class="list">
                     <label>จำนวนคน : </label>
-                    <input style="width: 10%; font-size: 18px;" type="number">
+                    <input style="width: 15%; font-size: 18px;" type="number">
                     <hr>
                     <button class="descrip"><a class="descripAhref" href="#popup-box-table1.5">สั่งอาหาร</a></button>
                 </div>
