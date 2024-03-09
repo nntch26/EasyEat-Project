@@ -2,7 +2,6 @@
 include('includes/connectDB.php');
 
 session_start();
-$db = getDB();
 
 
 // ถ้ากดปุ่มสมัครสมาชิก

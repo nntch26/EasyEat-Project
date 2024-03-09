@@ -71,7 +71,7 @@ body{
 .dashboard{
   background-color: #ff7b00;
 }
-.dashboard, .member, .sale{
+.dashboard, .member, .sale, .foodmenu{
   background-color: #eef3fe;
   padding: 30px;
 }
@@ -80,7 +80,7 @@ body{
   margin-top: 20px;
   background-color: white;
   border-radius: 20px;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 
 }
@@ -104,6 +104,12 @@ body{
   padding: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
+/* //////////////////// foodMenu ////////////////////////////// */
+
+.foodmenu{
+  background-color: #eef3fe;
+}
+
 
 
 
@@ -122,4 +128,29 @@ body{
   width: 100px;
   padding: 10px;
 
+}
+
+/* //////////////////// form add menu ////////////////////////////// */
+
+.cus-cont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+
+}
+
+.contentMenu-body{
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid #FF3E1D;
+
+}
+
+.cus-cont h1{
+  color: #FF3E1D;
 }

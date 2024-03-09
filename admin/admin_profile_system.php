@@ -1,8 +1,6 @@
 <?php
 
 include('../backEnd/includes/connectDB.php');
-$db = getDB();
-
 
 session_start();
 

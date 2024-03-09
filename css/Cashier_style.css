@@ -87,6 +87,16 @@ h2 {
     text-align: left;
 }
 
+.PaymentBox{
+    flex-direction: column;
+    justify-content: center;
+    background-color: White;
+    border-radius: 20px;
+    border-style: solid;
+    padding: 20px;
+}
+
+
 .HistoryMenu {
     display: flex;
     flex-direction: column;
@@ -94,8 +104,7 @@ h2 {
 
 table {
     border-collapse: collapse;
-    width: 80%;
-    align-self: center;
+    width: 100%;
 }
 
 th {
@@ -123,6 +132,9 @@ tr, td {
 }
 
 .HistoryMenu {
+    display: none;
+}
+.PaymentBox{
     display: none;
 }
 
@@ -195,7 +207,8 @@ tr, td {
 }
 
 .descrip,
-.bill {
+.bill,
+.btnstyle{
     font-size: 18px;
     width: fit-content;
     height: 35px;

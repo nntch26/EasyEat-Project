@@ -1,7 +1,5 @@
 <?php
 
-function getDB()
-{
     $db_host = "161.246.127.24";
     $db_port = 9041;
     $db_user = "clswsxdz60005bsmnhc5pc95b";
@@ -17,8 +15,5 @@ function getDB()
     } catch (PDOException $e) {
         echo "Failed to connect" . $e->getMessage();
     }
-
-    return $db;
-}
 
 ?>

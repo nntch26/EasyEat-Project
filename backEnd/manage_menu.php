@@ -1,14 +1,19 @@
 <?php
 include('includes/connectDB.php');
-$db = getDB();
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (isset($_POST['sumbit_new_menu'])) {
+
+    // ------------- เพิ่มเมนูอาหารใหม่ --------------------
+
+    if (isset($_POST['food_update'])) {
+
         $menu_name = $_POST['menu_name'];
         $menu_price = $_POST['menu_price'];
         $menu_type = $_POST['menu_type'];
+
         //ช่อง input แรก คือ ชื่อ ID, NAME ของที่เราตั้งใน FORM
-        $uploadedFilename = handleImageUpload("bill_img", __DIR__ . "/menu_img");
+        $uploadedFilename = handleImageUpload("food_img", __DIR__ . "/menu_img");
 
         if ($uploadedFilename) {
             // ถ้าไฟล์ถูกอัปโหลดสำเร็จ
@@ -21,20 +26,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $insert_menu->bindParam(':type', $menu_type);
             $insert_menu->bindParam(':img_name', $uploadedFilename);
             $insert_menu->execute();
-            header('location: ../index.php');
+
+            $_SESSION['succ_insert'] = "เพิ่มข้อมูลเรียบร้อยแล้ว";
+            header('location: ../admin/addMenu.php');
+
         } else {
             // ถ้ามีข้อผิดพลาดในการอัปโหลดไฟล์
+            $_SESSION['error_insert'] = "<b>ข้อผิดพลาด:</b> ไม่สามารถนำเข้าข้อมูลได้";
+            header('location: ../admin/addMenu.php');
+
             echo "Error uploading file!";
         }
 
         $db = null;  // Close database connection
-    } else if (isset($_POST['sumbit_update_menu'])) {
+
+
+        // ------------- อัปเดตเมนูอาหาร --------------------
+
+    } else if (isset($_POST['upbtn'])) {
+
         $menu_id = $_POST['menu_id'];
         $menu_name = $_POST['menu_name'];
         $menu_price = $_POST['menu_price'];
         $menu_type = $_POST['menu_type'];
+
         //ช่อง input แรก คือ ชื่อ ID, NAME ของที่เราตั้งใน FORM
-        $uploadedFilename = handleImageUpload("bill_img", __DIR__ . "/menu_img");
+        $uploadedFilename = handleImageUpload("food_img", __DIR__ . "/menu_img");
 
         if ($uploadedFilename) {
             // ถ้าไฟล์ถูกอัปโหลดสำเร็จ
@@ -52,12 +69,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $update_menu->bindParam(':img_name', $uploadedFilename);
             $update_menu->bindParam(':menu_id', $menu_id);
             $update_menu->execute();
-            header('location: ../index.php');
+
+            $_SESSION['menu_update'] = "อัปเดตข้อมูลเรียบร้อยแล้ว";
+            header('location: ../admin/admin.php');
+
         } else {
-            echo "Error uploading file!";
+            $_SESSION['err_update'] = "<b>ข้อผิดพลาด:</b> ไม่สามารถนำเข้าข้อมูลได้";
+            header('location: ../admin/admin.php');
+
         }
         $db = null;  // Close database connection
-    } else if (isset($_POST['sumbit_delete_menu'])) {
+
+
+        // ------------- ลบเมนูอาหาร--------------------
+
+    } else if (isset($_POST['deletebtn'])) {
+
         $menu_id = $_POST['menu_id'];
 
         //เอารูปมา
@@ -77,8 +104,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $delete_menu->bindParam(':menu_id', $menu_id);
         $delete_menu->execute();
 
-        header('location: ../index.php');
+        // ลบข้อมูลแล้ว
+        if ($delete_menu) {
+            $_SESSION['menu_delete'] = "ลบเมนูอาหารเรียบร้อยแล้ว";
+            header('location: ../admin/admin.php#');
+
+        } // ลบข้อมูลไม่สำเร็จ
+        else {
+            $_SESSION['err_delete'] = "ไม่สามารถลบข้อมูลได้";
+            header('location: ../admin/admin.php#');
+
+        }
+
+
+
+
     }
+
 }
 
 function handleImageUpload($fileInputName, $destinationDirectory)
@@ -147,3 +189,4 @@ function handleImageUpload($fileInputName, $destinationDirectory)
 
     return $filename;
 }
+
