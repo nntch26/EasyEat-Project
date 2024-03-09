@@ -53,7 +53,7 @@
 
 
                 <!-- ส่วนของฟอร์ม -->
-                <form action="backEnd/query.php" method="post">
+                <form action="backEnd/reservation_booking.php" method="post">
 
                     <div class="form-group row cont-numtable">
                         <label class="col-sm-5 text-num">เลขโต๊ะ : </label>
