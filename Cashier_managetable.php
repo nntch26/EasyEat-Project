@@ -5,6 +5,7 @@ $get_table_info = $db->prepare("SELECT `table_id`, `table_status` FROM `Tables`"
 $get_table_info->execute();
 $get_tables = $get_table_info->fetchAll(PDO::FETCH_ASSOC);
 
+$allTable = 0;
 $emptyTable = 0;
 $occupiedTable = 0;
 $reservedTable = 0;
@@ -17,6 +18,7 @@ foreach ($get_tables as $check_status) {
     } elseif ($check_status['table_status'] == "จอง") {
         $reservedTable++;
     }
+    $allTable++;
 }
 
 echo '<div class="title_top">';
@@ -24,6 +26,7 @@ echo '<h2>ระบบจัดการโต๊ะ</h2>';
 echo '</div>';
 echo '<div class="navbox" id="navbox">';
 echo '<div class="navborderstyle">';
+echo '<button class="navbtn">ทั้งหมด <label class="counter colorGray">' . $allTable . '</label></button>';
 echo '<button class="navbtn">ว่าง <label class="counter colorGreen">' . $emptyTable . '</label></button>';
 echo '<button class="navbtn">จอง <label class="counter colorYellow">' . $reservedTable . '</label></button>';
 echo '<button class="navbtn">ไม่ว่าง <label class="counter colorRed">' . $occupiedTable . '</label></button>';
