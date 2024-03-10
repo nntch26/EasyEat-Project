@@ -39,6 +39,7 @@ $sql1->execute();
 </head>
 <body>
 
+
 <script>
     function opendetail(detailId) {
         console.log(detailId)
@@ -59,143 +60,142 @@ $sql1->execute();
 
 </script>
 
-
 <div class="topbar">
-        <div class="undo">
-            <a href="order-menu.html"><ion-icon name="chevron-back-outline"></ion-icon></a>
-        </div>
-        <div class="topic">
-            <h5 class="panels">หน้ารออาหาร</h5>
-        </div>
-        <div class="topichead">
-            <label class="easy">EasyEat</label>
-        </div>
+    <div class="undo">
+        <a href="order-menu.html"><ion-icon name="chevron-back-outline"></ion-icon></a>
     </div>
-
-
-    <!-- ส่วนบน --->
-    <div class="headbar">
-        <div class="leftbar">
-            <button class="btn btn-secondary" type="button"><i class="bi bi-arrow-repeat"></i></button>
-        </div>
-        <div class="rightbar">
-            <!-- <button class="btn btn-secondary" type="button"><i class="bi bi-arrow-repeat"></i></button> -->
-            <a href="order-menu.php" class="btn btn-primary" type="button"><i class="bi bi-plus-lg"></i> เพิ่มออเดอร์</a>
-        </div>
+    <div class="topic">
+        <h5 class="panels">หน้ารออาหาร</h5>
     </div>
+    <div class="topichead">
+        <label class="easy">EasyEat</label>
+    </div>
+</div>
 
+<div class="headbar">
+    <div class="leftbar">
+        <button class="btn btn-secondary" type="button" onclick="refreshPage()"><i class="bi bi-arrow-repeat"></i></button>
+    </div>
+    <div class="rightbar">
+        <!-- <button class="btn btn-secondary" type="button"><i class="bi bi-arrow-repeat"></i></button> -->
+        <a href="order-menu.php" class="btn btn-primary" type="button"><i class="bi bi-plus-lg"></i> เพิ่มออเดอร์</a>
+    </div>
+</div>
 
-    <div class="main">
-        <div class="container">
-            <?php while ($row1 = $sql1->fetch(PDO::FETCH_ASSOC)) :
-                $status = $row1['order_status'];
-                 // เช็คสถานะแต่ละรายการอาหาร
+<div class="main">
+    <div class="container">
+        <?php while ($row1 = $sql1->fetch(PDO::FETCH_ASSOC)) :
+            $status = $row1['order_status'];
+            // เช็คสถานะแต่ละรายการอาหาร
 
-                if ($status == 'Pending') { // รอการตอบรับออเดอร์
-                    $btnClass = 'btn-warning';
+            if ($status == 'Pending') { // รอการตอบรับออเดอร์
+                $btnClass = 'btn-warning';
+                $btnCancle = 'btn-outline-danger';
+                $textLabel = ' อยู่ในครัว';
+                $detailId = 'detail';
+                $gifClass = 'gif1';
+                $gifSrc = 'pic\55687e10bd871de7.gif';
 
-                    $textLabel = ' อยู่ในครัว';
-                    $detailId = 'detail';
-                    $gifClass = 'gif1';
-                    $gifSrc = 'pic\55687e10bd871de7.gif';
+            } elseif ($status == 'ordered') { // รอพ่อครัวทำอาหาร
 
-                } elseif ($status == 'ordered') { // รอพ่อครัวทำอาหาร
+                $btnClass = 'btn-info';
+                $btnCancle = 'btn-secondary disabled';
+                $textLabel = ' กำลังทำอาหาร';
+                $detailId = 'detail';
+                $gifClass = 'gif2';
+                $gifSrc = 'pic\a15083b4e5446356.gif';
 
-                    $btnClass = 'btn-info';
-                    $textLabel = ' กำลังทำอาหาร';
-                    $detailId = 'detail';
-                    $gifClass = 'gif2';
-                    $gifSrc = 'pic\a15083b4e5446356.gif';
+            } elseif ($status == 'Finished') { // พ่อครัวทำอาหารเสร็จแล้ว
+                $btnClass = 'btn-success';
+                $btnCancle = 'btn-secondary disabled';
+                $textLabel = ' พร้อมเสิร์ฟ';
+                $detailId = 'detail';
+                $gifClass = 'gif3';
+                $gifSrc = 'pic\dc9c997833496937.gif';
 
-                } elseif ($status == 'Finished') { // พ่อครัวทำอาหารเสร็จแล้ว
-                    $btnClass = 'btn-success';
-                    $textLabel = ' พร้อมเสิร์ฟ';
-                    $detailId = 'detail';
-                    $gifClass = 'gif3';
-                    $gifSrc = 'pic\dc9c997833496937.gif';
+            } elseif ($status == 'Cancel') { // ยกเลิกรายการอาหาร
+                $btnClass = 'btn-danger';
+                $btnCancle = 'btn-secondary disabled';
+                $textLabel = ' ถูกปฏิเสธ';
+                $detailId = 'detail';
+                $gifClass = 'gif4';
+                $gifSrc = 'pic\9dc9419fe50d3e5a.gif';
 
-                } elseif ($status == 'Cancel') { // ยกเลิกรายการอาหาร
-                    $btnClass = 'btn-danger';
-                    $textLabel = ' ถูกปฏิเสธ';
-                    $detailId = 'detail';
-                    $gifClass = 'gif4';
-                    $gifSrc = 'pic\9dc9419fe50d3e5a.gif';
+            }
+            ?>
 
-                }
-                ?>
+            <div class="box">
+                <div class="smallbox">
 
-                <div class="box">
-                    <div class="smallbox">
-                        <div class="process">
-                            <img class="<?php echo $gifClass; ?>" src="<?php echo $gifSrc; ?>">
-                        </div>
-
-                        <div class="right">
-                            <?php  if ($status == 'Pending'): ?>
-                                <div class="cancel">
-                                    <button class="btn btn-outline-danger" type="reset">ยกเลิก</button>
-                                </div
-                            <?php endif; ?>
-                            <div class="number">
-                                <h5>#<?php echo $row1['Bill_id']; ?></h5>
-                                <h5>โต๊ะที่ <?php echo $row1['table_id']; ?></h5>
-                            </div>
-
-                            <div class="butt">
-                                <label class="btn <?php echo $btnClass; ?>" for="">
-                                    <i class="bi bi-chat-text"></i><?php echo $textLabel; ?>
-                                </label>
-
-                                <label class="btn btn-dark" for="" onclick="opendetail('detail<?php echo $row1['Bill_id']; ?>')">รายละเอียด</label>
-
-                            </div>
-                        </div>
+                    <div class="process">
+                        <img class="<?php echo $gifClass; ?>" src="<?php echo $gifSrc; ?>">
                     </div>
 
+                    <div class="right">
 
-                    <!--แสดงรายการอาหารทั้งหมด รวมยอดทั้งหมด--->
+                        <div class="cancel">
+                            <button type="reset" class="btn  <?php echo $btnCancle; ?>">ยกเลิก</button>
+                        </div>
 
-                    <div class="detail mt-3" id="detail<?php echo $row1['Bill_id']; ?>">
-                        <?php
-                        $sql2 = $db->prepare("SELECT * FROM Orders
+                        <div class="number">
+                            <h5>#<?php echo $row1['Bill_id']; ?></h5>
+                            <h5>โต๊ะที่ <?php echo $row1['table_id']; ?></h5>
+                        </div>
+
+                        <div class="butt">
+                            <label class="btn <?php echo $btnClass; ?>" for="">
+                                <i class="bi bi-chat-text"></i><?php echo $textLabel; ?>
+                            </label>
+
+                            <label class="btn btn-dark" for="" onclick="opendetail('detail<?php echo $row1['Bill_id']; ?>')">รายละเอียด</label>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--แสดงรายการอาหารทั้งหมด รวมยอดทั้งหมด--->
+
+                <div class="detail mt-3" id="detail<?php echo $row1['Bill_id']; ?>">
+                    <?php
+                    $sql2 = $db->prepare("SELECT * FROM Orders
                                                     JOIN Menus ON Orders.menu_id = Menus.menu_id
                                                     LEFT JOIN Bills ON Orders.Bill_id = Bills.Bill_id
                                                     WHERE Bills.Bill_id = :Bill_id");
-                        $sql2->bindParam(':Bill_id', $row1['Bill_id']);
+                    $sql2->bindParam(':Bill_id', $row1['Bill_id']);
 
-                        $sql2->execute();
+                    $sql2->execute();
 
-                        $total = 0;
+                    $total = 0;
 
-                        while ($row2 = $sql2->fetch(PDO::FETCH_ASSOC)) :
-                            $total += $row2['menu_price'] * $row2['order_quantity'];
+                    while ($row2 = $sql2->fetch(PDO::FETCH_ASSOC)) :
+                        $total += $row2['menu_price'] * $row2['order_quantity'];
 
                         ?>
 
-                            <div class="order">
-                                <div class="de-left">
-                                    <label for=""><?php echo $row2['menu_name']; ?></label>
-                                    <label for="">x <?php echo $row2['order_quantity']; ?> จำนวน</label>
-                                </div>
-                                <label class="de-right" for=""><?php echo $row2['menu_price']; ?> ราคา</label>
-                            </div>
-                        <?php endwhile; ?>
-                        <hr>
-
                         <div class="order">
                             <div class="de-left">
-                                <label for="">รวมทั้งหมด</label>
+                                <label for=""><?php echo $row2['menu_name']; ?></label>
+                                <label for="">x <?php echo $row2['order_quantity']; ?> จำนวน</label>
                             </div>
-                            <label class="de-right" for=""><?php echo $total ; ?> ราคา</label>
+                            <label class="de-right" for=""><?php echo $row2['menu_price']; ?> ราคา</label>
                         </div>
+                    <?php endwhile; ?>
+                    <hr>
 
+                    <div class="order">
+                        <div class="de-left">
+                            <label for="">รวมทั้งหมด</label>
+                        </div>
+                        <label class="de-right" for=""><?php echo $total ; ?> ราคา</label>
                     </div>
 
                 </div>
-            <?php endwhile; ?>
-        </div>
+
+            </div>
+
+        <?php endwhile; ?>
     </div>
-
-
+</div>
+</div>
 </body>
 </html>
