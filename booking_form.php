@@ -47,7 +47,7 @@
                     <?php
                     if (isset($_GET['booking']) && $_GET['booking'] == 'fail') {
                         echo '<div class="alert alert-danger" role="alert">';
-                        echo "จองไม่ได้เพราะมีจำนวนมากกว่าโต็ะจะรองรับได้";
+                        echo "จองไม่ได้ เพราะ จำนวนคนมีจำนวน <strong>มากกว่า</strong> จำนวนคนที่โต็ะจะรองรับได้";
                         echo '</div>';
                     } else if (isset($_GET['booking']) && $_GET['booking'] == 'success') {
                         echo '<div class="alert alert-success" role="alert">';
