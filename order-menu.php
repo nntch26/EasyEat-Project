@@ -95,6 +95,8 @@
     </div>
 </body>
 </html>
+
+
 <script>
 function changeMenu(parameter) {
   // Clear all content inside the div with id "showmenu"
