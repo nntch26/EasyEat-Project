@@ -47,6 +47,16 @@
                 detail3.style.height = "100%";
             }
         }
+        function opendetail4(){
+            var detail4 = document.getElementById("detail-4");
+            if (detail4.style.width == "100%"){
+                detail4.style.width = "0";
+                detail4.style.height = "0";
+            }else{
+                detail4.style.width = "100%";
+                detail4.style.height = "100%";
+            }
+        }
     </script>
 
     <div class="topbar">
@@ -175,6 +185,47 @@
                     </div>
                 </div>
                 <div class="detail" id="detail-3">
+                    <div class="order">
+                        <div class="de-left">
+                            <label for="">ชื่ออาหาร </label>
+                            <label for="">x จำนวน</label>
+                        </div>
+                        <label class="de-right" for="">ราคา</label>
+                    </div>
+                    <div class="order">
+                        <div class="de-left">
+                            <label for="">ชื่ออาหาร </label>
+                            <label for="">x จำนวน</label>
+                        </div>
+                        <label class="de-right" for="">ราคา</label>
+                    </div>
+                    <hr>
+                    <div class="order">
+                        <div class="de-left">
+                            <label for="">รวมทั้งหมด</label>
+                        </div>
+                        <label class="de-right" for="">ราคา</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="smallbox">
+                    <div class="process">
+                        <img class="gif2" src="pic\dc9c997833496937.gif" alt="เสิร์ฟ">
+                    </div>
+                    <div class="right">
+                        <div class="number">
+                            <h5>#1052</h5>
+                            <h5>โต๊ะที่ 2</h5>
+                        </div>
+                        <div class="butt">
+                            <label class="btn btn-primary" for=""><i class="bi bi-chat-text"></i> พร้อมเสิร์ฟ</label>
+                            <label class="btn btn-dark" for="" onclick="opendetail4()">รายละเอียด</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail" id="detail-4">
                     <div class="order">
                         <div class="de-left">
                             <label for="">ชื่ออาหาร </label>
