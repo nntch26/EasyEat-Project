@@ -95,3 +95,8 @@ a{
     display: flex;
     justify-content: space-between;
 }
+.cancel{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
