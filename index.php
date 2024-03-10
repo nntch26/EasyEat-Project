@@ -2,12 +2,6 @@
 
 session_start();
 
-if (isset($_GET['booking']) && $_GET['booking'] == 'success') {
-    // JavaScript code to show the alert message
-    echo '<script>alert("จองเสร็จแล้ว");</script>';
-}
-
-
 ?>
 
 

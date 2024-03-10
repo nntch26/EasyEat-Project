@@ -33,7 +33,7 @@ if (isset($_POST['submit_booking_insert'])) {
             $changeStatus = $db->prepare("UPDATE Tables SET table_status = 'จอง' WHERE table_id = :table_id");
             $changeStatus->bindParam(':table_id', $table_id);
             $changeStatus->execute();
-            header("Location: ../index.php?booking=success");
+            header("Location: ../booking_form.php?table_id=" . $table_id . "&booking=success");
         } else {
             header("Location: ../booking_form.php?table_id=" . $table_id . "&booking=fail");
         }

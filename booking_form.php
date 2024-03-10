@@ -1,10 +1,3 @@
-<?php
-if (isset($_GET['booking']) && $_GET['booking'] == 'fail') {
-    // JavaScript code to show the alert message
-    echo '<script>alert("จองไม่ได้เพราะมีจำนวนมากกว่าโต็ะจะรองรับได้");</script>';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,10 +43,18 @@ if (isset($_GET['booking']) && $_GET['booking'] == 'fail') {
         <div class="form-booking">
             <div class="row">
                 <div class="col-sm-12 col-md-12">
-
                     <!---alert -->
-
-
+                    <?php
+                    if (isset($_GET['booking']) && $_GET['booking'] == 'fail') {
+                        echo '<div class="alert alert-danger" role="alert">';
+                        echo "จองไม่ได้เพราะมีจำนวนมากกว่าโต็ะจะรองรับได้";
+                        echo '</div>';
+                    } else if (isset($_GET['booking']) && $_GET['booking'] == 'success') {
+                        echo '<div class="alert alert-success" role="alert">';
+                        echo "จองเสร็จแล้ว";
+                        echo '</div>';
+                    }
+                    ?>
                     <!-- ส่วนของฟอร์ม -->
                     <form action="backEnd/reservation_booking.php" method="post">
 
