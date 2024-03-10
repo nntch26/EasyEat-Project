@@ -1,7 +1,7 @@
 body{
     margin: 0;
     font-family: "Kanit", sans-serif;
-    background-color: #222;
+    background-color: rgb(255, 255, 255);
 }
 a{
     font-size: 18px;
@@ -10,8 +10,9 @@ a{
 }
 .topbar{
     padding: 20px;
+    padding-bottom: 20px;
     border-bottom-style: outset;
-    background-color: #04030F;
+    background-color: #343337;
     display: flex;
 }
 .sidenav {
@@ -99,9 +100,14 @@ h4{
     color: white;
 }
 .head-line-1{
-    padding-left: 20px;
     text-align: start;
     color: #FF3E1D;
+    width: fit-content;
+    border-style: solid;
+    padding: 10px;
+    padding-bottom: 7px;
+    border-radius: 10px;
+    background-color: white;
 }
 hr{
     color: white;
