@@ -5,6 +5,7 @@ $get_table_info = $db->prepare("SELECT `table_id`, `table_status` FROM `Tables`"
 $get_table_info->execute();
 $get_tables = $get_table_info->fetchAll(PDO::FETCH_ASSOC);
 
+$allTable = 0;
 $emptyTable = 0;
 $occupiedTable = 0;
 $reservedTable = 0;
@@ -17,6 +18,7 @@ foreach ($get_tables as $check_status) {
     } elseif ($check_status['table_status'] == "จอง") {
         $reservedTable++;
     }
+    $allTable++;
 }
 
 echo '<div class="title_top">';
@@ -24,6 +26,7 @@ echo '<h2>ระบบจัดการโต๊ะ</h2>';
 echo '</div>';
 echo '<div class="navbox" id="navbox">';
 echo '<div class="navborderstyle">';
+echo '<button class="navbtn">ทั้งหมด <label class="counter colorGray">' . $allTable . '</label></button>';
 echo '<button class="navbtn">ว่าง <label class="counter colorGreen">' . $emptyTable . '</label></button>';
 echo '<button class="navbtn">จอง <label class="counter colorYellow">' . $reservedTable . '</label></button>';
 echo '<button class="navbtn">ไม่ว่าง <label class="counter colorRed">' . $occupiedTable . '</label></button>';
@@ -53,7 +56,7 @@ try {
         echo '</div>';
         echo '<div class="tinybox_bottom">';
         echo '<button class="descrip" style="margin-right:20px;" ><a class="descripAhref" href="#popup-box-table1">รับลูกค้า</a></button>';
-        echo '<button class="descrip"><a class="descripAhref" href="#">ยกเลิก</a></button>';
+        echo '<button class="descrip"><a class="descripAhref" href="#" id="cancelButton' . $table['table_id'] . '">ยกเลิก</a></button>';
         echo '</div>';
         echo '</div>';
     }
@@ -62,6 +65,36 @@ try {
     echo "Error: " . $e->getMessage();
 }
 ?>
+
+<script>
+    // JavaScript function to handle cancel button click
+    <?php foreach ($get_tables as $table) : ?>
+        document.getElementById('cancelButton<?php echo $table['table_id']; ?>').addEventListener('click', function(event) {
+            event.preventDefault(); // ป้องกันการกระทำเริ่มต้นของลิงก์
+
+            // เพิ่มเงื่อนไขเช็คสถานะของโต๊ะ
+            <?php if ($table['table_status'] != "ว่าง") : ?>
+                // เงื่อนไขที่ต้องทำงานเมื่อสถานะไม่ใช่ "ว่าง"
+                var tableId = '<?php echo $table['table_id']; ?>';
+                var confirmation = confirm('ยืนยันการยกเลิกโต๊ะหมายเลข ' + tableId + ' ?');
+                if (confirmation) {
+                    // Send AJAX request to update table status
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'backEnd/cancel_reserv.php', true);
+                    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    xhr.onload = function() {
+                        if (xhr.status == 200) {
+                            location.reload();
+                        } else {
+                            alert('เกิดข้อผิดพลาดในการอัปเดตสถานะโต๊ะ');
+                        }
+                    };
+                    xhr.send('table_id=' + tableId);
+                }
+            <?php endif; ?>
+        });
+    <?php endforeach; ?>
+</script>
 
 <!-- <div class="navbox" id="navbox">
     <div class="navborderstyle">

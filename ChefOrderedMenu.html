@@ -42,7 +42,7 @@
 }
 </style>
 </head>
-<body onload="Bill_read();">
+<body>
 <div class="navbar">
     <div class="navbox">
         <button class="navbtn" onclick="Bill_read()" >ทั้งหมด <label class="counter colorBlack" id = "showall"></label></button>
@@ -50,7 +50,7 @@
         <button class="navbtn" onclick="changeBillbyStatus('ordered')">กำลังทำ <label class="counter colorYellow" id = "showorder">3</label></button>
         <button class="navbtn" onclick="changeBillbyStatus('finised')">พร้อมเสิร์ฟ <label class="counter colorGreen" id = "showfinised">7</label></button>
         <button class="navbtn" onclick="changeBillbyStatus('cancel')">ยกเลิก <label class="counter colorRed" id = "showcancel">9</label></button>
-        
+
     </div>
     <div class="exit">
         <button class="exitbtn">ออก</button>
@@ -58,10 +58,10 @@
 </div>
 <div class="bigbox">
     <div class="BoxOrder" id="scrollbar1">
-        
-       
-       
-       
+
+
+
+
     </div>
 </div>
 </body>
@@ -76,7 +76,7 @@ async function changeBillbyStatus(status){
         await closeclass(".smallbox.ordered");
         await closeclass(".smallbox.cancel");
         await closeclass(".smallbox.finised");
-       
+
     }else if(status == "cancel"){
         await closeclass(".smallbox.ordered");
         await closeclass(".smallbox.pending");
@@ -90,8 +90,8 @@ async function changeBillbyStatus(status){
         await closeclass(".smallbox.pending");
         await closeclass(".smallbox.cancel");
     }
-       
-    
+
+
 }
 
 async function closeclass(nameclass){
@@ -106,7 +106,7 @@ async function closeclass(nameclass){
     });
 }
 
-async function changeNumStatus(){ 
+async function changeNumStatus(){
 
     var getShowall = document.getElementById("showall");
     var getShowpending = document.getElementById("showpend");
@@ -125,7 +125,7 @@ async function changeNumStatus(){
     getShowall.innerHTML = totalElements;
     console.log("Total elements selected:", elements2.length);
 
-    
+
 }
 
 async function Bill_read(){
@@ -138,7 +138,7 @@ async function Bill_read(){
     showbills.innerHTML = "";
     var showcolor = "";
     var textstatus = "";
-  
+
     await fetch("backEnd/includes/api/read_Billinorder.php" , requestOptions)
     .then(respone => respone.text())
     .then(result => {
@@ -173,7 +173,7 @@ async function Bill_read(){
                         <label class="tableid">โต๊ะ : <label>`+bills.table_id+`</label></label>
                     </div>
                     <div class="box_right_top color`+showcolor+`" >
-                        <p>`+textstatus+`</p> 
+                        <p>`+textstatus+`</p>
                     </div>
                 </div>
                 <div class="tinybox_middle">
@@ -183,10 +183,10 @@ async function Bill_read(){
                             <tr>
                             <th  width="90%">ชื่อ</th>
                             <th  width="10%">จำนวน</th>
-                          
+
                             </tr>
                         </table>
-                        
+
                     </div>
                 </div>
                 <div class="tinybox_bottom">
@@ -194,16 +194,16 @@ async function Bill_read(){
                     <button class="btn `+bills.bill_status+`" id = "btn2" onclick="updateStatusBill('`+bills.bill_id+`', 'cancel')">ยกเลิก</button>
                 </div>
             </div>`;
-            
+
             console.log(bills.bill_id);
             showbills.insertAdjacentHTML('beforeend', row); // ใช้ showmenu[0] เพื่อเข้าถึงอ็อบเจกต์ Element
-           
+
             showorderBill(bills.bill_id);
-          
+
         }
-        
+
     })
-    
+
     await changeNumStatus();
     await closeclass(".admit.cancel");
     await closeclass(".btn.cancel");
@@ -227,13 +227,13 @@ function showorderBill(bill_id){
 
 
     var showBillbyId = document.getElementById(bill_id);
-   
+
     fetch("backEnd/includes/api/read_orderByBillID.php" , requestOptions)
     .then(respone => respone.text())
     .then(result => {
         var jsonObj = JSON.parse(result);
         for (let orders of jsonObj){
-            var row = ` 
+            var row = `
             <tr>
                 <td>`+orders.menu_name+`</td>
                 <td>`+orders.order_quantity+`</td>

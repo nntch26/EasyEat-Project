@@ -130,7 +130,7 @@
         <div class="modal" id="popup-box-pay">
             <div class="content">
                 <h4>เช็คบิล โต๊ะ ..... เลขที่ใบเสร็จ .....</h4>
-                <div class="list" style="font-size: 20px;">
+                <div class="list2" style="font-size: 20px;">
                     <label>รวมทั้งสิ้น : .....</label>
                     <br>
                     <label>รับเงินมา :</label>
@@ -156,7 +156,7 @@
         <div class="modal" id="popup-box-promppay">
             <div class="content">
                 <h3>QR Code</h3>
-                <div class="list">
+                <div class="list2">
                     <h1>ใส่ QR ตรงนี้เด้อจ่ะ</h1>
                     <label>เบอร์โทร</label>
                     <input type="text" style="width: 50%;">
