@@ -142,7 +142,7 @@ $sql1->execute();
             } elseif ($status == 'cancel') { // ยกเลิกรายการอาหาร
                 $btnClass = 'btn-danger';
                 $btnCancel = 'btn-secondary disabled';
-                $textLabel = ' ถูกปฏิเสธ';
+                $textLabel = ' ถูกยกเลิก';
                 $detailId = 'detail';
                 $gifClass = 'gif1';
                 $gifSrc = 'pic\9dc9419fe50d3e5a.gif';
