@@ -15,6 +15,8 @@ global $db;
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <link rel="stylesheet" href="css/booking_style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,8 +24,6 @@ global $db;
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
           rel="stylesheet">
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <title>จองโต๊ะล่วงหน้า</title>
 </head>
@@ -72,7 +72,19 @@ global $db;
 
                         while ($row1= $sql1->fetch(PDO::FETCH_ASSOC)) :
 
-                        if ($row1['table_status'] == 'ว่าง'):
+                        if ($row1['table_status'] == 'ว่าง'){
+                            $btnClass = 'btn-success';
+                            $btnbooking = 'btn-success';
+                            $textLabel = ' ว่าง';
+                        }else if ($row1['table_status'] == 'ไม่ว่าง') {
+                            $btnClass = 'btn-danger';
+                            $btnbooking = 'btn-secondary disabled';
+                            $textLabel = ' ไม่ว่าง';
+                        }else if ($row1['table_status'] == 'จอง') {
+                            $btnClass = 'btn-warning';
+                            $btnbooking = 'btn-secondary disabled';
+                            $textLabel = ' ไม่ว่าง';
+                        }
                     ?>
 
                     <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
@@ -80,51 +92,21 @@ global $db;
                         <div class="card text-center card-booking1" style="width: 200px;">
                             <div class="card-header d-flex">
                                 <h6 class="mt-2 ">สถานะ : </h6>
-                                <button type="button" class="btn btn-success ms-3">ว่าง</button>
+                                <button type="button" class="btn <?php echo $btnClass; ?> ms-3"><?php echo $textLabel; ?></button>
                             </div>
 
                             <div class="card-body">
+                                <i class="fs-5 bi bi-people-fill ms-2"></i>
+                                <span class="ms-1"><?php echo $row1['table_cap'] ?></span>
                                 <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
+
                                 <a href="booking_form.php?table_id=<?php echo $row1['table_id'] ?>">
-                                    <button type="button" class="btn btn-success btn-booking">จอง</button>
+                                    <button type="button" class="btn <?php echo $btnbooking; ?> btn-booking">จอง</button>
                                 </a>
+
                             </div>
                         </div>
                     </div>
-                    <?php elseif ($row1['table_status'] == 'ไม่ว่าง') : ?>
-                        <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
-                            <div class="card text-center card-booking2" style="width: 200px;">
-                                <div class="card-header d-flex">
-                                    <h6 class="mt-2 ">สถานะ : </h6>
-                                    <button type="button" class="btn btn-danger  ms-3">ไม่ว่าง</button>
-                                </div>
-
-                                <div class="card-body">
-                                    <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
-                                    <button type="button" class="btn btn-secondary btn-booking" disabled>จอง</button>
-
-                                    <!--<a href="booking_form.php?table_id=A02" disabled>
-                                        <button type="button" class="btn btn-secondary btn-booking">จอง</button>
-                                    </a>-->
-                                </div>
-                            </div>
-                        </div>
-
-                    <?php elseif ($row1['table_status'] == 'จอง') : ?>
-                        <div class="col-md-3 col-sm-5 col-sm-4 mb-3">
-                            <div class="card text-center card-booking1" style="width: 200px;">
-                                <div class="card-header d-flex">
-                                    <h6 class="mt-2 ">สถานะ : </h6>
-                                    <button type="button" class="btn btn-warning ms-3">จอง</button>
-                                </div>
-
-                                <div class="card-body">
-                                    <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
-                                    <button type="button" class="btn btn-secondary btn-booking" disabled>จอง</button>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
 
                     <?php endwhile ?>
 
@@ -143,7 +125,19 @@ global $db;
 
                         while ($row1= $sql1->fetch(PDO::FETCH_ASSOC)) :
 
-                        if ($row1['table_status'] == 'ว่าง'):
+                            if ($row1['table_status'] == 'ว่าง'){
+                                $btnClass = 'btn-success';
+                                $btnbooking = 'btn-success';
+                                $textLabel = ' ว่าง';
+                            }else if ($row1['table_status'] == 'ไม่ว่าง') {
+                                $btnClass = 'btn-danger';
+                                $btnbooking = 'btn-secondary disabled';
+                                $textLabel = ' ไม่ว่าง';
+                            }else if ($row1['table_status'] == 'จอง') {
+                                $btnClass = 'btn-warning';
+                                $btnbooking = 'btn-secondary disabled';
+                                $textLabel = ' ไม่ว่าง';
+                            }
                     ?>
 
                     <div class="col-md-4 mb-3">
@@ -151,57 +145,23 @@ global $db;
                         <div class="card text-center card-booking1" style="width: 400px;">
                             <div class="card-header d-flex">
                                 <h6 class="mt-2 ">สถานะ : </h6>
-                                <button type="button" class="btn btn-success ms-3">ว่าง</button>
+                                <button type="button" class="btn <?php echo $btnClass; ?> ms-3"><?php echo $textLabel; ?></button>
                             </div>
 
                             <div class="card-body">
+                                <i class="fs-5 bi bi-people-fill ms-2"></i>
+                                <span class="ms-1"><?php echo $row1['table_cap'] ?></span>
                                 <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
+
                                 <a href="booking_form.php?table_id=<?php echo $row1['table_id'] ?>">
-                                    <button type="button" class="btn btn-success btn-booking">จอง</button>
+                                    <button type="button" class="btn <?php echo $btnbooking; ?> btn-booking">จอง</button>
                                 </a>
+
                             </div>
                         </div>
                     </div>
 
-
-                    <?php elseif ($row1['table_status'] == 'ไม่ว่าง') : ?>
-                        <div class="col-md-4 mb-3">
-                            <div class="card text-center card-booking2" style="width: 400px;">
-                                <div class="card-header d-flex">
-                                    <h6 class="mt-2 ">สถานะ : </h6>
-                                    <button type="button" class="btn btn-danger  ms-3">ไม่ว่าง</button>
-                                </div>
-
-                                <div class="card-body">
-                                    <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
-                                    <button type="button" class="btn btn-secondary btn-booking" disabled>จอง</button>
-
-
-                                    <!--<a href="booking_form.php?table_id=A02" disabled>
-                                        <button type="button" class="btn btn-secondary btn-booking">จอง</button>
-                                    </a>-->
-                                </div>
-                            </div>
-                        </div>
-
-                    <?php elseif ($row1['table_status'] == 'จอง') : ?>
-                        <div class="col-md-4 mb-3">
-                            <div class="card text-center card-booking1" style="width: 400px;">
-                                <div class="card-header d-flex">
-                                    <h6 class="mt-2 ">สถานะ : </h6>
-                                    <button type="button" class="btn btn-warning ms-3">จอง</button>
-                                </div>
-
-                                <div class="card-body">
-                                    <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
-                                    <button type="button" class="btn btn-secondary btn-booking" disabled>จอง</button>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-
                     <?php endwhile ?>
-
 
                 </div>
 
@@ -216,7 +176,19 @@ global $db;
                         $sql1->execute();
 
                         while ($row1= $sql1->fetch(PDO::FETCH_ASSOC)) :
-                        if ($row1['table_status'] == 'ว่าง'):
+                            if ($row1['table_status'] == 'ว่าง'){
+                                $btnClass = 'btn-success';
+                                $btnbooking = 'btn-success';
+                                $textLabel = ' ว่าง';
+                            }else if ($row1['table_status'] == 'ไม่ว่าง') {
+                                $btnClass = 'btn-danger';
+                                $btnbooking = 'btn-secondary disabled';
+                                $textLabel = ' ไม่ว่าง';
+                            }else if ($row1['table_status'] == 'จอง') {
+                                $btnClass = 'btn-warning';
+                                $btnbooking = 'btn-secondary disabled';
+                                $textLabel = ' ไม่ว่าง';
+                            }
                     ?>
 
                     <div class="col-md-4 mb-3">
@@ -224,54 +196,20 @@ global $db;
                         <div class="card text-center card-booking1" style="width: 300px;">
                             <div class="card-header d-flex">
                                 <h6 class="mt-2 ">สถานะ : </h6>
-                                <button type="button" class="btn btn-success ms-3">ว่าง</button>
+                                <button type="button" class="btn <?php echo $btnClass; ?> ms-3"><?php echo $textLabel; ?></button>
                             </div>
 
                             <div class="card-body">
+                                <i class="fs-5 bi bi-people-fill ms-2"></i>
+                                <span class="ms-1"><?php echo $row1['table_cap'] ?></span>
                                 <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
+
                                 <a href="booking_form.php?table_id=<?php echo $row1['table_id'] ?>">
-                                    <button type="button" class="btn btn-success btn-booking">จอง</button>
+                                    <button type="button" class="btn <?php echo $btnbooking; ?> btn-booking">จอง</button>
                                 </a>
                             </div>
                         </div>
                     </div>
-
-                    <?php elseif ($row1['table_status'] == 'ไม่ว่าง') : ?>
-
-                        <div class="col-md-4 mb-3">
-                            <div class="card text-center card-booking2" style="width: 300px;">
-                                <div class="card-header d-flex">
-                                    <h6 class="mt-2 ">สถานะ : </h6>
-                                    <button type="button" class="btn btn-danger  ms-3">ไม่ว่าง</button>
-                                </div>
-
-                                <div class="card-body">
-                                    <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
-                                    <button type="button" class="btn btn-secondary btn-booking" disabled>จอง</button>
-
-                                    <!--<a href="booking_form.php?table_id=A02" disabled>
-                                        <button type="button" class="btn btn-secondary btn-booking">จอง</button>
-                                    </a>-->
-                                </div>
-                            </div>
-                        </div>
-
-                    <?php elseif ($row1['table_status'] == 'จอง') : ?>
-
-                        <div class="col-md-4 mb-3">
-                            <div class="card text-center card-booking1" style="width: 300px;">
-                                <div class="card-header d-flex">
-                                    <h6 class="mt-2 ">สถานะ : </h6>
-                                    <button type="button" class="btn btn-warning ms-3">จอง</button>
-                                </div>
-
-                                <div class="card-body">
-                                    <h5 class="card-title">โต๊ะ <?php echo $row1['table_id'] ?></h5>
-                                    <button type="button" class="btn btn-secondary btn-booking" disabled>จอง</button>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
 
                     <?php endwhile ?>
 
