@@ -235,7 +235,7 @@
 
     <!---------- script สำหรับเปลี่ยนหน้า --------------->
     <script>
-        function showmenu(btnvalue, tableId) {
+        function showmenu(btnvalue) {
             document.getElementById("PaymentMenu").style.display = "none";
             document.getElementById("ManageTableMenu").style.display = "none";
             document.getElementById("HistoryMenu").style.display = "none";
