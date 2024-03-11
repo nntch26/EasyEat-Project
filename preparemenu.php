@@ -4,7 +4,7 @@ global $db;
 include('backend/includes/connectDB.php');
 session_start();
 
-$tableid = $_GET['table_id'];
+$tableid =  $_SESSION["table_id"];
 
 $sql1 = $db->prepare("SELECT DISTINCT Bills.Bill_id, Orders.table_id, Orders.order_status,Bills.bill_status
                      FROM Orders
