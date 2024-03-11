@@ -4,7 +4,7 @@
 ?>
 
     <div style="text-align:left;">
-        <button onclick="showmenu('btn_payment')" class="btnstyle">ย้อนกลับ</button>
+        <button onclick="showmenu('btn_payment')" class="btn btn-outline-dark">ย้อนกลับ</button>
     </div>
     <form action="#" method="post"id="printJS-form">
         <div>
@@ -12,11 +12,6 @@
                 <h3>EasyEat</h3>
                 <p>เลขที่บิล : ....</p>
                 <p>รายการโต๊ะ ...... จำนวน ...... คน วันที่/เวลา ........</p>
-            </div>
-            <div style="text-align : center;">
-                <input type="radio" name="smt">something
-                <input type="radio" name="smt">something
-                <hr>
             </div>
         </div>
 
@@ -45,28 +40,36 @@
                 border-collapse: collapse;
                 width: 100%;
             }
-                
+
             th {
                 border-collapse: collapse;
-                background-color: lightblue;
+                background-color: rgba(34, 34, 34, 0.18);
                 border-color: gray;
-                border-style: solid;
-                border-width: thin;
+                border: 1px solid #222;
             }
-                
+
             tr, td {
-                    border-color: gray;
-                    border-style: solid;
-                    border-width: thin;
-                    background-color: white;
-                    font-weight: normal;
-                }
+                background-color: white;
+                font-weight: normal;
+                border: 1px solid #222;
+            }
         </style>
+
     </form>
 
 <br>
+
 <div>
-    <button class="btnstyle"><a onclick="printJS('printJS-form', 'html')" class="descripAhref">พิมพ์ใบเสร็จ</a></button>
-    <button class="btnstyle"><a href="#popup-box-pay" class="descripAhref">เงินสด</a></button>
-    <button class="btnstyle"><a href="#popup-box-promppay" class="descripAhref">โอนเงิน</a></button>
+    <a class="btn btn-secondary me-2" onclick="printJS('printJS-form', 'html')" class="descripAhref">
+        <i class="fs-5 bi bi-printer-fill"></i> <spen class="ms-1">พิมพ์ใบเสร็จ</spen>
+    </a>
+
+    <a class="btn btn btn-success me-2" href="#popup-box-pay" class="descripAhref">
+        <i class="fs-5 bi bi-cash-coin"></i><spen class="ms-2">เงินสด</spen>
+    </a>
+
+    <a class="btn btn-warning" href="#popup-box-promppay" class="descripAhref">
+        <i class="fs-5 bi bi-qr-code-scan"></i><spen class="ms-2">สแกนจ่าย</spen>
+    </a>
+
 </div>

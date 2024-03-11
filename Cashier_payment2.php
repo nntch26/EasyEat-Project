@@ -46,24 +46,22 @@
         </table>
         <style>
             table {
-                border-collapse: collapse;
-                width: 100%;
+            border-collapse: collapse;
+            width: 100%;
             }
-                
+
             th {
-                border-collapse: collapse;
-                background-color: lightblue;
-                border-color: gray;
-                border-style: solid;
-                border-width: thin;
+            border-collapse: collapse;
+            background-color: rgb(255, 234, 217);
+            border-color: gray;
+            border: 1px solid #222;
             }
-                
+
             tr, td {
-                    border-color: gray;
-                    border-style: solid;
-                    border-width: thin;
-                    background-color: white;
-                    font-weight: normal;
-                }
+            background-color: white;
+            font-weight: normal;
+            border: 1px solid #222;
+            }
         </style>
+
     </form>
