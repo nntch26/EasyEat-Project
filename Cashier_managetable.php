@@ -26,9 +26,9 @@ echo '<h2>ระบบจัดการโต๊ะ</h2>';
 echo '</div>';
 echo '<div class="navbox" id="navbox">';
 echo '<div class="navborderstyle">';
-echo '<button class="navbtn">ทั้งหมด <label class="counter colorGray">' . $allTable . '</label></button>';
-echo '<button class="navbtn">ว่าง <label class="counter colorGreen">' . $emptyTable . '</label></button>';
-echo '<button class="navbtn">จอง <label class="counter colorYellow">' . $reservedTable . '</label></button>';
+echo '<button class="navbtnall me-2">ทั้งหมด <label class="counter colorGray">' . $allTable . '</label></button>';
+echo '<button class="navbtn me-2">ว่าง <label class="counter colorGreen">' . $emptyTable . '</label></button>';
+echo '<button class="navbtn me-2">จอง <label class="counter colorYellow">' . $reservedTable . '</label></button>';
 echo '<button class="navbtn">ไม่ว่าง <label class="counter colorRed">' . $occupiedTable . '</label></button>';
 echo '</div>';
 echo '</div>';
@@ -54,9 +54,10 @@ try {
         echo '<p>' . $table['table_status'] . '</p>';
         echo '</div>';
         echo '</div>';
+        echo '<hr>';
         echo '<div class="tinybox_bottom">';
-        echo '<button class="descrip" style="margin-right:20px;" ><a class="descripAhref" href="#popup-box-table1">รับลูกค้า</a></button>';
-        echo '<button class="descrip"><a class="descripAhref" href="#" id="cancelButton' . $table['table_id'] . '">ยกเลิก</a></button>';
+        echo '<a class="btn btn-outline-dark me-3" href="#popup-box-table1">รับลูกค้า</a></button>';
+        echo '<a class="btn btn-danger" href="#" id="cancelButton' . $table['table_id'] . '">ยกเลิก</a></button>';
         echo '</div>';
         echo '</div>';
     }

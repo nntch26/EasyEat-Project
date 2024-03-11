@@ -10,8 +10,10 @@ body {
 
 h2 {
     margin: 0;
-    padding-top: 15px;
+    padding-top: 30px;
     padding-left: 15px;
+    margin-bottom: 20px;
+    font-size: 48px;
 }
 
 
@@ -49,25 +51,32 @@ h2 {
 .navbtn{
     font-size: 18px;
     background-color: white;
-    border-style: solid;
-    font-weight: bold;
-    border-radius: 5px;
-    border-color: rgb(114, 114, 114);
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    height: 50px;
-    width: 150px;
-    margin-right: 10px;
-    margin-left: 10px;
-    text-align: left;
-    padding-left: 30px;
+    color: #222222;
+    border-radius: 20px;
+    border:2px solid #222222;
+    padding: 10px;
+    padding-left: 20px
+
 }
 
 
 
 .navbtn:hover {
     cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+.navbtnall{
+    font-size: 18px;
+    background-color: #222222;
+    color: #ffffff;
+    border-radius: 20px;
+    border:2px solid #222222;
+    padding: 10px;
+    padding-left: 20px;
+
+}
+
+
 
 
 .BoxOrder {
@@ -92,8 +101,8 @@ h2 {
     justify-content: center;
     background-color: White;
     border-radius: 20px;
-    border-style: solid;
     padding: 20px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
 }
 
 
@@ -109,19 +118,16 @@ table {
 
 th {
     border-collapse: collapse;
-    background-color: lightblue;
-    border-color: gray;
-    border-style: solid;
-    border-width: thin;
+    /*background-color: #ffe4c8;*/
 }
 
 tr, td {
-    border-color: gray;
     border-style: solid;
     border-width: thin;
     background-color: white;
     font-weight: normal;
 }
+
 
 .PaymentMenu {
     display: flex;
@@ -143,16 +149,16 @@ tr, td {
     height: fit-content;
     margin: 10px;
     margin-left: 25px;
-    background-color: rgba(255, 255, 255, 0.537);
+    background-color: rgb(255, 255, 255);
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    padding: 10px;
 }
 
 .tinybox_top {
     margin: 0;
     display: flex;
     justify-content: space-between;
-    background-color: rgb(243, 238, 238);
     padding: 5px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -185,8 +191,6 @@ tr, td {
     width: 30%;
     align-self: center;
     margin-right: 10px;
-    border-style: solid;
-    border-color: rgb(190, 188, 188);
     font-size: 20px;
     padding-top: 15px;
 }
@@ -200,7 +204,6 @@ tr, td {
 }
 
 .tinybox_bottom {
-    background-color: rgb(243, 238, 238);
     text-align: center;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -215,12 +218,12 @@ tr, td {
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 10px;
+    background-color: #0dcaf0;
 }
 
-.descripAhref {
-    text-decoration: none;
-    color: black;
-}
+
+
+
 
 
 /* -----------------pop up ---------------------*/
@@ -228,15 +231,16 @@ tr, td {
     align-items: center;
     display: flex;
     justify-content: center;
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(187, 187, 187, 0.7);
+    background: rgba(34, 34, 34, 0.66);
     transition: all 0.4s;
     visibility: hidden;
     opacity: 0;
+
 }
 
 .content {
@@ -246,17 +250,12 @@ tr, td {
     height: fit-content;
     padding: 1em 2em;
     border-radius: 4px;
-    border-style: double;
 }
 
 .list {
-    display: flex;
-    flex-direction: row;
-}
-
-.list2 {
     text-align: left;
 }
+
 
 .list-cancel {
     display: flex;
@@ -293,17 +292,17 @@ tr, td {
 
 /* ------------------------color------------------- */
 .colorRed {
-    background-color: red;
+    background-color: #dc3545;
     color: white;
 }
 
 .colorGreen {
-    background-color: rgb(33, 202, 33);
+    background-color: #198754;
     color: white;
 }
 
 .colorYellow {
-    background-color: rgb(240, 193, 22);
+    background-color: #ffca2c;
     color: white;
 }
 

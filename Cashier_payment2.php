@@ -44,26 +44,5 @@
                 <td>54646165.0 บาท</td>
             </tr>
         </table>
-        <style>
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-                
-            th {
-                border-collapse: collapse;
-                background-color: lightblue;
-                border-color: gray;
-                border-style: solid;
-                border-width: thin;
-            }
-                
-            tr, td {
-                    border-color: gray;
-                    border-style: solid;
-                    border-width: thin;
-                    background-color: white;
-                    font-weight: normal;
-                }
-        </style>
+
     </form>

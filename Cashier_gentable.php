@@ -24,9 +24,9 @@ foreach ($get_tables as $check_status) {
 
 echo '<div class="navbox" id="navbox">';
 echo '<div class="navborderstyle">';
-echo '<button class="navbtn">ทั้งหมด <label class="counter colorGray">' . $allTable . '</label></button>';
-echo '<button class="navbtn">ว่าง <label class="counter colorGreen">' . $emptyTable . '</label></button>';
-echo '<button class="navbtn">จอง <label class="counter colorYellow">' . $reservedTable . '</label></button>';
+echo '<button class="navbtnall me-2">ทั้งหมด <label class="counter colorGray">' . $allTable . '</label></button>';
+echo '<button class="navbtn me-2">ว่าง <label class="counter colorGreen">' . $emptyTable . '</label></button>';
+echo '<button class="navbtn me-2">จอง <label class="counter colorYellow">' . $reservedTable . '</label></button>';
 echo '<button class="navbtn">ไม่ว่าง <label class="counter colorRed">' . $occupiedTable . '</label></button>';
 echo '</div>';
 echo '</div>';
@@ -66,25 +66,26 @@ try {
         echo '<p>' . $table['table_status'] . '</p>';
         echo '</div>';
         echo '</div>';
+        echo '<hr>';
+
         echo '<div class="tinybox_middle">';    
         if (!empty($order_date_time)) {
             $order_info = $order_date_time[0];
-            echo '<p>วันที่ : ' . $order_date_time[0]['order_date'] . '</p>';
-            echo '<p>เวลา : ' . $order_date_time[0]['order_time'] . '</p>';
-            echo '<p>รวม : ';
+            echo '<p><b>ว/ด/ป</b> : ' . $order_date_time[0]['order_date'] . ' <br><b>เวลา : </b>' . $order_date_time[0]['order_time'] . '</p>';
+            echo '<p> รวม : ';
             if ($sum == 0) {
-                echo '<strong> ไม่มีรายการอาหาร </strong>';
+                echo 'ไม่มีรายการอาหาร';
             } else {
-                echo '<strong>' . $sum . " บาท" . ' </strong>';
+                echo '' . $sum . " บาท" . ' ';
             }
             echo '</p>';
         }else {
-            echo '<p>ยังไม่มีการจอง.</p>';
+            echo '<p>ยังไม่มีการรับลูกค้า</p>';
         }
         echo '</div>';
         echo '<div class="tinybox_bottom">';
-        echo '<button class="btnstyle" style="margin-right:20px;"><a class="descripAhref" href="#popup-box-info' . $table['table_id'] . '">แสดงรายละเอียด</a></button>';
-        echo '<button class="btnstyle"><a class="descripAhref" onclick="showmenu(\'btn_payment_info\')">เช็คบิล</a></button>';
+        echo '<a class="btn btn-outline-dark me-2" href="#popup-box-info' . $table['table_id'] . '">รายละเอียด</a></button>';
+        echo '<a class="btn btn-warning" onclick="showmenu(\'btn_payment_info\')">เช็คบิล</a></button>';
         echo '</div>';
         echo '</div>';
 
