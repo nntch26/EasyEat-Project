@@ -4,7 +4,7 @@ global $db;
 include('backend/includes/connectDB.php');
 session_start();
 
-$tableid = "A04";
+$tableid = $_GET['table_id'];
 
 $sql1 = $db->prepare("SELECT DISTINCT Bills.Bill_id, Orders.table_id, Orders.order_status,Bills.bill_status
                      FROM Orders
@@ -15,8 +15,6 @@ $sql1 = $db->prepare("SELECT DISTINCT Bills.Bill_id, Orders.table_id, Orders.ord
 
 $sql1->bindParam(':table_id', $tableid);
 $sql1->execute();
-
-
 ?>
 
 
@@ -62,7 +60,7 @@ $sql1->execute();
 
 <div class="topbar">
     <div class="undo">
-        <a href="order-menu.html"><ion-icon name="chevron-back-outline"></ion-icon></a>
+        <a href="order-menu.php"><ion-icon name="chevron-back-outline"></ion-icon></a>
     </div>
     <div class="topic">
         <h5 class="panels">หน้ารออาหาร</h5>

@@ -1,8 +1,16 @@
 <?php
     session_start();
-
     $_SESSION["table_id"] = "A04";
-
+    if (isset($_POST['ordered'])){
+        if($_POST['count'] == 0){
+           
+        }else{
+            $table_id = $_SESSION["table_id"];
+            $redirect_url = 'preparemenu.php?table_id=' . urlencode($table_id);
+            header('Location: ' . $redirect_url);
+            exit;
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -23,21 +31,33 @@
 </head>
 
 <style>
-
+#order{
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #FF3E1D;
+    border: 2px solid #FF3E1D;
+}
 
 </style>
 <body onload="loadallmenu()";>
     <!-- ส่วนของแถบข้าง ๆ -->
     <div class="topbar">
         <div id="mySidenav" class="sidenav">
-            <input type="hidden" id="table_id" value="<?php echo $_SESSION['table_id']; ?>">
+            
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
             <div class="container" id = "showBill">
 
 
             </div>
             <div class="butbox">
-                <button class="btn-order" onclick="Ordered()">สั่งอาหาร</button>
+               <form action="order-menu.php" method = "post">
+                    <input type="hidden" id="table_id" name = "table_id" value="<?php echo $_SESSION['table_id']; ?>">
+                    <input type="hidden"  name = "count" id = "count" name = "count" value="">
+                    <button type="submit" class="btn-order" id="order" name = "ordered" onclick="Ordered()" style="width: 100%;">สั่งอาหาร</button>
+                </form>
+                    
+               
             </div>
         </div>
         <span class="openbtn" style="font-size:30px;cursor:pointer" onclick="openNav()"><ion-icon name="cart-outline"></ion-icon> </span>
@@ -75,6 +95,8 @@
 
 
 <script>
+
+
 
 function openNav() {
             document.getElementById("mySidenav").style.width = "100%";
@@ -239,9 +261,13 @@ function Ordered(){
 // Convert data to JSON
 var raw = JSON.stringify(orderData);
 var jsonData = JSON.stringify(orderData);
-
+var counttxt =document.getElementById("count");
+counttxt.value = Object.keys(orderData).length;
+console.log("จำนวนปปป"+counttxt.value);
 if (!orderData || Object.keys(orderData).length === 0) {
+
     alert('ไม่มีอาหาร');
+    
 } else {
     console.log(jsonData);
     var requestOptions = {
