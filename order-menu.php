@@ -188,7 +188,7 @@ function loadmenu(type, num, ele){
                                     <div class="card" style="width: 18rem;">
                                         <img src="backEnd/menu_img/`+menu.menu_pic+`" class="card-img-top" alt="">
                                         <div class="card-body">
-                                            <h5 class="card-title">`+menu.menu_name+`Card title2</h5>
+                                            <h5 class="card-title">`+menu.menu_name+`</h5>
                                             <div class="back">
                                                 <h5 class="card-price">ราคา฿`+menu.menu_price+`</h5>
                                                 <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
@@ -205,7 +205,7 @@ function loadmenu(type, num, ele){
                                     <div class="card" style="width: 18rem;">
                                         <img src="backEnd/menu_img/`+menu.menu_pic+`" class="card-img-top" alt="">
                                         <div class="card-body">
-                                            <h5 class="card-title">`+menu.menu_name+`Card title2</h5>
+                                            <h5 class="card-title">`+menu.menu_name+`</h5>
                                             <div class="back">
                                                 <h5 class="card-price">ราคา฿`+menu.menu_price+`</h5>
                                                 <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
@@ -304,7 +304,7 @@ function addMenu(id, name, price){
                     <label class="price">จำนวน</label>
                     <input type="text" id = "q"  value= "1">
                     <!-- สัญลักษณ์ถังขยะ ไว้ลบรายการเมนูอาหารที่กดไว้ในตะกร้า -->
-                    <button style="color: black; background-color: black;" onclick="Deletemenu('`+menu_id+`')"><span class="fa fa-trash-o"></span></button>
+                    <button style="color: black; background-color: #222; border-radius: 10px;" onclick="Deletemenu('`+menu_id+`')"><span class="fs-5 fa fa-trash-o"></span></button>
 
                 </div>`
                 showBill.insertAdjacentHTML('beforeend', row); }
@@ -337,8 +337,11 @@ var showMenu = function(parameter) {
                      class="card-img-top"
                      src="backEnd/menu_img/`+menu.menu_pic+`">
                 <div class="card-body">
-                    <h5 class="card-title">`+menu.menu_name+ +menu.menu_price+`</h5>
-                    <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
+                    <h5 class="card-title">`+menu.menu_name+`</h5>
+                    <div class="back">
+                        <h5 class="card-price">ราคา฿`+menu.menu_price+`</h5>
+                        <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
+                    </div>
                 </div>
             </div>
             </div>
