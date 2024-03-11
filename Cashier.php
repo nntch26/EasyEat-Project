@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Document</title>
+    <title>หน้าแคชเชียร์</title>
 
     <!---print --->
     <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
@@ -235,7 +235,7 @@
 
     <!---------- script สำหรับเปลี่ยนหน้า --------------->
     <script>
-        function showmenu(btnvalue) {
+        function showmenu(btnvalue, tableId) {
             document.getElementById("PaymentMenu").style.display = "none";
             document.getElementById("ManageTableMenu").style.display = "none";
             document.getElementById("HistoryMenu").style.display = "none";
@@ -249,12 +249,11 @@
                 document.getElementById("navbox").style.display = "flex";
             } else if (btnvalue == "btn_history") {
                 document.getElementById("HistoryMenu").style.display = "flex";
-                document.getElementsById("navbox").style.display = "none";
             } else if (btnvalue == "btn_payment_info") {
                 document.getElementById("PaymentBox").style.display = "flex";
-                document.getElementsById("navbox").style.display = "none";
             }
         }
+
     </script>
 </body>
 
