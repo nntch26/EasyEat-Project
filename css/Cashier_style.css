@@ -194,7 +194,7 @@ tr, td {
 .tinybox_middle {
     padding: 5px;
     background-color: white;
-    height: fit-content;
+    height: 325px;
     overflow-y: auto;
     text-align: left;
 }
@@ -228,7 +228,7 @@ tr, td {
     align-items: center;
     display: flex;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -250,7 +250,8 @@ tr, td {
 }
 
 .list {
-    text-align: left;
+    display: flex;
+    flex-direction: row;
 }
 
 .list-cancel {
