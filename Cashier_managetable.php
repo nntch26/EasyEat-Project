@@ -57,7 +57,13 @@ try {
         echo '<hr>';
         echo '<div class="tinybox_bottom">';
         echo '<a class="btn btn-warning me-3" href="#popup-box-table1">รับลูกค้า</a></button>';
-        echo '<a class="btn btn-outline-danger" href="#" id="cancelButton' . $table['table_id'] . '">ยกเลิก</a></button>';
+        echo '<a class="';
+        if ($table['table_status'] == "จอง") {
+            echo "btn btn-outline-danger";
+        }else{
+            echo "btn btn-outline-secondary";
+        }
+        echo '" href="#" id="cancelButton' . $table['table_id'] . '">ยกเลิก</a></button>';
         echo '</div>';
         echo '</div>';
     }
@@ -74,7 +80,7 @@ try {
             event.preventDefault(); // ป้องกันการกระทำเริ่มต้นของลิงก์
 
             // เพิ่มเงื่อนไขเช็คสถานะของโต๊ะ
-            <?php if ($table['table_status'] != "ว่าง") : ?>
+            <?php if ($table['table_status'] == "จอง") : ?>
                 // เงื่อนไขที่ต้องทำงานเมื่อสถานะไม่ใช่ "ว่าง"
                 var tableId = '<?php echo $table['table_id']; ?>';
                 var confirmation = confirm('ยืนยันการยกเลิกโต๊ะหมายเลข ' + tableId + ' ?');
