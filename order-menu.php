@@ -261,13 +261,9 @@ function Ordered(){
 // Convert data to JSON
 var raw = JSON.stringify(orderData);
 var jsonData = JSON.stringify(orderData);
-var counttxt =document.getElementById("count");
-counttxt.value = Object.keys(orderData).length;
-console.log("จำนวนปปป"+counttxt.value);
-if (!orderData || Object.keys(orderData).length === 0) {
 
+if (!orderData || Object.keys(orderData).length === 0) {
     alert('ไม่มีอาหาร');
-    
 } else {
     console.log(jsonData);
     var requestOptions = {
