@@ -23,10 +23,8 @@
 </head>
 
 <style>
-    #showBill{
-        display: flex;
-        flex-direction: column;
-    }
+
+
 </style>
 <body onload="loadallmenu()";>
     <!-- ส่วนของแถบข้าง ๆ -->
@@ -35,13 +33,6 @@
             <input type="hidden" id="table_id" value="<?php echo $_SESSION['table_id']; ?>">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
             <div class="container" id = "showBill">
-                <!-- เป็นส่วนที่แสดงเป็น box ๆ -->
-               
-                <!-- ยกทำ 2 อัน สุดกงนี้ -->
-           
-
-
-
 
 
             </div>
@@ -49,22 +40,8 @@
                 <button class="btn-order" onclick="Ordered()">สั่งอาหาร</button>
             </div>
         </div>
-        
-          
-
-
         <span class="openbtn" style="font-size:30px;cursor:pointer" onclick="openNav()"><ion-icon name="cart-outline"></ion-icon> </span>
-        <script>
-          function openNav() {
-            document.getElementById("mySidenav").style.width = "100%";
-          }
-          
-          function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-          }
-        </script>
-
-        <div class="topichead">
+     <div class="topichead">
             <label>EasyEat</label>
         </div>
     </div>
@@ -96,6 +73,14 @@
 </body>
 </html>
 <script>
+
+function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+          }
+          
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+          }
 function changeMenu(parameter) {
   // Clear all content inside the div with id "showmenu"
   document.getElementById("showmenu").innerHTML = "";
@@ -186,7 +171,7 @@ function loadmenu(type, num, ele){
                                     <div class="card" style="width: 18rem;">
                                         <img src="backEnd/menu_img/`+menu.menu_pic+`" class="card-img-top" alt="">
                                         <div class="card-body">
-                                            <h5 class="card-title">`+menu.menu_name+`Card title2</h5>
+                                            <h5 class="card-title">`+menu.menu_name+`</h5>
                                             <div class="back">
                                                 <h5 class="card-price">ราคา฿`+menu.menu_price+`</h5>
                                                 <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
@@ -203,7 +188,7 @@ function loadmenu(type, num, ele){
                                     <div class="card" style="width: 18rem;">
                                         <img src="backEnd/menu_img/`+menu.menu_pic+`" class="card-img-top" alt="">
                                         <div class="card-body">
-                                            <h5 class="card-title">`+menu.menu_name+`Card title2</h5>
+                                            <h5 class="card-title">`+menu.menu_name+`</h5>
                                             <div class="back">
                                                 <h5 class="card-price">ราคา฿`+menu.menu_price+`</h5>
                                                 <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
@@ -231,7 +216,7 @@ function Ordered(){
     var orderData = []; // Create an array to store order data
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
+    var table_id = document.getElementById("table_id").value;
     // Loop through each menu item
     nodeList.forEach(function(menuItem) {
         var menuId = menuItem.id;
@@ -240,7 +225,7 @@ function Ordered(){
         
         // Create an object for each order item
         var orderItem = {
-            "table_id": document.getElementById("table_id").value,
+            "table_id": table_id,
             "menu_id": menuId,
             "menu_value": menuValue
     };
@@ -280,7 +265,7 @@ if (!orderData || Object.keys(orderData).length === 0) {
             console.error('There was a problem with the fetch operation:', error);
         });
 }
-    
+    updateStatustable(table_id, "ไม่ว่าง")
 }
 
 function addMenu(id, name, price){
@@ -335,7 +320,8 @@ var showMenu = function(parameter) {
                      class="card-img-top"
                      src="backEnd/menu_img/`+menu.menu_pic+`">
                 <div class="card-body">
-                    <h5 class="card-title">`+menu.menu_name+ +menu.menu_price+`</h5>
+                    <h4 class="card-title">`+menu.menu_name+`</h5>
+                    <h5 class="card-price">ราคา฿`+menu.menu_price+`</h5>
                     <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
                 </div>
             </div>
@@ -350,5 +336,31 @@ var showMenu = function(parameter) {
     })
 }
 
+function updateStatustable(table_id, status){
+    var myHearders = new Headers();
+    myHearders.append("Content-Type", "application/json");
 
+    var raw = JSON.stringify({
+        "table_id" : table_id,
+        "status" : status
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHearders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    fetch("backEnd/includes/api/update_statustable.php", requestOptions)
+    .then(respone => respone.text())
+    .then(result => {
+        var jsonObj = JSON.parse(result);
+        if (jsonObj.status == 'ok'){
+            console.log("ok");
+        }else{
+            alert('error');
+        }
+    })
+}
 </script>

@@ -18,18 +18,39 @@
           rel="stylesheet">
 
 
-    <title>Document</title>
+    <title>Order</title>
 
-
+<style>
+.btn{
+    font-size: 18px;
+    width: 20%;
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+.smallbox {
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.537);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: 25px;
+    border-style: solid;
+    border-color: rgb(190, 188, 188);
+    height: fit-content;
+}
+</style>
 </head>
-<body>
+<body onload="Bill_read();">
 <div class="navbar">
     <div class="navbox">
-        <button class="navbtn">ทั้งหมด <label class="counter colorBlack">5</label></button>
-        <button class="navbtn">รอรับ <label class="counter colorGray">4</label></button>
-        <button class="navbtn">กำลังทำ <label class="counter colorYellow">3</label></button>
-        <button class="navbtn">พร้อมเสิร์ฟ <label class="counter colorGreen">7</label></button>
-        <button class="navbtn">ยกเลิก <label class="counter colorRed">9</label></button>
+        <button class="navbtn" onclick="Bill_read()" >ทั้งหมด <label class="counter colorBlack" id = "showall"></label></button>
+        <button class="navbtn" onclick="changeBillbyStatus('pending')">รอรับ <label class="counter colorGray" id = "showpend">4</label></button>
+        <button class="navbtn" onclick="changeBillbyStatus('ordered')">กำลังทำ <label class="counter colorYellow" id = "showorder">3</label></button>
+        <button class="navbtn" onclick="changeBillbyStatus('finised')">พร้อมเสิร์ฟ <label class="counter colorGreen" id = "showfinised">7</label></button>
+        <button class="navbtn" onclick="changeBillbyStatus('cancel')">ยกเลิก <label class="counter colorRed" id = "showcancel">9</label></button>
+        
     </div>
     <div class="exit">
         <button class="exitbtn">ออก</button>
@@ -37,179 +58,222 @@
 </div>
 <div class="bigbox">
     <div class="BoxOrder" id="scrollbar1">
-
-
-        <div class="smallbox">
-            <div class="tinybox_top">
-                <div class="box_left_top">
-                    <label class="orderid">1</label>
-                    <br>
-                    <label class="tableid">โต๊ะ : <label>5</label></label>
-                </div>
-                <div class="box_right_top colorGray">
-                    <p>รอรับ</p>
-                </div>
-            </div>
-            <div class="tinybox_middle">
-                <h4 class="headmenu">รายการอาหาร</h4>
-                <div class="menu">
-                    <p>hello</p>
-                    <p>hello</p>
-                    <p>hello</p>
-                    <p>hello</p>
-                    <p>hello</p>
-                    <p>hello</p>
-                    <p>hello</p>
-                    <p>hello</p>
-                    <p>hello</p>
-                    <p>hello</p>
-                </div>
-            </div>
-            <div class="tinybox_bottom">
-                <button class="admit">ตอบรับ</button>
-                <button class="cancel">ยกเลิก</button>
-            </div>
-        </div>
-        <div class="smallbox">
-            <div class="tinybox_top">
-                <div class="box_left_top">
-                    <label class="orderid">1</label>
-                    <br>
-                    <label class="tableid">โต๊ะ : <label>5</label></label>
-                </div>
-                <div class="box_right_top colorYellow">
-                    <p>กำลังทำ</p>
-                </div>
-            </div>
-            <div class="tinybox_middle">
-                <h4 class="headmenu">รายการอาหาร</h4>
-                <div class="menu">
-                    <p>hello</p>
-                    <p>hello</p>
-                </div>
-            </div>
-            <div class="tinybox_bottom">
-                <button class="admit">ตอบรับ</button>
-                <button class="cancel">ยกเลิก</button>
-            </div>
-        </div>
-        <div class="smallbox">
-            <div class="tinybox_top">
-                <div class="box_left_top">
-                    <label class="orderid">1</label>
-                    <br>
-                    <label class="tableid">โต๊ะ : <label>5</label></label>
-                </div>
-                <div class="box_right_top colorGreen">
-                    <p>พร้อมเสิร์ฟ</p>
-                </div>
-            </div>
-            <div class="tinybox_middle">
-                <h4 class="headmenu">รายการอาหาร</h4>
-                <div class="menu">
-                    <p>hello</p>
-                    <p>hello</p>
-                </div>
-            </div>
-            <div class="tinybox_bottom">
-                <button class="admit">ตอบรับ</button>
-                <button class="cancel">ยกเลิก</button>
-            </div>
-        </div>
-        <div class="smallbox">
-            <div class="tinybox_top">
-                <div class="box_left_top">
-                    <label class="orderid">1</label>
-                    <br>
-                    <label class="tableid">โต๊ะ : <label>5</label></label>
-                </div>
-                <div class="box_right_top colorRed">
-                    <p>ยกเลิก</p>
-                </div>
-            </div>
-            <div class="tinybox_middle">
-                <h4 class="headmenu">รายการอาหาร</h4>
-                <div class="menu">
-                    <p>hello</p>
-                    <p>hello</p>
-                </div>
-            </div>
-            <div class="tinybox_bottom">
-                <button class="admit">ตอบรับ</button>
-                <button class="cancel">ยกเลิก</button>
-            </div>
-        </div>
-        <div class="smallbox">
-            <div class="tinybox_top">
-                <div class="box_left_top">
-                    <label class="orderid">1</label>
-                    <br>
-                    <label class="tableid">โต๊ะ : <label>5</label></label>
-                </div>
-                <div class="box_right_top colorGreen">
-                    <p>สำเร็จ</p>
-                </div>
-            </div>
-            <div class="tinybox_middle">
-                <h4 class="headmenu">รายการอาหาร</h4>
-                <div class="menu">
-                    <p>hello</p>
-                    <p>hello</p>
-                </div>
-            </div>
-            <div class="tinybox_bottom">
-                <button class="admit">ตอบรับ</button>
-                <button class="cancel">ยกเลิก</button>
-            </div>
-        </div>
-
-        <div class="smallbox">
-            <div class="tinybox_top">
-                <div class="box_left_top">
-                    <label class="orderid">1</label>
-                    <br>
-                    <label class="tableid">โต๊ะ : <label>5</label></label>
-                </div>
-                <div class="box_right_top colorGreen">
-                    <p>สำเร็จ</p>
-                </div>
-            </div>
-            <div class="tinybox_middle">
-                <h4 class="headmenu">รายการอาหาร</h4>
-                <div class="menu">
-                    <p>hello</p>
-                    <p>hello</p>
-                </div>
-            </div>
-            <div class="tinybox_bottom">
-                <button class="admit">ตอบรับ</button>
-                <button class="cancel">ยกเลิก</button>
-            </div>
-        </div>
-        <div class="smallbox">
-            <div class="tinybox_top">
-                <div class="box_left_top">
-                    <label class="orderid">1</label>
-                    <br>
-                    <label class="tableid">โต๊ะ : <label>5</label></label>
-                </div>
-                <div class="box_right_top colorGreen">
-                    <p>สำเร็จ</p>
-                </div>
-            </div>
-            <div class="tinybox_middle">
-                <h4 class="headmenu">รายการอาหาร</h4>
-                <div class="menu">
-                    <p>hello</p>
-                    <p>hello</p>
-                </div>
-            </div>
-            <div class="tinybox_bottom">
-                <button class="admit">ตอบรับ</button>
-                <button class="cancel">ยกเลิก</button>
-            </div>
-        </div>
+        
+       
+       
+       
     </div>
 </div>
 </body>
 </html>
+
+<script>
+
+async function changeBillbyStatus(status){
+    await Bill_read();
+    if (status == "pending"){
+        console.log("Status is pending. Closing .smallbox.pending elements...");
+        await closeclass(".smallbox.ordered");
+        await closeclass(".smallbox.cancel");
+        await closeclass(".smallbox.finised");
+       
+    }else if(status == "cancel"){
+        await closeclass(".smallbox.ordered");
+        await closeclass(".smallbox.pending");
+        await closeclass(".smallbox.finised");
+    }else if(status == "finised"){
+        await closeclass(".smallbox.ordered");
+        await closeclass(".smallbox.pending");
+        await closeclass(".smallbox.cancel");
+    }else if(status == "ordered"){
+        await closeclass(".smallbox.finised");
+        await closeclass(".smallbox.pending");
+        await closeclass(".smallbox.cancel");
+    }
+       
+    
+}
+
+async function closeclass(nameclass){
+    var elements = document.querySelectorAll(nameclass);
+    console.log("Total elements selected:", elements.length);
+    console.log("Found elements:", elements);
+
+
+    elements.forEach(function(element) {
+        console.log("Closing element:", element);
+        element.style.display = "none";
+    });
+}
+
+async function changeNumStatus(){ 
+
+    var getShowall = document.getElementById("showall");
+    var getShowpending = document.getElementById("showpend");
+    var getShoworder = document.getElementById("showorder");
+    var getShowfinised = document.getElementById("showfinised");
+    var getShowcancel = document.getElementById("showcancel");
+    var elements2 = document.querySelectorAll(".smallbox.pending");
+    var elements3 = document.querySelectorAll(".smallbox.ordered");
+    var elements4 = document.querySelectorAll(".smallbox.finised");
+    var elements5 = document.querySelectorAll(".smallbox.cancel");
+    getShowpending.innerText = ""+elements2.length;
+    getShoworder.innerText = ""+elements3.length;
+    getShowfinised.innerText = ""+elements4.length;
+    getShowcancel.innerText = ""+elements5.length;
+    var totalElements = elements2.length + elements3.length + elements4.length + elements5.length;
+    getShowall.innerHTML = totalElements;
+    console.log("Total elements selected:", elements2.length);
+
+    
+}
+
+async function Bill_read(){
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    }  ;
+
+    var showbills = document.getElementById("scrollbar1")
+    showbills.innerHTML = "";
+    var showcolor = "";
+    var textstatus = "";
+  
+    await fetch("backEnd/includes/api/read_Billinorder.php" , requestOptions)
+    .then(respone => respone.text())
+    .then(result => {
+        var jsonObj = JSON.parse(result);
+        for (let bills of jsonObj){
+            if(bills.bill_status == "pending"){
+                showcolor = "Gray";
+                textstatus = "รอรับ";
+                txtaction = "ตอบรับ"
+                btnstatuschang = "ordered";
+            }else if(bills.bill_status == "ordered"){
+                showcolor = "Yellow";
+                textstatus = "กำลังทำ";
+                txtaction = "เสร็จ"
+                btnstatuschang = "finised";
+            }else if(bills.bill_status == "cancel"){
+                showcolor = "Red";
+                textstatus = "ยกเลิก";
+                txtaction = "เสร็จ"
+                btnstatuschang = "finised";
+            }else if(bills.bill_status == "finised"){
+                showcolor = "Green";
+                textstatus = "พร้อมเสิร์ฟ";
+                txtaction = "เสร็จ"
+                btnstatuschang = "finised";
+            }
+                var row = `<div class="smallbox `+bills.bill_status+`">
+                <div class="tinybox_top">
+                    <div class="box_left_top">
+                        <label class="orderid">`+bills.bill_id+`</label>
+                        <br>
+                        <label class="tableid">โต๊ะ : <label>`+bills.table_id+`</label></label>
+                    </div>
+                    <div class="box_right_top color`+showcolor+`" >
+                        <p>`+textstatus+`</p> 
+                    </div>
+                </div>
+                <div class="tinybox_middle">
+                    <h4 class="headmenu">รายการอาหาร</h4>
+                    <div class="menu" >
+                        <table id = "`+bills.bill_id+`">
+                            <tr>
+                            <th  width="90%">ชื่อ</th>
+                            <th  width="10%">จำนวน</th>
+                          
+                            </tr>
+                        </table>
+                        
+                    </div>
+                </div>
+                <div class="tinybox_bottom">
+                    <button class="admit `+bills.bill_status+`" id = "btn1" onclick="updateStatusBill('`+bills.bill_id+`', '`+btnstatuschang+`')">`+txtaction+`</button>
+                    <button class="btn `+bills.bill_status+`" id = "btn2" onclick="updateStatusBill('`+bills.bill_id+`', 'cancel')">ยกเลิก</button>
+                </div>
+            </div>`;
+            
+            console.log(bills.bill_id);
+            showbills.insertAdjacentHTML('beforeend', row); // ใช้ showmenu[0] เพื่อเข้าถึงอ็อบเจกต์ Element
+           
+            showorderBill(bills.bill_id);
+          
+        }
+        
+    })
+    
+    await changeNumStatus();
+    await closeclass(".admit.cancel");
+    await closeclass(".btn.cancel");
+    await closeclass(".admit.finised");
+}
+
+function showorderBill(bill_id){
+    var myHearders = new Headers();
+    myHearders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "bill_id" : bill_id
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHearders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+
+    var showBillbyId = document.getElementById(bill_id);
+   
+    fetch("backEnd/includes/api/read_orderByBillID.php" , requestOptions)
+    .then(respone => respone.text())
+    .then(result => {
+        var jsonObj = JSON.parse(result);
+        for (let orders of jsonObj){
+            var row = ` 
+            <tr>
+                <td>`+orders.menu_name+`</td>
+                <td>`+orders.order_quantity+`</td>
+                <td></td>
+            </tr>
+           `;
+            showBillbyId.insertAdjacentHTML('beforeend', row); // ใช้ showmenu[0] เพื่อเข้าถึงอ็อบเจกต์ Element
+        }
+    })
+}
+
+async function updateStatusBill(bill_id, status){
+    var myHearders = new Headers();
+    myHearders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "bill_id" : bill_id,
+        "bill_status" : status
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHearders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    await fetch("backEnd/includes/api/update_table_id.php", requestOptions)
+    .then(respone => respone.text())
+    .then(result => {
+        var jsonObj = JSON.parse(result);
+        if (jsonObj.status == 'ok'){
+            console.log("ok");
+        }else{
+            alert('error');
+        }
+    })
+
+    await Bill_read();
+}
+
+
+</script>

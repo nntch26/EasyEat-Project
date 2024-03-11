@@ -14,7 +14,16 @@ a{
 .smallbox{
     background-color: rgb(255, 255, 255);
     padding: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .main-menu{
     display: flex;
@@ -104,6 +113,7 @@ input{
     width: 100%;
     padding: 0px;
     background-color: #eadede;
+    
 }
 .one, .two, .three{
     display: flex;
@@ -189,11 +199,7 @@ h4{
     margin-right: 22px;
     color: #ffffff;
 }
-.card-body{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 .back{
     text-align: end;
 }

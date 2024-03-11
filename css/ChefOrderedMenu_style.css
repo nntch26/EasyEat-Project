@@ -207,3 +207,12 @@ h1 {
     margin-bottom: 5px;
     border-radius: 10px;
 }
+
+.btn{
+    font-size: 18px;
+    width: 20%;
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
