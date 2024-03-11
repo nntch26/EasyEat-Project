@@ -56,8 +56,8 @@ try {
         echo '</div>';
         echo '<hr>';
         echo '<div class="tinybox_bottom">';
-        echo '<a class="btn btn-outline-dark me-3" href="#popup-box-table1">รับลูกค้า</a></button>';
-        echo '<a class="btn btn-danger" href="#" id="cancelButton' . $table['table_id'] . '">ยกเลิก</a></button>';
+        echo '<a class="btn btn-warning me-3" href="#popup-box-table1">รับลูกค้า</a></button>';
+        echo '<a class="btn btn-outline-danger" href="#" id="cancelButton' . $table['table_id'] . '">ยกเลิก</a></button>';
         echo '</div>';
         echo '</div>';
     }
