@@ -111,22 +111,7 @@ h2 {
     flex-direction: column;
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
 
-th {
-    border-collapse: collapse;
-    /*background-color: #ffe4c8;*/
-}
-
-tr, td {
-    border-style: solid;
-    border-width: thin;
-    background-color: white;
-    font-weight: normal;
-}
 
 
 .PaymentMenu {
