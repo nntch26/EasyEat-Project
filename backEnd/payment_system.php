@@ -141,7 +141,7 @@ else if (isset($_POST['btnbills'])){
     }
     else{
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> โปรดกรอกข้อมูลใหม่";
-        //header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
+        header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
         exit();
     }
 
