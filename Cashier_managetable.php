@@ -34,8 +34,12 @@ echo '</div>';
 echo '</div>';
 
 try {
-    // Loop through the data and generate the HTML structure
     foreach ($get_tables as $table) {
+        $get_reservinfo = $db->prepare("SELECT * FROM Reservations WHERE table_id = :id ORDER BY res_date DESC, res_time DESC LIMIT 1;");
+        $get_reservinfo->bindParam(':id', $table['table_id']);
+        $get_reservinfo->execute();
+        $reservinfo = $get_reservinfo->fetch(PDO::FETCH_ASSOC);
+
         echo '<div class="smallbox">';
         echo '<div class="tinybox_top">';
         echo '<div class="box_left_top">';
@@ -61,6 +65,7 @@ try {
         } else if ($table['table_status'] == 'ว่าง') {
             echo '<a class="btn btn-warning me-3" href="#popup-box-table' . $table['table_id'] . '">รับลูกค้า</a>';
         } else {
+            echo '<a class="btn btn-warning me-3" href="#popup-box-reservinfo' . $table['table_id'] . '">ข้อมูลคนจอง</a>';
             echo '<a class="btn btn-warning me-3" href="#popup-box-table1.5' . $table['table_id'] . '">แสดง QR</a>';
         }
         echo '<a class="';
@@ -89,6 +94,30 @@ try {
                 x
             </a>
         </div>
+        </div>
+
+        <div class="modal" id="popup-box-reservinfo<?php echo $table['table_id']; ?>">
+            <div class="content">
+                <h3>รายละเอียดการจอง โต็ะ <?php echo $table['table_id']; ?></h3>
+                <hr>
+                <div class="list">
+                    <?php
+                    if (empty($reservinfo)) {
+                        echo "<label> รับลูกค้าหน้าร้าน </label>";
+                    } else {
+                        echo "<label> Reservation ID: " . $reservinfo['res_id'] . "</label> <br>";
+                        echo "<label> Customer Name: " . $reservinfo['cus_fname'] . " " . $reservinfo['cus_lname'] . "</label> <br>";
+                        echo "<label> Customer Tel.: " . $reservinfo['cus_phone'] . "</label> <br>";
+                        echo "<label> Reservation Cap: " . $reservinfo['res_cap'] . "</label> <br>";
+                        echo "<label> Reservation Date: " . $reservinfo['res_date'] . "</label> <br>";
+                        echo "<label> Reservation Time" . $reservinfo['res_time'] . "</label> <br>";
+                    }
+                    ?>
+                </div>
+                <a class="box-close" href="#">
+                    x
+                </a>
+            </div>
         </div>
 
         <div class="modal" id="popup-box-table1.5<?php echo $table['table_id']; ?>">

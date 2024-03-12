@@ -74,10 +74,10 @@ if (isset($_POST['ordered'])) {
     <!-- ส่วนของแถบบนหัวสุด -->
     <div class="headbar">
         <div class="typebar">
-            <a class="btn" onclick="loadallmenu()">เมนูทังหมด</a>
+            <a class="btn" onclick="loadallmenu()">เมนูทั้งหมด</a>
             <a class="btn" onclick="changeMenu('กับข้าว')">เมนูกับข้าว</a>
             <a class="btn" onclick="changeMenu('แกง')">เมนูแกง</a>
-            <a class="btn" onclick="changeMenu('ทานเล่น')">ทานเล่น</a>
+            <a class="btn" onclick="changeMenu('ทานเล่น')">เมนูทานเล่น</a>
             <a class="btn" onclick="changeMenu('อาหารจานเดียว')">อาหารจานเดียว</a>
             <a class="btn" onclick="changeMenu('ขนมหวาน')">ขนมหวาน</a>
             <a class="btn" onclick="changeMenu('เครื่องดื่ม')">เครื่องดื่ม</a>
@@ -200,8 +200,8 @@ if (isset($_POST['ordered'])) {
                                         <div class="card-body">
                                             <h5 class="card-title">` + menu.menu_name + `</h5>
                                             <div class="back">
-                                                <h5 class="card-price">ราคา฿` + menu.menu_price + `</h5>
-                                                <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
+                                                <h5 class="card-price">ราคา ` + menu.menu_price + ` ฿</h5>
+                                                <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงตะกร้า</a>
                                             </div>
                                         </div>
                                     </div>
@@ -217,8 +217,8 @@ if (isset($_POST['ordered'])) {
                                         <div class="card-body">
                                             <h5 class="card-title">` + menu.menu_name + `</h5>
                                             <div class="back">
-                                                <h5 class="card-price">ราคา฿` + menu.menu_price + `</h5>
-                                                <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
+                                                <h5 class="card-price">ราคา ` + menu.menu_price + ` ฿</h5>
+                                                <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงตะกร้า</a>
                                             </div>
                                         </div>
                                     </div>
@@ -301,19 +301,19 @@ if (isset($_POST['ordered'])) {
         var check_menu = document.getElementById(id);
 
         if (check_menu !== null) {
-            alert("in cart");
+            alert("เพิ่มลงในตะกร้าแล้ว");
         } else {
             var showBill = document.getElementById("showBill");
             var row = `<div class="menubox" id = "` + menu_id + `">
                         <div class="onadd">
-                            <h4>ชื่ออาหาร ` + menu_name + `</h4>
-                            <label class="price">ราคา ฿` + menu_price + `</label>
+                            <h4>` + menu_name + `</h4>
+                            <label class="price">ราคา ` + menu_price + ` ฿</label>
                         </div>
                          <div class="add-de">
                     <label class="price">จำนวน</label>
                     <input type="text" id = "q"  value= "1">
                     <!-- สัญลักษณ์ถังขยะ ไว้ลบรายการเมนูอาหารที่กดไว้ในตะกร้า -->
-                    <button style="color: black; background-color: black;" onclick="Deletemenu('` + menu_id + `')"><span class="fa fa-trash-o"></span></button>
+                    <button style="background-color: #222; border-style: solid; border-color: #222" onclick="Deletemenu('` + menu_id + `')"><span class="fa fa-trash-o"></span></button>
 
                 </div>`
             showBill.insertAdjacentHTML('beforeend', row);
@@ -348,8 +348,8 @@ if (isset($_POST['ordered'])) {
                      src="backEnd/menu_img/` + menu.menu_pic + `">
                 <div class="card-body">
                     <h4 class="card-title">` + menu.menu_name + `</h5>
-                    <h5 class="card-price">ราคา฿` + menu.menu_price + `</h5>
-                    <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
+                    <h5 class="card-price">ราคา ` + menu.menu_price + ` ฿</h5>
+                    <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงตะกร้า</a>
                 </div>
             </div>
             </div>

@@ -2,12 +2,6 @@
 
 session_start();
 
-if (isset($_GET['booking']) && $_GET['booking'] == 'success') {
-    // JavaScript code to show the alert message
-    echo '<script>alert("จองเสร็จแล้ว");</script>';
-}
-
-
 ?>
 
 
@@ -186,98 +180,8 @@ if (isset($_GET['booking']) && $_GET['booking'] == 'success') {
             </div>
 
             <div class="row g-4 mb-5">
-                <div class="col-md-6">
-                    <div class="card con-card">
-                        <img src="img2/food_item4.jpg" class="card-img-top" alt="...">
-
-                        <div class="card-body">
-                            <div class="text-section">
-                                <h3 class="card-title1">Card title</h3>
-                                <p class="card-text1">Some quick example text to build on the card's content.</p>
-                                <h5 class="text-price">ราคา : 12.00 บาท</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card con-card">
-                        <img src="img2/food_item4.jpg" class="card-img-top" alt="...">
-
-                        <div class="card-body">
-                            <div class="text-section">
-                                <h3 class="card-title1">Card title</h3>
-                                <p class="card-text1">Some quick example text to build on the card's content.</p>
-                                <h5 class="text-price">ราคา : 12.00 บาท</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card con-card">
-                        <img src="img2/food_item4.jpg" class="card-img-top" alt="...">
-
-                        <div class="card-body">
-                            <div class="text-section">
-                                <h3 class="card-title1">Card title</h3>
-                                <p class="card-text1">Some quick example text to build on the card's content.</p>
-                                <h5 class="text-price">ราคา : 12.00 บาท</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card con-card">
-                        <img src="img2/food_item4.jpg" class="card-img-top" alt="...">
-
-                        <div class="card-body">
-                            <div class="text-section">
-                                <h3 class="card-title1">Card title</h3>
-                                <p class="card-text1">Some quick example text to build on the card's content.</p>
-                                <h5 class="text-price">ราคา : 12.00 บาท</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-6">
-                    <div class="card con-card">
-                        <img src="img2/food_item4.jpg" class="card-img-top" alt="...">
-
-                        <div class="card-body">
-                            <div class="text-section">
-                                <h3 class="card-title1">Card title</h3>
-                                <p class="card-text1">Some quick example text to build on the card's content.</p>
-                                <h5 class="text-price">ราคา : 12.00 บาท</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-6">
-                    <div class="card con-card">
-                        <img src="img2/food_item4.jpg" class="card-img-top" alt="...">
-
-                        <div class="card-body">
-                            <div class="text-section">
-                                <h3 class="card-title1">Card title</h3>
-                                <p class="card-text1">Some quick example text to build on the card's content.</p>
-                                <h5 class="text-price">ราคา : 12.00 บาท</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
+                <!-- generate menu for showing -->
+                <?php include("backEnd/index_genmenu.php"); ?>
             </div>
 
             <hr class="mt-5 mb-4" width="50%">
