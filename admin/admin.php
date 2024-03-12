@@ -3,7 +3,7 @@
 include('../backend/includes/connectDB.php');
 
 $menu = $db->prepare("SELECT COUNT(menu_id) AS count_menu FROM Easyeat.Menus;");
-$user = $db->prepare("SELECT COUNT(user_id) AS count_users FROM Easyeat.Users;");
+$user = $db->prepare("SELECT COUNT(user_id) AS count_users FROM Easyeat.Users WHERE user_role = 'Member';");
 $bill = $db->prepare("SELECT COUNT(Bill_id) AS count_bill FROM Easyeat.Bills;");
 $payment = $db->prepare("SELECT sum(payment_total) AS sum_pay  FROM Payments");
 
