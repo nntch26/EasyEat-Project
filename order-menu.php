@@ -74,10 +74,10 @@ if (isset($_POST['ordered'])) {
     <!-- ส่วนของแถบบนหัวสุด -->
     <div class="headbar">
         <div class="typebar">
-            <a class="btn" onclick="loadallmenu()">เมนูทังหมด</a>
+            <a class="btn" onclick="loadallmenu()">เมนูทั้งหมด</a>
             <a class="btn" onclick="changeMenu('กับข้าว')">เมนูกับข้าว</a>
             <a class="btn" onclick="changeMenu('แกง')">เมนูแกง</a>
-            <a class="btn" onclick="changeMenu('ทานเล่น')">ทานเล่น</a>
+            <a class="btn" onclick="changeMenu('ทานเล่น')">เมนูทานเล่น</a>
             <a class="btn" onclick="changeMenu('อาหารจานเดียว')">อาหารจานเดียว</a>
             <a class="btn" onclick="changeMenu('ขนมหวาน')">ขนมหวาน</a>
             <a class="btn" onclick="changeMenu('เครื่องดื่ม')">เครื่องดื่ม</a>
@@ -313,7 +313,7 @@ if (isset($_POST['ordered'])) {
                     <label class="price">จำนวน</label>
                     <input type="text" id = "q"  value= "1">
                     <!-- สัญลักษณ์ถังขยะ ไว้ลบรายการเมนูอาหารที่กดไว้ในตะกร้า -->
-                    <button style="color: black; background-color: black;" onclick="Deletemenu('` + menu_id + `')"><span class="fa fa-trash-o"></span></button>
+                    <button style="background-color: #222; border-style: solid; border-color: #222" onclick="Deletemenu('` + menu_id + `')"><span class="fa fa-trash-o"></span></button>
 
                 </div>`
             showBill.insertAdjacentHTML('beforeend', row);
