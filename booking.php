@@ -1,7 +1,6 @@
 <?php
 
 include('backEnd/includes/connectDB.php');
-global $db;
 ?>
 
 <!DOCTYPE html>
