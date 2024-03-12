@@ -242,44 +242,26 @@ session_start();
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-
+                                            <th>เลขบิล</th>
+                                            <th>หมายเลขโต็ะ</th>
+                                            <th>สถานะ</th>
                                         </tr>
                                     </thead>
+                                    <?php
+                                    $select_bill = $db->prepare("SELECT * FROM Bills");
+                                    $select_bill->execute();
+                                    $bills = $select_bill->fetchAll(PDO::FETCH_ASSOC);
+                                    ?>
                                     <tbody>
-
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-
-
-
-                                        </tr>
-
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-
-
-
-
-                                        </tr>
-
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-
-
-
-
-                                        </tr>
-
-
+                                        <?php
+                                            foreach ($bills as $bill) {
+                                                echo "<tr>";
+                                                echo "<td>". $bill['Bill_id']."</td>";
+                                                echo "<td>". $bill['table_id']."</td>";
+                                                echo "<td>". $bill['bill_status']."</td>";
+                                                echo "</tr>";
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
