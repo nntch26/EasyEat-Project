@@ -57,6 +57,8 @@ else if (isset($_POST['btnuse'])) {
         $_SESSION['total'] = $totaldata - $scoreuse;
         $balance = $_SESSION['score'] - $scoreuse;
 
+        $_SESSION['usepoint'] = "- " .$scoreuse;
+
         // ลบคะแนนในระบบ
         $sql = $db->prepare("UPDATE Users SET user_points = :balance
                                     WHERE user_phonenum = :telmem;");
@@ -91,9 +93,6 @@ else if (isset($_POST['btnbills'])){
     $recieved = $_POST['recieved'];
     $totaldata = $_POST['total2'];
 
-
-    echo $recieved ." |  ". $totaldata;
-    echo $table_id;
 
     // เงื่อนไขคือ จำนวนเงิน มากกว่าหรือเท่ากับ ราคาทั้งหมด
     if($recieved >= $totaldata){
@@ -148,14 +147,62 @@ else if (isset($_POST['btnbills'])){
         exit();
     }
 
+}
+
+// กดปุ่มเช็คบิล ชำระเงินแบบสแกน QR Code
+else if (isset($_POST['btnbillsQR'])){
+
+    $totaldata = $_POST['total'];
+    $numBill = $_POST['numBill'];
+    $date =  date('Y-m-d');
+    $time = date('H:i:s');
+
+    echo $totaldata." ". $table_id;
 
 
 
+    // เพิ่มข้อมูลการชำระเงิน
+    $sql = $db->prepare("INSERT INTO Payments (table_id, Bill_id, payment_total, payment_date, payment_time)
+                                VALUES (:table_id, :numBill, :total, :date, :time);");
+
+    $sql->bindParam(':table_id', $table_id);
+    $sql->bindParam(':numBill', $numBill);
+    $sql->bindParam(':total', $totaldata);
+    $sql->bindParam(':date', $date);
+    $sql->bindParam(':time', $time);
 
 
+    // เปลี่ยนสถานะโต๊ะ เป็นว่าง
+    $sql2 = $db->prepare("UPDATE Tables
+                                SET table_status = 'ว่าง'
+                                WHERE table_id = :table_id;");
+
+    $sql2->bindParam(':table_id', $table_id);
+
+    $sql->execute();
+    $sql2->execute();
 
 
+    if ($sql->rowCount() > 0 && $sql2->rowCount() > 0){
 
+        $_SESSION['succ_chck'] = "<b>ชำระเงินเสร็จสิ้น :</b> การชำระเงินเรียบร้อย!";
 
+        $_SESSION['change'] = 0;
+        $_SESSION['recieved'] = $totaldata;
+
+        $_SESSION['succ_bill']= true;
+
+        header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
+        exit();
+    }
+    else{
+        $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> โปรดกรอกข้อมูลใหม่";
+        //header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
+        exit();
+    }
 
 }
+
+
+
+

@@ -1,5 +1,7 @@
 <?php
 include('backEnd/includes/connectDB.php');
+session_start();
+
 $get_table_info = $db->prepare("SELECT `table_id`, `table_status` FROM `Tables`");
 $get_table_info->execute();
 $get_tables = $get_table_info->fetchAll(PDO::FETCH_ASSOC);
@@ -118,5 +120,15 @@ foreach ($get_tables as $check_status) {
 
         <?php
     }
+
+?>
+
+    <!-- ล้าง session --->
+
+<?php
+if (isset($_SESSION['usepoint'])) {
+    unset($_SESSION['usepoint']);
+}
+
 
 ?>
