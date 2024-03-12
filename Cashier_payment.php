@@ -8,21 +8,37 @@ date_default_timezone_set('Asia/Bangkok');
 
 
 $table_id = $_GET['table_id'];
+//echo  $table_id;
 
 $sql1 = $db->prepare("SELECT Bills.Bill_id, Orders.*,Bills.*,Menus.*
                      FROM Orders
                      JOIN Menus ON Orders.menu_id = Menus.menu_id
                      LEFT JOIN Bills ON Orders.Bill_id = Bills.Bill_id
-                     WHERE Orders.table_id  = :table_id AND Bills.bill_status = 'finised';;");
+                     WHERE Orders.table_id  = :table_id AND Bills.bill_status = 'finised';");
 // table id เปลี่ยนตามโต๊ะที่สั่งอาหาร
 
 $sql1->bindParam(':table_id', $table_id);
 $sql1->execute();
 
-$result = $sql1->fetch(PDO::FETCH_ASSOC);
+
+if ($sql1->rowCount() > 0) {
+    $result = $sql1->fetch(PDO::FETCH_ASSOC);
+    $numBill = $result['Bill_id'];
+
+} else {
+    $numBill = '';
+    //echo "ไม่พบข้อมูล";
+}
 
 $num = 1;
-$total = 0;
+
+if (isset($_SESSION['total'])){
+    $total = $_SESSION['total'];
+
+}else{
+    $total = 0;
+}
+
 
 ?>
 
@@ -58,16 +74,39 @@ $total = 0;
         <div style="text-align:left;">
             <a class="btn btn-outline-dark" href="Cashier.php">ย้อนกลับ</a>
         </div>
+
         <form action="#" method="post"id="printJS-form">
+            
             <div>
                 <div style="text-align : center;">
                     <h3>EasyEat</h3>
-                    <p><b>เลขที่บิล : </b>  <?php echo $result['Bill_id']; ?></p>
-                    <p><b>รายการโต๊ะ : </b> <?php echo $result['table_id']; ?></p>
+                    <p><b>เลขที่บิล : </b>  <?php echo $numBill ?></p>
+                    <p><b>รายการโต๊ะ : </b> <?php echo $table_id; ?></p>
                     <p><b>วันที่ : </b> <?php echo date('Y-m-d') ?> | <b>เวลา : </b> <?php echo date('H:i:s'); ?></p>
 
                 </div>
             </div>
+
+            <!-- มีข้อมูลในระบบ -->
+            <?php
+            if (isset($_SESSION['succ_chck'])) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?php
+                    echo $_SESSION['succ_chck']; ?>
+                </div>
+            <?php
+            endif; ?>
+
+            <!-- ไม่เจอข้อมูลในระบบ -->
+            <?php
+            if (isset($_SESSION['error_chck'])) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php
+                    echo $_SESSION['error_chck']; ?>
+                </div>
+            <?php
+            endif; ?>
+
 
             <div class="con-table">
                 <table class="table">
@@ -142,9 +181,20 @@ $total = 0;
         <br>
 
         <div class="cont-btn">
-            <a class="btn btn-secondary me-2" onclick="printJS('printJS-form', 'html')" class="descripAhref">
+
+            <?php
+            if (isset($_SESSION['succ_bill'])):?>
+
+            <a class="btn btn-secondary me-2" onclick="printJS('printJS-form2', 'html')" class="descripAhref">
                 <i class="fs-5 bi bi-printer-fill"></i> <spen class="ms-1">พิมพ์ใบเสร็จ</spen>
             </a>
+
+            <?php else: ?>
+                <a class="btn btn-secondary me-2" onclick="printJS('printJS-form', 'html')" class="descripAhref">
+                    <i class="fs-5 bi bi-printer-fill"></i> <spen class="ms-1">พิมพ์ใบเสร็จ</spen>
+                </a>
+
+            <?php endif; ?>
 
             <a class="btn btn btn-success me-2" href="#popup-box-pay" class="descripAhref">
                 <i class="fs-5 bi bi-cash-coin"></i><spen class="ms-2">เงินสด</spen>
@@ -163,28 +213,45 @@ $total = 0;
 <!--- popup สำหรับจ่ายเงินสด -->
 <div class="modal" id="popup-box-pay">
     <div class="content">
-        <h4 class="mb-5 text-center">เช็คบิล โต๊ะ ..... เลขที่ใบเสร็จ ..... <br> รูปแบบการจ่าย : เงินสด</h4>
+        <h4 class="mb-5 text-center">เช็คบิล โต๊ะ <?php echo $table_id; ?> เลขที่ใบเสร็จ <?php echo $numBill; ?> <br> รูปแบบการจ่าย : เงินสด</h4>
+
         <div class="list" style="font-size: 20px;">
-            <label>รวมทั้งสิ้น (บาท) :</label>
-            <input type="text" class="mb-3" style="width: 50%;" >
-            <hr>
-            <h5>สำหรับสมาชิก</h5>
-            <label>เบอร์โทร : </label>
-            <input type="text" style="width: 50%;" class="mb-4">
-            <div>
-                <button class="btn btn-danger" onclick="printJS('printJS-form2', 'html')">เช็คสมาชิก</button>
-                <button class="btn btn-warning" ">ใช้คะแนน</button>
-            </div>
 
-            <hr>
-            <label>รับเงินมา (บาท) :</label>
-            <input type="text" class="mb-4">
-            <label>ถอน (บาท) : (ถ้ามี)</label>
-            <input type="text" class="mb-4">
-            <br>
+            <form action="backEnd/payment_system.php" method="post">
+                <label>รวมทั้งสิ้น (บาท) :</label>
+                <input type="text" class="mb-3" style="width: 50%;" name="total" readonly value="<?php echo isset($_SESSION['total']) ? $_SESSION['total'] : $total; ?>">
+                <hr>
 
-            <button class="btn btn-success" onclick="printJS('printJS-form2', 'html')">เช็คบิล</button>
-            <a class="btn btn-secondary" href="#">ยกเลิก</a>
+                <h5>สำหรับสมาชิก</h5>
+                <label>เบอร์โทร : </label>
+                <input type="text" class="mb-4" style="width: 50%;" name="telmem" value="<?php echo isset($_SESSION['telmem']) ? $_SESSION['telmem'] : ''; ?>">
+
+                <div>
+                    <input type="hidden" name="table_id" value="<?php echo ($table_id); ?>">
+                    <button type="submit" class="btn btn-danger" name="btnmem"">เช็คสมาชิก</button>
+
+                    <?php if (isset($_SESSION['telmem'])): ?>
+                        <a href="#popup-box-member" class="btn btn-warning">ใช้คะแนน</a>
+                    <?php endif; ?>
+
+                </div>
+
+                <hr>
+                <label>รับเงินมา (บาท) :</label>
+                <input type="text" class="mb-4" name="recieved">
+                <label>ถอน (บาท) : (ถ้ามี)</label>
+                <input type="text" class="mb-4" name="change" readonly value="<?php echo isset($_SESSION['change']) ? $_SESSION['change'] : ''; ?>">
+                <br>
+
+                <input type="hidden" name="table_id" value="<?php echo ($table_id); ?>">
+                <input type="hidden" name="numBill" value="<?php echo ($numBill); ?>">
+                <input type="hidden" name="total2" value="<?php echo isset($_SESSION['total']) ? $_SESSION['total'] : $total; ?>">
+
+                <button type="submit" class="btn btn-success" name="btnbills">เช็คบิล</button>
+                <a class="btn btn-secondary" href="#">ยกเลิก</a>
+            </form>
+
+
 
             <div style="display: none;">
                 <?php include("Cashier_payment2.php"); ?>
@@ -217,7 +284,7 @@ $total = 0;
             </div>
 
             <hr>
-            <h1>ใส่ QR ตรงนี้เด้อจ่ะ</h1>
+            <img src="img2/qrcode.jpg" alt="" width="100%">
 
             <hr>
             <button class="btn btn-success" onclick="printJS('printJS-form2', 'html')">เช็คบิล</button>
@@ -229,7 +296,59 @@ $total = 0;
     </div>
 </div>
 
+<!--- popup ใส่คะแนน -->
+<div class="modal" id="popup-box-member">
+    <div class="content">
+        <h4 class="mb-3 text-center">กรอกคะแนนที่ต้องการใช้</h4>
+        <div class="list">
+            <form action="backEnd/payment_system.php" method="post">
+                <label>รวมทั้งสิ้น (บาท) :</label>
+                <input type="text" class="mb-3" style="width: 50%;" name="total" readonly value="<?php echo $total?>">
+                <hr>
+                <h5>สำหรับสมาชิก</h5>
+                <label>คะแนนที่มีอยู่ : </label>
+                <input type="text" style="width: 50%;" class="mb-3" value="<?php echo isset($_SESSION['score']) ? $_SESSION['score'] : ''; ?>" readonly>
+                <label>คะแนนที่ต้องการใช้ :</label>
+                <input type="text" class="mb-3" style="width: 50%;" value="" name="scoreuse">
+                <div>
+
+                    <input type="hidden" name="table_id" value="<?php echo ($table_id); ?>">
+                    <input type="hidden" name="telmem" value="<?php echo isset($_SESSION['telmem']) ? $_SESSION['telmem'] : ''; ?>">
+
+                    <button type="submit" class="btn btn-warning" name="btnuse">ใช้คะแนน</button>
+                </div>
+
+            </form>
+
+
+        </div>
+        <a class="box-close" href="#">
+            x
+        </a>
+    </div>
+</div>
+
+
+
 
 </body>
 
 </html>
+
+    <!-- ล้าง session --->
+
+<?php
+if (isset($_SESSION['error_chck']) || isset($_SESSION['succ_chck'])
+    || isset($_SESSION['telmem']) || isset($_SESSION['total'])
+    || isset($_SESSION['change']) || isset($_SESSION['succ_bill'])) {
+
+    unset($_SESSION['error_chck']);
+    unset($_SESSION['succ_chck']);
+    unset($_SESSION['telmem']);
+    unset($_SESSION['total']);
+    unset($_SESSION['change']);
+    unset($_SESSION['succ_bill']);
+}
+
+
+?>
