@@ -143,8 +143,9 @@ foreach ($get_tables as $table) {
 <!-- ล้าง session --->
 
 <?php
-if (isset($_SESSION['usepoint'])) {
+if (isset($_SESSION['usepoint']) || isset($_SESSION['telmem']) ) {
     unset($_SESSION['usepoint']);
+    unset($_SESSION['telmem']);
 }
 
 

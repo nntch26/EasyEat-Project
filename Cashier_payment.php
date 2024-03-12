@@ -354,13 +354,10 @@ $usepoint = 0;
 <?php
 if (
     isset($_SESSION['error_chck']) || isset($_SESSION['succ_chck'])
-    || isset($_SESSION['telmem']) || isset($_SESSION['total'])
-    || isset($_SESSION['change']) || isset($_SESSION['succ_bill'])
-) {
+    || isset($_SESSION['total']) || isset($_SESSION['change']) || isset($_SESSION['succ_bill'])){
 
     unset($_SESSION['error_chck']);
     unset($_SESSION['succ_chck']);
-    unset($_SESSION['telmem']);
     unset($_SESSION['total']);
     unset($_SESSION['change']);
     unset($_SESSION['succ_bill']);

@@ -73,6 +73,7 @@ session_start();
 
 
                 <div class="row">
+                    <p style="color: #dc3545;">*สมาชิกของร้านจะได้รับ 3% เมื่อชำระเงิน และสามารถสะสมคะแนน เพื่อใช้เป็นส่วนลดได้</p>
                     <div class="form-outline mb-3 col-md-6">
                         <label class="form-label">ชื่อ</label>
                         <input type="text" name="firstname" id="firstname" class="form-control" placeholder="กรอกชื่อของคุณ" minlength="3" pattern="[a-zA-Zก-๏\s]+" required />

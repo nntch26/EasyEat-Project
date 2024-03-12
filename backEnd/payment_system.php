@@ -92,6 +92,24 @@ else if (isset($_POST['btnbills'])) {
 
         echo $balance;
 
+        // เพิ่มคะแนนในระบบ ถ้าเป็นสมาชิก
+        if (isset($_SESSION['telmem'])){
+
+            $telmem = $_SESSION['telmem'];
+
+            $dis = (float) $totaldata * 0.03;
+            $total4 = (float) $_SESSION['score'] + $dis;
+
+            // เพิ่มคะแนนในระบบ
+            $sql4 = $db->prepare("UPDATE Users SET user_points = :points
+                                    WHERE user_phonenum = :telmem;");
+
+            $sql4->bindParam(':points', $total4);
+            $sql4->bindParam(':telmem', $telmem);
+
+            $sql4->execute();
+        }
+
 
 
         // เพิ่มข้อมูลการชำระเงิน
@@ -104,6 +122,14 @@ else if (isset($_POST['btnbills'])) {
         $sql->bindParam(':date', $date);
         $sql->bindParam(':time', $time);
 
+        // เปลี่ยนสถานะบิล เป็น pay ชำระเงินแล้ว
+        $sql5 = $db->prepare("UPDATE Bills
+                                SET bill_status = 'pay'
+                                WHERE Bill_id = :numBill;");
+
+        $sql5->bindParam(':numBill', $numBill);
+
+
 
         // เปลี่ยนสถานะโต๊ะ เป็นว่าง
         $sql2 = $db->prepare("UPDATE Tables
@@ -114,9 +140,10 @@ else if (isset($_POST['btnbills'])) {
 
         $sql->execute();
         $sql2->execute();
+        $sql5->execute();
 
 
-        if ($sql->rowCount() > 0 && $sql2->rowCount() > 0) {
+        if ($sql->rowCount() > 0 && $sql2->rowCount() > 0 && $sql5->rowCount() > 0) {
 
             $_SESSION['succ_chck'] = "<b>ชำระเงินเสร็จสิ้น :</b> การชำระเงินเรียบร้อย!";
 
@@ -145,6 +172,27 @@ else if (isset($_POST['btnbillsQR'])) {
 
     echo $totaldata . " " . $table_id;
 
+    // เพิ่มคะแนนในระบบ ถ้าเป็นสมาชิก
+    if (isset($_SESSION['telmem'])){
+
+        $telmem = $_SESSION['telmem'];
+
+        $dis = (float) $totaldata * 0.03;
+        $total4 = (float) $_SESSION['score'] + $dis;
+
+        echo $total4;
+
+        // เพิ่มคะแนนในระบบ
+        $sql4 = $db->prepare("UPDATE Users SET user_points = :points
+                                    WHERE user_phonenum = :telmem;");
+
+        $sql4->bindParam(':points', $total4);
+        $sql4->bindParam(':telmem', $telmem);
+
+        $sql4->execute();
+    }
+
+
 
 
     // เพิ่มข้อมูลการชำระเงิน
@@ -157,6 +205,13 @@ else if (isset($_POST['btnbillsQR'])) {
     $sql->bindParam(':date', $date);
     $sql->bindParam(':time', $time);
 
+    // เปลี่ยนสถานะบิล เป็น pay ชำระเงินแล้ว
+    $sql5 = $db->prepare("UPDATE Bills
+                                SET bill_status = 'pay'
+                                WHERE Bill_id = :numBill;");
+
+    $sql5->bindParam(':numBill', $numBill);
+
 
     // เปลี่ยนสถานะโต๊ะ เป็นว่าง
     $sql2 = $db->prepare("UPDATE Tables
@@ -167,9 +222,10 @@ else if (isset($_POST['btnbillsQR'])) {
 
     $sql->execute();
     $sql2->execute();
+    $sql5->execute();
 
 
-    if ($sql->rowCount() > 0 && $sql2->rowCount() > 0) {
+    if ($sql->rowCount() > 0 && $sql2->rowCount() > 0 && $sql5->rowCount() > 0) {
 
         $_SESSION['succ_chck'] = "<b>ชำระเงินเสร็จสิ้น :</b> การชำระเงินเรียบร้อย!";
 
@@ -182,7 +238,7 @@ else if (isset($_POST['btnbillsQR'])) {
         exit();
     } else {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> โปรดกรอกข้อมูลใหม่";
-        //header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
+        header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
         exit();
     }
 }
