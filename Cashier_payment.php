@@ -31,13 +31,8 @@ if ($sql1->rowCount() > 0) {
 }
 
 $num = 1;
-
-if (isset($_SESSION['total'])){
-    $total = $_SESSION['total'];
-
-}else{
-    $total = 0;
-}
+$total = 0;
+$usepoint = 0;
 
 
 ?>
@@ -151,11 +146,16 @@ if (isset($_SESSION['total'])){
 
                     <tr>
                         <th colspan="4">รวม</th>
-                        <td><?php echo $total ; ?> บาท</td>
+                        <td><?php echo $total; ?> บาท</td>
                     </tr>
 
-                    <?php
-                    if (isset($_SESSION['succ_bill'])):?>
+                    <?php if (isset($_SESSION['usepoint'])):?>
+                    <tr>
+                        <th colspan="4">ส่วนสด</th>
+                        <td><?php echo $_SESSION['usepoint'] ?> บาท</td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if (isset($_SESSION['succ_bill'])):?>
                     <tr>
                         <th colspan="4">รับมา</th>
                         <td><?php echo $_SESSION['recieved'] ?> บาท</td>
@@ -268,25 +268,42 @@ if (isset($_SESSION['total'])){
 <!--- popup สำหรับสแกนจ่าย -->
 <div class="modal" id="popup-box-promppay">
     <div class="content">
-        <h4 class="mb-5 text-center">เช็คบิล โต๊ะ ..... เลขที่ใบเสร็จ ..... <br> รูปแบบการจ่าย : สแกนจ่าย</h4>
+        <h4 class="mb-5 text-center">เช็คบิล โต๊ะ <?php echo $table_id; ?> เลขที่ใบเสร็จ <?php echo $numBill; ?>  <br> รูปแบบการจ่าย : สแกนจ่าย</h4>
         <div class="list">
-            <label>รวมทั้งสิ้น (บาท) :</label>
-            <input type="text" class="mb-3" style="width: 50%;" >
-            <hr>
-            <h5>สำหรับสมาชิก</h5>
-            <label>เบอร์โทร : </label>
-            <input type="text" style="width: 50%;" class="mb-4">
-            <div>
-                <button class="btn btn-danger" onclick="printJS('printJS-form2', 'html')">เช็คสมาชิก</button>
-                <button class="btn btn-warning" ">ใช้คะแนน</button>
-            </div>
 
-            <hr>
-            <img src="img2/qrcode.jpg" alt="" width="100%">
+            <form action="backEnd/payment_system.php" method="post">
+                <label>รวมทั้งสิ้น (บาท) :</label>
+                <input type="text" class="mb-3" style="width: 50%;" readonly value="<?php echo isset($_SESSION['total']) ? $_SESSION['total'] : $total; ?>" >
+                <hr>
 
-            <hr>
-            <button class="btn btn-success" onclick="printJS('printJS-form2', 'html')">เช็คบิล</button>
-            <a class="btn btn-secondary" href="#">ยกเลิก</a>
+                <h5>สำหรับสมาชิก</h5>
+                <label>เบอร์โทร : </label>
+                <input type="text" class="mb-4" style="width: 50%;" name="telmem" value="<?php echo isset($_SESSION['telmem']) ? $_SESSION['telmem'] : ''; ?>">
+
+                <div>
+                    <input type="hidden" name="table_id" value="<?php echo ($table_id); ?>">
+                    <button type="submit" class="btn btn-danger" name="btnmem"">เช็คสมาชิก</button>
+
+                    <?php if (isset($_SESSION['telmem'])): ?>
+                        <a href="#popup-box-member" class="btn btn-warning">ใช้คะแนน</a>
+                    <?php endif; ?>
+
+                </div>
+
+                <hr>
+                <img src="img2/qrcode.jpg" alt="" width="100%">
+
+                <hr>
+
+                <input type="hidden" name="table_id" value="<?php echo ($table_id); ?>">
+                <input type="hidden" name="numBill" value="<?php echo ($numBill); ?>">
+                <input type="hidden" name="total" value="<?php echo isset($_SESSION['total']) ? $_SESSION['total'] : $total; ?>">
+
+                <button type="submit" class="btn btn-success" name="btnbillsQR">เช็คบิล</button>
+                <a class="btn btn-secondary" href="#">ยกเลิก</a>
+
+            </form>
+
         </div>
         <a class="box-close" href="#">
             x
@@ -301,7 +318,7 @@ if (isset($_SESSION['total'])){
         <div class="list">
             <form action="backEnd/payment_system.php" method="post">
                 <label>รวมทั้งสิ้น (บาท) :</label>
-                <input type="text" class="mb-3" style="width: 50%;" name="total" readonly value="<?php echo $total?>">
+                <input type="text" class="mb-3" style="width: 50%;" name="total" readonly value="<?php echo $total; ?>">
                 <hr>
                 <h5>สำหรับสมาชิก</h5>
                 <label>คะแนนที่มีอยู่ : </label>
@@ -345,6 +362,7 @@ if (isset($_SESSION['error_chck']) || isset($_SESSION['succ_chck'])
     unset($_SESSION['total']);
     unset($_SESSION['change']);
     unset($_SESSION['succ_bill']);
+
 }
 
 
