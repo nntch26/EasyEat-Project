@@ -242,10 +242,9 @@ session_start();
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-
+                                            <th>เลขบิล</th>
+                                            <th>หมายเลขโต็ะ</th>
+                                            <th>สถานะ</th>
                                         </tr>
                                     </thead>
                                     <tbody>
