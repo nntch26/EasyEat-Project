@@ -13,7 +13,7 @@ $sql1 = $db->prepare("SELECT Bills.Bill_id, Orders.*,Bills.*,Menus.*
                      FROM Orders
                      JOIN Menus ON Orders.menu_id = Menus.menu_id
                      LEFT JOIN Bills ON Orders.Bill_id = Bills.Bill_id
-                     WHERE Orders.table_id  = :table_id AND Bills.bill_status = 'finised';");
+                     WHERE Orders.table_id  = :table_id AND Bills.bill_status IN('finised','pay') ;");
 // table id เปลี่ยนตามโต๊ะที่สั่งอาหาร
 
 $sql1->bindParam(':table_id', $table_id);
@@ -118,7 +118,7 @@ $usepoint = 0;
                             $sql2 = $db->prepare("SELECT * FROM Orders
                                                          JOIN Menus ON Orders.menu_id = Menus.menu_id
                                                         LEFT JOIN Bills ON Orders.Bill_id = Bills.Bill_id
-                                                        WHERE Bills.Bill_id = :Bill_id AND Bills.bill_status = 'finised';");
+                                                        WHERE Bills.Bill_id = :Bill_id AND Bills.bill_status IN('finised','pay');");
 
                             $sql2->bindParam(':Bill_id', $row1['Bill_id']);
                             $sql2->execute();
