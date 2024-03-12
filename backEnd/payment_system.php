@@ -131,7 +131,10 @@ else if (isset($_POST['btnbills'])){
         if ($sql->rowCount() > 0 && $sql2->rowCount() > 0){
 
             $_SESSION['succ_chck'] = "<b>ชำระเงินเสร็จสิ้น :</b> การชำระเงินเรียบร้อย!";
+
             $_SESSION['change'] = $balance;
+            $_SESSION['recieved'] = $_POST['recieved'];
+
             $_SESSION['succ_bill']= true;
 
             header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
