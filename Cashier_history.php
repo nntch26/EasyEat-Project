@@ -1,5 +1,4 @@
 <?php
-
 include('backEnd/includes/connectDB.php');
 $get_payment_info = $db->prepare("SELECT * FROM Payments");
 $get_payment_info->execute();
@@ -7,7 +6,9 @@ $payment_info = $get_payment_info->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <h2>ประวัติการขาย</h2>
-<table class="tablemain">
+
+<table id="dataTable" class="table table-striped" style="width:100%;">
+    <thead>
     <tr>
         <th>ID</th>
         <th>Bill ID</th>
@@ -15,6 +16,8 @@ $payment_info = $get_payment_info->fetchAll(PDO::FETCH_ASSOC);
         <th>เวลาที่ทำรายการ</th>
         <th>ราคารวม</th>
     </tr>
+    </thead>
+    <tbody>
     <?php
     foreach ($payment_info as $row) {
         echo '<tr>';
@@ -26,4 +29,6 @@ $payment_info = $get_payment_info->fetchAll(PDO::FETCH_ASSOC);
         echo '</tr>';
     }
     ?>
+    </tbody>
 </table>
+

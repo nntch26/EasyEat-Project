@@ -65,7 +65,7 @@ try {
         } else if ($table['table_status'] == 'ว่าง') {
             echo '<a class="btn btn-warning me-3" href="#popup-box-table' . $table['table_id'] . '">รับลูกค้า</a>';
         } else if ($table['table_status'] == 'จอง'){
-            echo '<a class="btn btn-warning me-3" href="#popup-box-reservinfo' . $table['table_id'] . '">ข้อมูลคนจอง</a>';
+            echo '<a class="btn btn-warning me-3 mb-2" href="#popup-box-reservinfo' . $table['table_id'] . '">ข้อมูลคนจอง</a>';
             echo '<a class="btn btn-warning me-3" href="#popup-box-table1.5' . $table['table_id'] . '">แสดง QR</a>';
         }
         echo '<a class="';
@@ -105,12 +105,12 @@ try {
                     if (empty($reservinfo)) {
                         echo "<label> รับลูกค้าหน้าร้าน </label>";
                     } else {
-                        echo "<label> Reservation ID: " . $reservinfo['res_id'] . "</label> <br>";
-                        echo "<label> Customer Name: " . $reservinfo['cus_fname'] . " " . $reservinfo['cus_lname'] . "</label> <br>";
-                        echo "<label> Customer Tel.: " . $reservinfo['cus_phone'] . "</label> <br>";
-                        echo "<label> Reservation Cap: " . $reservinfo['res_cap'] . "</label> <br>";
-                        echo "<label> Reservation Date: " . $reservinfo['res_date'] . "</label> <br>";
-                        echo "<label> Reservation Time" . $reservinfo['res_time'] . "</label> <br>";
+                        echo "<label> รหัสจอง : " . $reservinfo['res_id'] . "</label> <br>";
+                        echo "<label> ชื่อ-นามสกุล : " . $reservinfo['cus_fname'] . " " . $reservinfo['cus_lname'] . "</label> <br>";
+                        echo "<label> เบอร์โทรศัพท์ : " . $reservinfo['cus_phone'] . "</label> <br>";
+                        echo "<label> จำนวนคน : " . $reservinfo['res_cap'] . "</label> <br>";
+                        echo "<label> วันที่ : " . $reservinfo['res_date'] . "</label> <br>";
+                        echo "<label> เวลา : " . $reservinfo['res_time'] . "</label> <br>";
                     }
                     ?>
                 </div>
