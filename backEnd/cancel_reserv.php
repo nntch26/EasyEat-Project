@@ -18,29 +18,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($updateStatement->rowCount() > 0) {
                 // Return success message
                 http_response_code(200);
-                echo "Table status updated successfully.";
+                echo "อัพเดทข้อมูลแล้ว";
                 exit;
             } else {
                 // Return error message if no rows were affected
                 http_response_code(400);
-                echo "No rows updated.";
+                echo "ไม่ได้อัพเดท";
                 exit;
             }
         } catch (PDOException $e) {
             // Return error message if database error occurs
             http_response_code(500);
-            echo "Database error: " . $e->getMessage();
+            echo "ฐานข้อมูลบึ้ม: " . $e->getMessage();
             exit;
         }
     } else {
         // Return error message if table_id is not set
         http_response_code(400);
-        echo "Table ID is not set.";
+        echo "ไม่มี Table id นี้";
         exit;
     }
 } else {
     // Return error message if the request method is not POST
     http_response_code(405);
-    echo "Method Not Allowed.";
+    echo "ที่ส่งมาไม่ใช่ POST ส่งมาใหม่!!!";
     exit;
 }
