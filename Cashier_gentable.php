@@ -31,13 +31,14 @@ foreach ($get_tables as $check_status) {
 </div>
 
 <?php
-try {
+
     foreach ($get_tables as $table) {
         $sum = 0;
         $get_order = $db->prepare("SELECT Menus.menu_name, Menus.menu_price, Orders.order_quantity FROM Orders JOIN Menus ON Orders.menu_id = Menus.menu_id WHERE table_id = :id");
         $get_order->bindParam(':id', $table['table_id']);
         $get_order->execute();
         $order = $get_order->fetchAll(PDO::FETCH_ASSOC);
+
         foreach ($order as $forsum) {
             $sum += $forsum['order_quantity'] * $forsum['menu_price'];
         }
@@ -74,10 +75,13 @@ try {
                 ?>
             </div>
             <div class="tinybox_bottom">
-                <a class="btn btn-outline-dark me-2" href="#popup-box-info<?= $table['table_id'] ?>">รายละเอียด</a></button>
-                <a class="btn btn-warning" onclick="showmenu('btn_payment_info') ">เช็คบิล</a></button>
+                <a class="btn btn-outline-dark me-2" href="#popup-box-info<?= $table['table_id'] ?>">รายละเอียด</a>
+                <?php $_SESSION['tableID'] = $table['table_id'] ?>
+                <a class="btn btn-warning" href="Cashier_payment.php?table_id=<?= $table['table_id'] ?>">เช็คบิล</a>
             </div>
         </div>
+
+
 
         <div class="modal" id="popup-box-info<?= $table['table_id'] ?>">
             <div class="content" style="overflow: scroll;scrollbar-color: #222222;scrollbar-width: thin; height:fit-content; max-height: 90%;">
@@ -110,9 +114,9 @@ try {
                 </a>
             </div>
         </div>
+
+
         <?php
     }
-} catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
+
 ?>

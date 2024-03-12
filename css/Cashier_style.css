@@ -6,6 +6,7 @@ body {
     display: flex;
     height: 100dvh;
     margin: 0;
+    background-color: #f2f8ff;
 }
 
 h2 {
@@ -207,6 +208,20 @@ h2 {
 }
 
 
+
+/* ////////////////// Payment //////////////////// */
+
+.PaymentBox2{
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+
+}
+
+.cont-btn{
+    text-align: center;
+}
 
 
 
