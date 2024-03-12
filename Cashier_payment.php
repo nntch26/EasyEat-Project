@@ -75,6 +75,8 @@ if (isset($_SESSION['total'])){
             <a class="btn btn-outline-dark" href="Cashier.php">ย้อนกลับ</a>
         </div>
 
+
+
         <form action="#" method="post"id="printJS-form">
             
             <div>
@@ -146,12 +148,23 @@ if (isset($_SESSION['total'])){
 
                         <?php endwhile; ?>
                     <?php endwhile; ?>
+
                     <tr>
                         <th colspan="4">รวม</th>
                         <td><?php echo $total ; ?> บาท</td>
                     </tr>
 
-
+                    <?php
+                    if (isset($_SESSION['succ_bill'])):?>
+                    <tr>
+                        <th colspan="4">รับมา</th>
+                        <td><?php echo $_SESSION['recieved'] ?> บาท</td>
+                    </tr>
+                    <tr>
+                        <th colspan="4">ทอน</th>
+                        <td><?php echo $_SESSION['change'] ?> บาท</td>
+                    </tr>
+                    <?php endif; ?>
 
                 </table>
             </div>
@@ -182,19 +195,9 @@ if (isset($_SESSION['total'])){
 
         <div class="cont-btn">
 
-            <?php
-            if (isset($_SESSION['succ_bill'])):?>
-
-            <a class="btn btn-secondary me-2" onclick="printJS('printJS-form2', 'html')" class="descripAhref">
+            <a class="btn btn-secondary me-2" onclick="printJS('printJS-form', 'html')" class="descripAhref">
                 <i class="fs-5 bi bi-printer-fill"></i> <spen class="ms-1">พิมพ์ใบเสร็จ</spen>
             </a>
-
-            <?php else: ?>
-                <a class="btn btn-secondary me-2" onclick="printJS('printJS-form', 'html')" class="descripAhref">
-                    <i class="fs-5 bi bi-printer-fill"></i> <spen class="ms-1">พิมพ์ใบเสร็จ</spen>
-                </a>
-
-            <?php endif; ?>
 
             <a class="btn btn btn-success me-2" href="#popup-box-pay" class="descripAhref">
                 <i class="fs-5 bi bi-cash-coin"></i><spen class="ms-2">เงินสด</spen>
@@ -208,6 +211,7 @@ if (isset($_SESSION['total'])){
     </div>
 
 </div>
+
 
 
 <!--- popup สำหรับจ่ายเงินสด -->
@@ -250,12 +254,6 @@ if (isset($_SESSION['total'])){
                 <button type="submit" class="btn btn-success" name="btnbills">เช็คบิล</button>
                 <a class="btn btn-secondary" href="#">ยกเลิก</a>
             </form>
-
-
-
-            <div style="display: none;">
-                <?php include("Cashier_payment2.php"); ?>
-            </div>
 
         </div>
 
@@ -327,7 +325,6 @@ if (isset($_SESSION['total'])){
         </a>
     </div>
 </div>
-
 
 
 
