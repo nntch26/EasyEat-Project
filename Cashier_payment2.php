@@ -1,18 +1,29 @@
 <?php
 
+global $db;
+include('backend/includes/connectDB.php');
+session_start();
+
+$table_id = $_GET['table_id'];
+
+$sql1 = $db->prepare("SELECT DISTINCT Bills.Bill_id, Orders.*, Orders.*,Bills.*
+                     FROM Orders
+                     JOIN Menus ON Orders.menu_id = Menus.menu_id
+                     LEFT JOIN Bills ON Orders.Bill_id = Bills.Bill_id
+                     WHERE Orders.table_id  = :table_id;");
+
+// table id เปลี่ยนตามโต๊ะที่สั่งอาหาร
+$sql1->bindParam(':table_id', $table_id);
+$sql1->execute();
+
 ?>
 
 <form action="#" method="post"id="printJS-form2">
         <div>
             <div style="text-align : center;">
                 <h3>EasyEat</h3>
-                <p>เลขที่บิล : ....</p>
-                <p>รายการโต๊ะ ...... จำนวน ...... คน วันที่/เวลา ........</p>
-            </div>
-            <div style="text-align : center;">
-                <input type="radio" name="smt">something
-                <input type="radio" name="smt">something
-                <hr>
+                <p>เลขที่บิล : ..... </p>
+                <p>รายการโต๊ะ ..... จำนวน ...... คน วันที่/เวลา ........</p>
             </div>
         </div>
 
@@ -24,6 +35,8 @@
                 <th style="width: 5%">จำนวน</th>
                 <th style="width: 10%">รวม</th>
             </tr>
+
+
             <tr>
                 <td>1</td>
                 <td>กล้วย</td>

@@ -1,5 +1,29 @@
 <?php
 
+global $db;
+include('backend/includes/connectDB.php');
+session_start();
+
+date_default_timezone_set('Asia/Bangkok');
+
+
+$table_id = $_GET['table_id'];
+
+$sql1 = $db->prepare("SELECT Bills.Bill_id, Orders.*,Bills.*,Menus.*
+                     FROM Orders
+                     JOIN Menus ON Orders.menu_id = Menus.menu_id
+                     LEFT JOIN Bills ON Orders.Bill_id = Bills.Bill_id
+                     WHERE Orders.table_id  = :table_id AND Bills.bill_status = 'finised';;");
+// table id เปลี่ยนตามโต๊ะที่สั่งอาหาร
+
+$sql1->bindParam(':table_id', $table_id);
+$sql1->execute();
+
+$result = $sql1->fetch(PDO::FETCH_ASSOC);
+
+$num = 1;
+$total = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -38,31 +62,61 @@
             <div>
                 <div style="text-align : center;">
                     <h3>EasyEat</h3>
-                    <p>เลขที่บิล : ....</p>
-                    <p>รายการโต๊ะ ...... จำนวน ...... คน วันที่/เวลา ........</p>
+                    <p><b>เลขที่บิล : </b>  <?php echo $result['Bill_id']; ?></p>
+                    <p><b>รายการโต๊ะ : </b> <?php echo $result['table_id']; ?></p>
+                    <p><b>วันที่ : </b> <?php echo date('Y-m-d') ?> | <b>เวลา : </b> <?php echo date('H:i:s'); ?></p>
+
                 </div>
             </div>
 
-            <table class="table">
-                <tr>
-                    <th style="width: 5%">#</th>
-                    <th style="width: 20%">ชื่อ</th>
-                    <th style="width: 10%">ราคา/หน่วย</th>
-                    <th style="width: 5%">จำนวน</th>
-                    <th style="width: 10%">รวม</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>กล้วย</td>
-                    <td>2000.0</td>
-                    <td>54</td>
-                    <td>546467613.0</td>
-                </tr>
-                <tr>
-                    <th colspan="4">รวม</th>
-                    <td>54646165.0 บาท</td>
-                </tr>
-            </table>
+            <div class="con-table">
+                <table class="table">
+                    <tr>
+                        <th style="width: 5%">#</th>
+                        <th style="width: 20%">ชื่อ</th>
+                        <th style="width: 10%">ราคา/หน่วย</th>
+                        <th style="width: 5%">จำนวน</th>
+                        <th style="width: 10%">รวม</th>
+                    </tr>
+                    <?php while ($row1 = $sql1->fetch(PDO::FETCH_ASSOC)) :
+
+                        while ($row2 = $sql1->fetch(PDO::FETCH_ASSOC)) :
+                            $sql2 = $db->prepare("SELECT * FROM Orders
+                                                    JOIN Menus ON Orders.menu_id = Menus.menu_id
+                                                    LEFT JOIN Bills ON Orders.Bill_id = Bills.Bill_id
+                                                    WHERE Bills.Bill_id = :Bill_id");
+                            $sql2->bindParam(':Bill_id', $row1['Bill_id']);
+
+                            $sql2->execute();
+
+
+
+                            $total += $row2['menu_price'] * $row2['order_quantity'];
+
+                            ?>
+
+                            <tr>
+                                <td><?php echo $num; ?></td>
+                                <td><?php echo $row2['menu_name']; ?></td>
+                                <td><?php echo $row2['menu_price']; ?></td>
+                                <td><?php echo $row2['order_quantity']; ?></td>
+                                <td><?php echo $row2['order_quantity'] * $row2['menu_price']; ?></td>
+                            </tr>
+
+                            <?php $num++ ?>
+
+                        <?php endwhile; ?>
+                    <?php endwhile; ?>
+                    <tr>
+                        <th colspan="4">รวม</th>
+                        <td><?php echo $total ; ?> บาท</td>
+                    </tr>
+
+
+
+                </table>
+            </div>
+
             <style>
                 table {
                     border-collapse: collapse;

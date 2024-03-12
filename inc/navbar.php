@@ -19,7 +19,7 @@
                     <a class="nav-link active text-white" aria-current="page" href="#about">เกี่ยวกับ</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link active text-white  mb-1" aria-current="page" href="#menu">เมนูยอดนิยม</a>
+                    <a class="nav-link active text-white  mb-1" aria-current="page" href="#menu">เมนูแนะนำ</a>
                 </li>
 
                 <li class="nav-item me-3">
