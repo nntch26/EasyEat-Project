@@ -205,7 +205,16 @@ h1 {
     border-bottom-left-radius: 10px;
 }
 
-.admit, .cancel {
+.admit{
+    font-size: 18px;
+    width: 25%;
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.cancel {
     font-size: 18px;
     width: 20%;
     height: 35px;
