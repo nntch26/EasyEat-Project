@@ -268,7 +268,7 @@ $usepoint = 0;
 <!--- popup สำหรับสแกนจ่าย -->
 <div class="modal" id="popup-box-promppay">
     <div class="content">
-        <h4 class="mb-5 text-center">เช็คบิล โต๊ะ <?php echo $table_id; ?> เลขที่ใบเสร็จ <?php echo $numBill; ?>  <br> รูปแบบการจ่าย : สแกนจ่าย</h4>
+        <h4 class="mb-3 text-center">เช็คบิล โต๊ะ <?php echo $table_id; ?> เลขที่ใบเสร็จ <?php echo $numBill; ?>  <br> รูปแบบการจ่าย : สแกนจ่าย</h4>
         <div class="list">
 
             <form action="backEnd/payment_system.php" method="post">
@@ -291,7 +291,7 @@ $usepoint = 0;
                 </div>
 
                 <hr>
-                <img src="img2/qrcode.jpg" alt="" width="100%">
+                <img src="img2/qrcode.jpg" alt="" width="300px" height="300px">
 
                 <hr>
 

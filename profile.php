@@ -71,7 +71,7 @@ if (!isset($_SESSION['is_login'])) {
                         <a class="nav-link active text-white" aria-current="page" href="index.php">เกี่ยวกับ</a>
                     </li>
                     <li class="nav-item me-3">
-                        <a class="nav-link active text-white  mb-1" aria-current="page" href="index.php">เมนูยอดนิยม</a>
+                        <a class="nav-link active text-white  mb-1" aria-current="page" href="index.php">เมนูแนะนำ</a>
                     </li>
 
                     <li class="nav-item me-3">

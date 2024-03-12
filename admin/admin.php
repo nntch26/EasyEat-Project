@@ -225,7 +225,7 @@ session_start();
                     <!-- ตารางข้อมูล --->
                     <div class="content-das2">
                         
-                        <!-- รายการอาหาร --->
+                        <!-- รายการบิล --->
 
                         <div class="content-table col-5 me-3 ">
                             <div style="height: 100%; overflow: auto;">
@@ -245,7 +245,7 @@ session_start();
                                         </tr>
                                     </thead>
                                     <?php
-                                    $select_bill = $db->prepare("SELECT * FROM Bills LIMIT 5");
+                                    $select_bill = $db->prepare("SELECT * FROM Bills ORDER BY Bill_id DESC LIMIT 5;");
                                     $select_bill->execute();
                                     $bills = $select_bill->fetchAll(PDO::FETCH_ASSOC);
                                     ?>
@@ -295,7 +295,7 @@ session_start();
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $sqlUser = $db->prepare("SELECT * FROM Users WHERE user_role = 'Member' LIMIT 5");
+                                    $sqlUser = $db->prepare("SELECT * FROM Users WHERE user_role = 'Member' ORDER BY user_id DESC LIMIT 5");
                                     $sqlUser->execute();
 
                                     while ($rowUser= $sqlUser->fetch(PDO::FETCH_ASSOC)) :
