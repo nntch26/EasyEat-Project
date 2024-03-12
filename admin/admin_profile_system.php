@@ -37,13 +37,11 @@ if (isset($_POST['upbtn'])) {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> มี <b> ชื่อผู้ใช้, เบอร์โทร, อีเมล </b>นี้แล้วในระบบ! โปรดกรอกข้อมูลใหม่";
         header('location: ../register.php');
         exit();
-
     } // ชื่อผู้ใช้ที่กรอกเข้ามา ซ้ำ มั้ย
     else if ($sql3->rowCount() != 0) {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> มี <b> ชื่อผู้ใช้ </b> นี้แล้วในระบบ! โปรดกรอกข้อมูลใหม่";
         header('location: ../register.php');
         exit();
-
     } // อีเมลที่ผู้ใช้กรอกเข้ามา ซ้ำ มั้ย
     else if ($sql2->rowCount() != 0) {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> มี <b> อีเมล </b> นี้แล้วในระบบ! โปรดกรอกข้อมูลใหม่";
@@ -54,9 +52,8 @@ if (isset($_POST['upbtn'])) {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> มี <b> เบอร์โทร </b>นี้แล้วในระบบ! โปรดกรอกข้อมูลใหม่";
         header('location: ../register.php');
         exit();
+    }
 
-    } 
-    
     // ข้อมูลครบ ไม่ซ้ำ
 
     else {
@@ -84,26 +81,16 @@ if (isset($_POST['upbtn'])) {
         if ($update_sql) {
             $_SESSION['profile_update'] = "อัปเดตข้อมูลเรียบร้อยแล้ว";
             header('location: ../admin/admin.php#');
-
-
-
-
         } // เพิ่มข้อมูลไม่สำเร็จ
         else {
             $_SESSION['err_update'] = "ไม่สามารถนำเข้าข้อมูลได้";
             header('location: ../admin/admin.php#');
-
-   
-
-
         }
-
-
     }
 
-// ถ้ากดปุ่มบันทึกข้อมูล ลบข้อมูล
+    // ถ้ากดปุ่มบันทึกข้อมูล ลบข้อมูล
 
-}else if (isset($_POST['deletebtn'])){
+} else if (isset($_POST['deletebtn'])) {
 
     $id = $_POST['user_id'];
 
@@ -112,26 +99,13 @@ if (isset($_POST['upbtn'])) {
     $delete_sql->bindParam(':id', $id);
     $delete_sql->execute();
 
-     // ลบข้อมูลแล้ว 
-     if ($delete_sql) {
+    // ลบข้อมูลแล้ว 
+    if ($delete_sql) {
         $_SESSION['profile_delete'] = "ลบข้อมูลทิ้งเรียบร้อยแล้ว";
         header('location: ../admin/admin.php#');
-
-
-
-
     } // ลบข้อมูลไม่สำเร็จ
     else {
         $_SESSION['err_delete'] = "ไม่สามารถลบข้อมูลได้";
         header('location: ../admin/admin.php#');
-
     }
-
-
-
-
-
 }
-
-
-?>

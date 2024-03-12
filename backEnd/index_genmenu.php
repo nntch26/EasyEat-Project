@@ -9,7 +9,7 @@ foreach ($menu_types as $menu_type) {
     $get_menuinfo->bindParam(":menu_type", $menu_type);
     $get_menuinfo->execute();
     $menu_info = $get_menuinfo->fetchAll(PDO::FETCH_ASSOC);
-    
+
     foreach ($menu_info as $menu_item) {
 ?>
         <div class="col-md-6">

@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
 
     <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
@@ -81,7 +82,7 @@
                 <div class="title_top">
                     <h2>ระบบชำระเงิน</h2>
                 </div>
-                
+
                 <!-- สร้างโต็ะในหน้าชำระเงิน และ แทบนับจำนวนโต็ะที่ว่าง-->
                 <?php include("Cashier_gentable.php"); ?>
 
@@ -106,7 +107,7 @@
 
         </div>
     </div>
-        
+
     <!---------- script สำหรับเปลี่ยนหน้า --------------->
     <script>
         function showmenu(btnvalue) {
@@ -127,12 +128,10 @@
                 document.getElementById("PaymentBox").style.display = "flex";
             }
         }
-
     </script>
 
 
 
 </body>
+
 </html>
-
-

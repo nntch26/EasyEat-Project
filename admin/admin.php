@@ -23,109 +23,107 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>หน้าระบบจัดการ</title>
 
     <!--- stylesheet --->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+
     <!--- DataTable --->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap5.css">
-    
+
     <link rel="stylesheet" href="adminStyle/admin_style.css">
 
     <!--- fonts.google --->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 
 
 </head>
+
 <body>
 
-<div class="container-fluid">
-    <div class="row vh-100 overflow-auto">
+    <div class="container-fluid">
+        <div class="row vh-100 overflow-auto">
 
-        <!-- narbar --->
-        <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
+            <!-- narbar --->
+            <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
 
-            <div class="d-flex flex-sm-column align-items-center px-3 pt-2 text-white">
+                <div class="d-flex flex-sm-column align-items-center px-3 pt-2 text-white">
 
-                <a href="#home" class="text-decoration-none mt-3" style="color: #ff7b00;" onclick="showmenu('btnhome')">
-                    <i class="bi bi-person-fill-gear" style="font-size: 32px;"></i>
-                    <span class="ms-2" style="font-size: 28px;">ระบบจัดการ</span>
-                </a>
+                    <a href="#home" class="text-decoration-none mt-3" style="color: #ff7b00;" onclick="showmenu('btnhome')">
+                        <i class="bi bi-person-fill-gear" style="font-size: 32px;"></i>
+                        <span class="ms-2" style="font-size: 28px;">ระบบจัดการ</span>
+                    </a>
 
-                <hr class="mb-3" style="width: 100%; border-width: 2px;">
+                    <hr class="mb-3" style="width: 100%; border-width: 2px;">
 
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link" onclick="showmenu('btnhome')">
-                            <i class="fs-5 bi bi-bar-chart-fill"></i><span class="ms-1">รายงานผล</span>
-                        </a>
-                    </li>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link" onclick="showmenu('btnhome')">
+                                <i class="fs-5 bi bi-bar-chart-fill"></i><span class="ms-1">รายงานผล</span>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="#menu" class="nav-link" onclick="showmenu('btnfoodmenu')">
-                            <i class="fs-5 bi-grid"></i><span class="ms-1">จัดการเมนูอาหาร</span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a href="#member" class="nav-link" onclick="showmenu('btnmember')">
-                            <i class="fs-5 bi bi-people-fill"></i><span class="ms-1">จัดการระบบสมาชิก</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#sale" class="nav-link" onclick="showmenu('btnsale')">
-                            <i class="fs-5 bi bi-table"></i><span class="ms-1">ดูประวัติการขาย</span>
-                        </a>
-                    </li>
-
-                    <hr class="mt-5" style="width: 100%; border-width: 2px;">
+                        <li class="nav-item">
+                            <a href="#menu" class="nav-link" onclick="showmenu('btnfoodmenu')">
+                                <i class="fs-5 bi-grid"></i><span class="ms-1">จัดการเมนูอาหาร</span>
+                            </a>
+                        </li>
 
 
-                    <li class="nav-item">
-                        <a href="../backEnd/logout.php" class="nav-link">
-                            <i class="fs-5 bi bi-box-arrow-in-right"></i><span class="ms-1">ออกจากระบบ</span>
-                        </a>
-                    </li>
-                </ul>
+                        <li class="nav-item">
+                            <a href="#member" class="nav-link" onclick="showmenu('btnmember')">
+                                <i class="fs-5 bi bi-people-fill"></i><span class="ms-1">จัดการระบบสมาชิก</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#sale" class="nav-link" onclick="showmenu('btnsale')">
+                                <i class="fs-5 bi bi-table"></i><span class="ms-1">ดูประวัติการขาย</span>
+                            </a>
+                        </li>
+
+                        <hr class="mt-5" style="width: 100%; border-width: 2px;">
+
+
+                        <li class="nav-item">
+                            <a href="../backEnd/logout.php" class="nav-link">
+                                <i class="fs-5 bi bi-box-arrow-in-right"></i><span class="ms-1">ออกจากระบบ</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
 
             </div>
 
+            <!-- content --->
 
-        </div>
+            <div class="col py-3 dashboard" id="home">
+                <div class="container">
+                    <div class="row">
 
-        <!-- content --->
+                        <div class="text-header">
+                            <h1>รายงานผลทั้งหมด</h1>
+                        </div>
 
-        <div class="col py-3 dashboard" id="home">
-            <div class="container">
-                <div class="row">
-
-                    <div class="text-header">
-                        <h1>รายงานผลทั้งหมด</h1>
-                    </div>
-
-                     <!------ alert ----->
+                        <!------ alert ----->
 
                         <!-- อัพเดทข้อมูลสำเร็จ -->
                         <?php
                         if (isset($_SESSION['profile_update'])) : ?>
                             <div class="alert alert-success" role="alert">
-                            <?php echo $_SESSION['profile_update']; ?>
+                                <?php echo $_SESSION['profile_update']; ?>
                             </div>
                         <?php
                         endif; ?>
@@ -139,11 +137,11 @@ session_start();
                         <?php
                         endif; ?>
 
-                         <!-- ลบข้อมูลสำเร็จ -->
-                         <?php
+                        <!-- ลบข้อมูลสำเร็จ -->
+                        <?php
                         if (isset($_SESSION['profile_delete'])) : ?>
                             <div class="alert alert-success" role="alert">
-                            <?php echo $_SESSION['profile_delete']; ?>
+                                <?php echo $_SESSION['profile_delete']; ?>
                             </div>
                         <?php
                         endif; ?>
@@ -191,234 +189,235 @@ session_start();
 
 
 
-                    <!-- ส่วนสรุปผล --->
-                    <div class="content-das">
-                        <div class="show1 col-3 me-3">
-                            <h3>ยอดขาย</h3>
-                            <h6>ทั้งหมด <?php echo number_format($rowpayment['sum_pay']); ?> บาท</h6>
+                        <!-- ส่วนสรุปผล --->
+                        <div class="content-das">
+                            <div class="show1 col-3 me-3">
+                                <h3>ยอดขาย</h3>
+                                <h6>ทั้งหมด <?php echo number_format($rowpayment['sum_pay']); ?> บาท</h6>
+
+                            </div>
+
+                            <div class="show2 col-3 me-3">
+                                <h3>จำนวนบิล</h3>
+                                <h6><?php echo number_format($rowBill['count_bill']) ?> รายการ</h6>
+
+
+                            </div>
+
+                            <div class="show3 col-3 me-3">
+                                <h3>จำนวนอาหาร</h3>
+                                <h6><?php echo number_format($rowMenu['count_menu']) ?> รายการ</h6>
+
+
+                            </div>
+
+                            <div class="show4 col-3">
+                                <h3>สมาชิกทั้งหมด</h3>
+                                <h6><?php echo number_format($rowUser['count_users']) ?> คน</h6>
+
+
+                            </div>
 
                         </div>
 
-                        <div class="show2 col-3 me-3">
-                            <h3>จำนวนบิล</h3>
-                            <h6><?php echo number_format($rowBill['count_bill']) ?> รายการ</h6>
+                        <!-- ตารางข้อมูล --->
+                        <div class="content-das2">
+
+                            <!-- รายการบิล --->
+
+                            <div class="content-table col-5 me-3 ">
+                                <div style="height: 100%; overflow: auto;">
+
+                                    <div class="title d-flex mb-3">
+                                        <h3>รายการบิล</h3>
+
+                                    </div>
 
 
-                        </div>
-
-                        <div class="show3 col-3 me-3">
-                            <h3>จำนวนอาหาร</h3>
-                            <h6><?php echo number_format($rowMenu['count_menu']) ?> รายการ</h6>
-
-
-                        </div>
-
-                        <div class="show4 col-3">
-                            <h3>สมาชิกทั้งหมด</h3>
-                            <h6><?php echo number_format($rowUser['count_users']) ?> คน</h6>
-
-
-                        </div>
-
-                    </div>
-
-                    <!-- ตารางข้อมูล --->
-                    <div class="content-das2">
-                        
-                        <!-- รายการบิล --->
-
-                        <div class="content-table col-5 me-3 ">
-                            <div style="height: 100%; overflow: auto;">
-
-                                <div class="title d-flex mb-3">
-                                    <h3>รายการบิล</h3>
-
-                                </div>
-
-
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>เลขบิล</th>
-                                            <th>หมายเลขโต็ะ</th>
-                                            <th>สถานะ</th>
-                                        </tr>
-                                    </thead>
-                                    <?php
-                                    $select_bill = $db->prepare("SELECT * FROM Bills ORDER BY Bill_id DESC LIMIT 5;");
-                                    $select_bill->execute();
-                                    $bills = $select_bill->fetchAll(PDO::FETCH_ASSOC);
-                                    ?>
-                                    <tbody>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>เลขบิล</th>
+                                                <th>หมายเลขโต็ะ</th>
+                                                <th>สถานะ</th>
+                                            </tr>
+                                        </thead>
                                         <?php
+                                        $select_bill = $db->prepare("SELECT * FROM Bills ORDER BY Bill_id DESC LIMIT 5;");
+                                        $select_bill->execute();
+                                        $bills = $select_bill->fetchAll(PDO::FETCH_ASSOC);
+                                        ?>
+                                        <tbody>
+                                            <?php
                                             foreach ($bills as $bill) {
                                                 echo "<tr>";
-                                                echo "<td>". $bill['Bill_id']."</td>";
-                                                echo "<td>". $bill['table_id']."</td>";
-                                                echo "<td>". $bill['bill_status']."</td>";
+                                                echo "<td>" . $bill['Bill_id'] . "</td>";
+                                                echo "<td>" . $bill['table_id'] . "</td>";
+                                                echo "<td>" . $bill['bill_status'] . "</td>";
                                                 echo "</tr>";
                                             }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-
-                        <!-- ระบบสมาชิก --->
-
-                        <div class="content-table col-7">
-                            <div style="height: 100%; overflow: auto;">
-
-                                <div class="title d-flex mb-3">
-                                    <h3>ระบบสมาชิก</h3>
-
-                                    <a href="#" class="ms-4" onclick="showmenu('btnmember')">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="fs-5 bi bi-eye-fill"></i>
-                                            <span class="ms-1">ทั้งหมด</span>
-                                        </button>
-                                    </a>
+                                            ?>
+                                        </tbody>
+                                    </table>
                                 </div>
 
-
-                                <table class="table table-striped ">
-                                    <thead>
-                                        <tr>
-                                            <th>รหัส</th>
-                                            <th>ชื่อ-นามสกุล</th>
-                                            <th>ชื่อผู้ใช้</th>
-                                            <th>เบอร์โทรศัพท์</th>
-                                            <th>คะแนนสะสม</th>
-                                    
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    $sqlUser = $db->prepare("SELECT * FROM Users WHERE user_role = 'Member' ORDER BY user_id DESC LIMIT 5");
-                                    $sqlUser->execute();
-
-                                    while ($rowUser= $sqlUser->fetch(PDO::FETCH_ASSOC)) :
-
-
-                                    ?>
-
-                                    <tr>
-                                        <td><?php echo $rowUser['user_id'] ?></td>
-                                        <td><?php echo $rowUser['user_fname']." ".$rowUser['user_lname'] ?></td>
-                                        <td><?php echo $rowUser['user_username'] ?></td>
-                                        <td><?php echo $rowUser['user_phonenum'] ?></td>
-                                        <td><?php echo $rowUser['user_points'] ?></td>
-                                    </tr>
-
-                                <?php endwhile ?>
-
-                                </tbody>
-                                </table>
                             </div>
 
-                        </div>
-                    </div>
+                            <!-- ระบบสมาชิก --->
 
+                            <div class="content-table col-7">
+                                <div style="height: 100%; overflow: auto;">
+
+                                    <div class="title d-flex mb-3">
+                                        <h3>ระบบสมาชิก</h3>
+
+                                        <a href="#" class="ms-4" onclick="showmenu('btnmember')">
+                                            <button type="button" class="btn btn-warning">
+                                                <i class="fs-5 bi bi-eye-fill"></i>
+                                                <span class="ms-1">ทั้งหมด</span>
+                                            </button>
+                                        </a>
+                                    </div>
+
+
+                                    <table class="table table-striped ">
+                                        <thead>
+                                            <tr>
+                                                <th>รหัส</th>
+                                                <th>ชื่อ-นามสกุล</th>
+                                                <th>ชื่อผู้ใช้</th>
+                                                <th>เบอร์โทรศัพท์</th>
+                                                <th>คะแนนสะสม</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $sqlUser = $db->prepare("SELECT * FROM Users WHERE user_role = 'Member' ORDER BY user_id DESC LIMIT 5");
+                                            $sqlUser->execute();
+
+                                            while ($rowUser = $sqlUser->fetch(PDO::FETCH_ASSOC)) :
+
+
+                                            ?>
+
+                                                <tr>
+                                                    <td><?php echo $rowUser['user_id'] ?></td>
+                                                    <td><?php echo $rowUser['user_fname'] . " " . $rowUser['user_lname'] ?></td>
+                                                    <td><?php echo $rowUser['user_username'] ?></td>
+                                                    <td><?php echo $rowUser['user_phonenum'] ?></td>
+                                                    <td><?php echo $rowUser['user_points'] ?></td>
+                                                </tr>
+
+                                            <?php endwhile ?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+
             </div>
 
+
+
+
+
+            <div class="col foodmenu" id="foodmenu">
+                <?php include("admin_menu.php"); ?>
+            </div>
+
+            <div class="col member" id="member">
+
+                <?php include("admin_member.php"); ?>
+
+            </div>
+
+            <div class="col sale" id="sale">
+                <?php include("admin_sale.php"); ?>
+
+            </div>
+
+
         </div>
-
-        
-
-       
-
-        <div class="col foodmenu" id="foodmenu">
-            <?php include("admin_menu.php"); ?>
-        </div>
-
-        <div class="col member" id="member">
-
-            <?php include("admin_member.php"); ?>
-
-        </div>
-
-        <div class="col sale" id="sale">
-            <?php include("admin_sale.php"); ?>
-            
-        </div>
-
 
     </div>
 
-</div>
 
+    <!-- script เปลี่ยนหน้า --->
 
-<!-- script เปลี่ยนหน้า --->
+    <script>
+        function showmenu(btnvalue) {
+            var home = document.getElementById("home");
+            var foodmenu = document.getElementById("foodmenu");
+            var member = document.getElementById("member");
+            var sale = document.getElementById("sale");
 
-<script>
-    function showmenu(btnvalue) {
-        var home = document.getElementById("home");
-        var foodmenu = document.getElementById("foodmenu");
-        var member = document.getElementById("member");
-        var sale = document.getElementById("sale");
+            foodmenu.style.display = "none";
+            member.style.display = "none";
+            sale.style.display = "none";
 
-        foodmenu.style.display = "none";
-        member.style.display = "none";
-        sale.style.display = "none";
+            if (btnvalue == "btnfoodmenu") {
+                foodmenu.style.display = "block";
+                home.style.display = "none";
 
-        if (btnvalue == "btnfoodmenu") {
-            foodmenu.style.display = "block";
-            home.style.display = "none";
+            } else if (btnvalue == "btnmember") {
+                member.style.display = "block";
+                home.style.display = "none";
 
-        } else if (btnvalue == "btnmember") {
-            member.style.display = "block";
-            home.style.display = "none";
+            } else if (btnvalue == "btnhome") {
+                home.style.display = "block";
 
-        } else if (btnvalue == "btnhome") {
-            home.style.display = "block";
-
-        } else if (btnvalue == "btnsale") {
-            sale.style.display = "block";
-            home.style.display = "none";
+            } else if (btnvalue == "btnsale") {
+                sale.style.display = "block";
+                home.style.display = "none";
+            }
         }
-    }
-</script>
+    </script>
 
-<!--- DataTable --->
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
-<script src="https://cdn.datatables.net/2.0.1/js/dataTables.bootstrap5.js"></script>
+    <!--- DataTable --->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.bootstrap5.js"></script>
 
-<script>
-
-
-    $(document).ready(function() {
-    $('#dataTable').DataTable( {
-        "language": {
-            "lengthMenu": "แสดงข้อมูล  _MENU_  แถว",
-            "zeroRecords": "ไม่พบอะไรเลย - ขออภัย",
-            "info": "แสดงหน้า  _PAGE_ จาก _PAGES_",
-            "infoEmpty": "ไม่มีข้อมูลในระบบ",
-            "infoFiltered": "(กรองจากข้อมูลทั้งหมด _MAX_ รายการ)",
-            "search": "ค้นหา :"
-        }
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                "language": {
+                    "lengthMenu": "แสดงข้อมูล  _MENU_  แถว",
+                    "zeroRecords": "ไม่พบอะไรเลย - ขออภัย",
+                    "info": "แสดงหน้า  _PAGE_ จาก _PAGES_",
+                    "infoEmpty": "ไม่มีข้อมูลในระบบ",
+                    "infoFiltered": "(กรองจากข้อมูลทั้งหมด _MAX_ รายการ)",
+                    "search": "ค้นหา :"
+                }
 
 
-    } );
-} );
-</script>
+            });
+        });
+    </script>
 
 
 </body>
+
 </html>
 
 <?php
- $db = null;
+$db = null;
 
 // ล้าง session 
 
- if (isset($_SESSION['profile_update']) 
- || isset($_SESSION['error_chck']) || isset($_SESSION['err_update']) 
- || isset($_SESSION['profile_delete']) ||isset($_SESSION['err_delete'])
- || isset($_SESSION['menu_update']) || isset($_SESSION['menu_delete'])) {
+if (
+    isset($_SESSION['profile_update'])
+    || isset($_SESSION['error_chck']) || isset($_SESSION['err_update'])
+    || isset($_SESSION['profile_delete']) || isset($_SESSION['err_delete'])
+    || isset($_SESSION['menu_update']) || isset($_SESSION['menu_delete'])
+) {
 
     unset($_SESSION['error_chck']);
     unset($_SESSION['err_update']);
@@ -427,6 +426,5 @@ session_start();
     unset($_SESSION['err_delete']);
     unset($_SESSION['menu_update']);
     unset($_SESSION['menu_delete']);
-
 }
 ?>

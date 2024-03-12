@@ -25,23 +25,19 @@ if (isset($_POST['btnmem'])) {
         $result = $sql->fetch(PDO::FETCH_ASSOC);
 
         $_SESSION['succ_chck'] = "<b>มีข้อมูลในระบบ :</b><br>"
-            .$result['user_fname']." ".$result['user_lname']." คะแนน ".$result['user_points'];
+            . $result['user_fname'] . " " . $result['user_lname'] . " คะแนน " . $result['user_points'];
 
         $_SESSION['telmem'] = $telmem;
         $_SESSION['score'] = $result['user_points'];
 
 
-        header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
+        header('location: ../Cashier_payment.php?table_id=' . $table_id . '#popup-box-pay.php');
         exit();
-    }
-    else{
+    } else {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> ไม่มี <b> เบอร์โทร </b>นี้ในระบบ! โปรดกรอกข้อมูลใหม่";
-        header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
+        header('location: ../Cashier_payment.php?table_id=' . $table_id . '#popup-box-pay.php');
         exit();
     }
-
-
-
 }
 // ถ้ากดปุ่มใช้คะแนน
 else if (isset($_POST['btnuse'])) {
@@ -50,13 +46,13 @@ else if (isset($_POST['btnuse'])) {
     $telmem = $_POST['telmem'];
 
     // เงื่อนไขคือ จะใช้ส่วนลดคะแนนได้ก็ต่อเมื่อคะแนนที่มีอยู่ น้อยกว่าหรือเท่ากับ ราคาทั้งหมด
-    if($_POST['scoreuse'] <= $totaldata){
+    if ($_POST['scoreuse'] <= $totaldata) {
         $scoreuse = $_POST['scoreuse'];
 
         $_SESSION['total'] = $totaldata - $scoreuse;
         $balance = $_SESSION['score'] - $scoreuse;
 
-        $_SESSION['usepoint'] = "- " .$scoreuse;
+        $_SESSION['usepoint'] = "- " . $scoreuse;
 
         // ลบคะแนนในระบบ
         $sql = $db->prepare("UPDATE Users SET user_points = :balance
@@ -67,34 +63,28 @@ else if (isset($_POST['btnuse'])) {
 
         $sql->execute();
 
-        if ($sql->rowCount() > 0){
+        if ($sql->rowCount() > 0) {
 
-            $_SESSION['succ_chck'] = "<b>ใช้คะแนนเรียบร้อย :</b> คุณได้ใช้คะแนนส่วนลดไปจำนวน ".$scoreuse." คะแนน";
-            header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
+            $_SESSION['succ_chck'] = "<b>ใช้คะแนนเรียบร้อย :</b> คุณได้ใช้คะแนนส่วนลดไปจำนวน " . $scoreuse . " คะแนน";
+            header('location: ../Cashier_payment.php?table_id=' . $table_id . '#popup-box-pay.php');
             exit();
         }
-
-
-    }else{
+    } else {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> ไม่สามารถใช้คะแนนได้ โปรดกรอกข้อมูลใหม่";
-        header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
+        header('location: ../Cashier_payment.php?table_id=' . $table_id . '#popup-box-pay.php');
         exit();
     }
-
-
-
-
 }
 
 // กดปุ่มเช็คบิล ชำระเงิน
-else if (isset($_POST['btnbills'])){
+else if (isset($_POST['btnbills'])) {
 
     $recieved = $_POST['recieved'];
     $totaldata = $_POST['total2'];
 
 
     // เงื่อนไขคือ จำนวนเงิน มากกว่าหรือเท่ากับ ราคาทั้งหมด
-    if($recieved >= $totaldata){
+    if ($recieved >= $totaldata) {
         $balance = (float) $recieved - (float) $totaldata;
         $numBill = $_POST['numBill'];
         $date =  date('Y-m-d');
@@ -126,37 +116,34 @@ else if (isset($_POST['btnbills'])){
         $sql2->execute();
 
 
-        if ($sql->rowCount() > 0 && $sql2->rowCount() > 0){
+        if ($sql->rowCount() > 0 && $sql2->rowCount() > 0) {
 
             $_SESSION['succ_chck'] = "<b>ชำระเงินเสร็จสิ้น :</b> การชำระเงินเรียบร้อย!";
 
             $_SESSION['change'] = $balance;
             $_SESSION['recieved'] = $_POST['recieved'];
 
-            $_SESSION['succ_bill']= true;
+            $_SESSION['succ_bill'] = true;
 
-            header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
+            header('location: ../Cashier_payment.php?table_id=' . $table_id . '#popup-box-pay.php');
             exit();
         }
-
-    }
-    else{
+    } else {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> โปรดกรอกข้อมูลใหม่";
-        header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
+        header('location: ../Cashier_payment.php?table_id=' . $table_id . '#popup-box-pay.php');
         exit();
     }
-
 }
 
 // กดปุ่มเช็คบิล ชำระเงินแบบสแกน QR Code
-else if (isset($_POST['btnbillsQR'])){
+else if (isset($_POST['btnbillsQR'])) {
 
     $totaldata = $_POST['total'];
     $numBill = $_POST['numBill'];
     $date =  date('Y-m-d');
     $time = date('H:i:s');
 
-    echo $totaldata." ". $table_id;
+    echo $totaldata . " " . $table_id;
 
 
 
@@ -182,26 +169,20 @@ else if (isset($_POST['btnbillsQR'])){
     $sql2->execute();
 
 
-    if ($sql->rowCount() > 0 && $sql2->rowCount() > 0){
+    if ($sql->rowCount() > 0 && $sql2->rowCount() > 0) {
 
         $_SESSION['succ_chck'] = "<b>ชำระเงินเสร็จสิ้น :</b> การชำระเงินเรียบร้อย!";
 
         $_SESSION['change'] = 0;
         $_SESSION['recieved'] = $totaldata;
 
-        $_SESSION['succ_bill']= true;
+        $_SESSION['succ_bill'] = true;
 
-        header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
+        header('location: ../Cashier_payment.php?table_id=' . $table_id . '#popup-box-pay.php');
         exit();
-    }
-    else{
+    } else {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> โปรดกรอกข้อมูลใหม่";
         //header('location: ../Cashier_payment.php?table_id='.$table_id.'#popup-box-pay.php');
         exit();
     }
-
 }
-
-
-
-

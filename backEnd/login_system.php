@@ -17,8 +17,6 @@ if (isset($_POST['submitRegis'])) {
 
     // เพิ่มข้อมูลเข้าระบบ
     registerUser($fname, $lname, $username, $email, $password, $phone, $db);
-
-
 } // ถ้ากดปุ่มเข้าสู่ระบบ
 
 else if (isset($_POST['submitLogin'])) {
@@ -36,7 +34,6 @@ else if (isset($_POST['submitLogin'])) {
     else {
 
         loginUser($username, $password, $db);
-
     }
 }
 
@@ -59,7 +56,6 @@ function loginUser($username, $password, $db)
         $_SESSION['error_nouser'] = "<b>ข้อผิดพลาด : </b> ไม่มี <b> ชื่อผู้ใช้ </b>นี้แล้วในระบบ! โปรดลองอีกครั้ง";
         header('location: ../login.php');
         exit;
-
     } else {
 
         // มีข้อมูลในระบบ
@@ -70,14 +66,11 @@ function loginUser($username, $password, $db)
         if ($rowuser['user_role'] == "Admin") {
 
             header('location: ../admin/admin.php');
-
         } else if ($rowuser['user_role'] == "Chef") {
 
             header('location: ../ChefOrderedMenu.html');
-
         } else if ($rowuser['user_role'] == "Cashier") {
             header('location: ../Cashier.php');
-
         } // เข้าสู่ระบบสำหรับ user
         else if (password_verify($password, $rowuser['user_pass'])) {
 
@@ -89,8 +82,6 @@ function loginUser($username, $password, $db)
             $_SESSION['is_login'] = true;
 
             header('location: ../index.php');
-
-
         } // กรณี login ไม่สำเร็จ
         else {
             $_SESSION['is_login'] = false;
@@ -128,13 +119,11 @@ function registerUser($fname, $lname, $username, $email, $password, $phone, $db)
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> มี <b> ชื่อผู้ใช้, เบอร์โทร, อีเมล </b>นี้แล้วในระบบ! โปรดกรอกข้อมูลใหม่";
         header('location: ../register.php');
         exit();
-
     } // ชื่อผู้ใช้ที่กรอกเข้ามา ซ้ำ มั้ย
     else if ($sql3->rowCount() != 0) {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> มี <b> ชื่อผู้ใช้ </b> นี้แล้วในระบบ! โปรดกรอกข้อมูลใหม่";
         header('location: ../register.php');
         exit();
-
     } // อีเมลที่ผู้ใช้กรอกเข้ามา ซ้ำ มั้ย
     else if ($sql2->rowCount() != 0) {
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> มี <b> อีเมล </b> นี้แล้วในระบบ! โปรดกรอกข้อมูลใหม่";
@@ -145,7 +134,6 @@ function registerUser($fname, $lname, $username, $email, $password, $phone, $db)
         $_SESSION['error_chck'] = "<b>ข้อผิดพลาด : </b> มี <b> เบอร์โทร </b>นี้แล้วในระบบ! โปรดกรอกข้อมูลใหม่";
         header('location: ../register.php');
         exit();
-
     } // ผ่านทุกกรณี เพิ่มข้อมูลเข้าระบบได้
 
     else {

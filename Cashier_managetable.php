@@ -64,7 +64,7 @@ try {
             echo '<a class="btn btn-outline-secondary me-3 disabled" href="#">รับลูกค้า</a>';
         } else if ($table['table_status'] == 'ว่าง') {
             echo '<a class="btn btn-warning me-3" href="#popup-box-table' . $table['table_id'] . '">รับลูกค้า</a>';
-        } else if ($table['table_status'] == 'จอง'){
+        } else if ($table['table_status'] == 'จอง') {
             echo '<a class="btn btn-warning me-3 mb-2" href="#popup-box-reservinfo' . $table['table_id'] . '">ข้อมูลคนจอง</a>';
             echo '<a class="btn btn-warning me-3" href="#popup-box-table1.5' . $table['table_id'] . '">แสดง QR</a>';
         }

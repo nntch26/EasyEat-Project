@@ -29,33 +29,32 @@ $sql->execute();
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
-                        while ($row= $sql->fetch(PDO::FETCH_ASSOC)):
+                        <?php
+                        while ($row = $sql->fetch(PDO::FETCH_ASSOC)) :
 
-                    ?>
+                        ?>
 
-                        <tr>
-                            <td><?php echo $row['payment_id'] ?></td>
-                            <td><?php echo $row['Bill_id'] ?></td>
-                            <td><?php echo $row['table_id'] ?></td>
-                            <td><?php echo $row['payment_date'] ?></td>
-                            <td><?php echo $row['payment_time'] ?></td>
-                            <td><?php echo $row['payment_total'] ?></td>
+                            <tr>
+                                <td><?php echo $row['payment_id'] ?></td>
+                                <td><?php echo $row['Bill_id'] ?></td>
+                                <td><?php echo $row['table_id'] ?></td>
+                                <td><?php echo $row['payment_date'] ?></td>
+                                <td><?php echo $row['payment_time'] ?></td>
+                                <td><?php echo $row['payment_total'] ?></td>
 
-                            <td>
-                                <a class="btn btn-info"
-                                   href="../Cashier_payment.php?table_id=<?= $row['table_id'] ?>">
-                                    <i class="fs-5 bi bi-eye-fill"></i>
-                                    <span class="ms-1">เรียกดู</span>
-                                </a>
-                            </td>
-
-
-                        </tr>
+                                <td>
+                                    <a class="btn btn-info" href="../Cashier_payment.php?table_id=<?= $row['table_id'] ?>">
+                                        <i class="fs-5 bi bi-eye-fill"></i>
+                                        <span class="ms-1">เรียกดู</span>
+                                    </a>
+                                </td>
 
 
+                            </tr>
 
-                    <?php endwhile ?>
+
+
+                        <?php endwhile ?>
                     </tbody>
                 </table>
             </div>
@@ -73,10 +72,8 @@ $sql->execute();
 <script src="https://cdn.datatables.net/2.0.1/js/dataTables.bootstrap5.js"></script>
 
 <script>
-
-
     $(document).ready(function() {
-        $('#dataTable3').DataTable( {
+        $('#dataTable3').DataTable({
             "language": {
                 "lengthMenu": "แสดงข้อมูล  _MENU_  แถว",
                 "zeroRecords": "ไม่พบอะไรเลย - ขออภัย",
@@ -87,6 +84,6 @@ $sql->execute();
             }
 
 
-        } );
-    } );
+        });
+    });
 </script>

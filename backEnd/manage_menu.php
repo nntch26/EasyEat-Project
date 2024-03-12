@@ -29,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $_SESSION['succ_insert'] = "เพิ่มข้อมูลเรียบร้อยแล้ว";
             header('location: ../admin/addMenu.php');
-
         } else {
             // ถ้ามีข้อผิดพลาดในการอัปโหลดไฟล์
             $_SESSION['error_insert'] = "<b>ข้อผิดพลาด:</b> ไม่สามารถนำเข้าข้อมูลได้";
@@ -72,11 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $_SESSION['menu_update'] = "อัปเดตข้อมูลเรียบร้อยแล้ว";
             header('location: ../admin/admin.php');
-
         } else {
             $_SESSION['err_update'] = "<b>ข้อผิดพลาด:</b> ไม่สามารถนำเข้าข้อมูลได้";
             header('location: ../admin/admin.php');
-
         }
         $db = null;  // Close database connection
 
@@ -108,19 +105,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($delete_menu) {
             $_SESSION['menu_delete'] = "ลบเมนูอาหารเรียบร้อยแล้ว";
             header('location: ../admin/admin.php#');
-
         } // ลบข้อมูลไม่สำเร็จ
         else {
             $_SESSION['err_delete'] = "ไม่สามารถลบข้อมูลได้";
             header('location: ../admin/admin.php#');
-
         }
-
-
-
-
     }
-
 }
 
 function handleImageUpload($fileInputName, $destinationDirectory)
@@ -189,4 +179,3 @@ function handleImageUpload($fileInputName, $destinationDirectory)
 
     return $filename;
 }
-
