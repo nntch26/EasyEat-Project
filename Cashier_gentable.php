@@ -36,7 +36,10 @@ foreach ($get_tables as $check_status) {
 
 foreach ($get_tables as $table) {
     $sum = 0;
-    $get_order = $db->prepare("SELECT Menus.menu_name, Menus.menu_price, Orders.order_quantity FROM Orders JOIN Menus ON Orders.menu_id = Menus.menu_id WHERE table_id = :id");
+    $get_order = $db->prepare("SELECT * FROM Orders
+                                 JOIN Menus ON Orders.menu_id = Menus.menu_id
+                                 LEFT JOIN Bills ON Orders.Bill_id = Bills.Bill_id
+                                 WHERE Orders.table_id = :id AND Bills.bill_status != 'cancel';");
     $get_order->bindParam(':id', $table['table_id']);
     $get_order->execute();
     $order = $get_order->fetchAll(PDO::FETCH_ASSOC);

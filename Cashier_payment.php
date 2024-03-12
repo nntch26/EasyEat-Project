@@ -113,19 +113,31 @@ $usepoint = 0;
                             <th style="width: 5%">จำนวน</th>
                             <th style="width: 10%">รวม</th>
                         </tr>
-                        <?php while ($row2 = $sql1->fetch(PDO::FETCH_ASSOC)) :
-                            $total += $row2['menu_price'] * $row2['order_quantity']; ?>
+                        <?php while ($row1 = $sql1->fetch(PDO::FETCH_ASSOC)) :
 
-                            <tr>
-                                <td><?php echo $num; ?></td>
-                                <td><?php echo $row2['menu_name']; ?></td>
-                                <td><?php echo $row2['menu_price']; ?></td>
-                                <td><?php echo $row2['order_quantity']; ?></td>
-                                <td><?php echo $row2['order_quantity'] * $row2['menu_price']; ?></td>
-                            </tr>
+                            $sql2 = $db->prepare("SELECT * FROM Orders
+                                                         JOIN Menus ON Orders.menu_id = Menus.menu_id
+                                                        LEFT JOIN Bills ON Orders.Bill_id = Bills.Bill_id
+                                                        WHERE Bills.Bill_id = :Bill_id AND Bills.bill_status = 'finised';");
 
-                            <?php $num++ ?>
+                            $sql2->bindParam(':Bill_id', $row1['Bill_id']);
+                            $sql2->execute();
 
+                            while ($row2 = $sql2->fetch(PDO::FETCH_ASSOC)) :
+
+
+                                $total += $row2['menu_price'] * $row2['order_quantity']; ?>
+
+                                <tr>
+                                    <td><?php echo $num; ?></td>
+                                    <td><?php echo $row2['menu_name']; ?></td>
+                                    <td><?php echo $row2['menu_price']; ?></td>
+                                    <td><?php echo $row2['order_quantity']; ?></td>
+                                    <td><?php echo $row2['order_quantity'] * $row2['menu_price']; ?></td>
+                                </tr>
+
+                                <?php $num++ ?>
+                            <?php endwhile; ?>
                         <?php endwhile; ?>
 
                         <tr>
