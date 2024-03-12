@@ -92,7 +92,7 @@
                 <?php include("Cashier_payment.php"); ?>
 
             </div>
-            <!------------------------------------------------------------->
+
             <div class="ManageTableMenu" id="ManageTableMenu">
 
                 <?php include("Cashier_managetable.php"); ?>
@@ -103,138 +103,10 @@
                 <?php include("Cashier_history.php"); ?>
 
             </div>
-            <!------------------------------------------------------------->
+
         </div>
     </div>
-
-    <!--popup แสดงรายละเอียด-->
-    <div class="popup-box">
-        <div class="modal" id="popup-box-info">
-            <div class="content">
-                <h3>รายละเอียด</h3>
-                <hr>
-                <div class="list">
-                    <p>กล้วย</p>
-                    <p>มาม่า</p>
-                    <p>ส้ม</p>
-                    <hr>
-                    <h3>รวม</h3>
-                    <p>เป็นล้านเลยพี่</p>
-                    <hr>
-                </div>
-                <a class="box-close" href="#">
-                    x
-                </a>
-            </div>
-        </div>
-
-
-        <!--- popup สำหรับจ่ายเงินสด -->
-        <div class="modal" id="popup-box-pay">
-            <div class="content">
-                <h4 class="mb-5 text-center">เช็คบิล โต๊ะ ..... เลขที่ใบเสร็จ ..... <br> รูปแบบการจ่าย : เงินสด</h4>
-                <div class="list" style="font-size: 20px;">
-                    <label>รวมทั้งสิ้น (บาท) :</label>
-                    <input type="text" class="mb-3" style="width: 50%;" >
-                    <hr>
-                    <h5>สำหรับสมาชิก</h5>
-                    <label>เบอร์โทร : </label>
-                    <input type="text" style="width: 50%;" class="mb-4">
-                    <div>
-                        <button class="btn btn-danger" onclick="printJS('printJS-form2', 'html')">เช็คสมาชิก</button>
-                        <button class="btn btn-warning" ">ใช้คะแนน</button>
-                    </div>
-
-                    <hr>
-                    <label>รับเงินมา (บาท) :</label>
-                    <input type="text" class="mb-4">
-                    <label>ถอน (บาท) : (ถ้ามี)</label>
-                    <input type="text" class="mb-4">
-                    <br>
-
-                    <button class="btn btn-success" onclick="printJS('printJS-form2', 'html')">เช็คบิล</button>
-                    <a class="btn btn-secondary" href="#">ยกเลิก</a>
-
-                    <div style="display: none;">
-                        <?php include("Cashier_payment2.php"); ?>
-                    </div>
-
-                </div>
-
-                <a class="box-close" href="#">
-                    x
-                </a>
-
-            </div>
-        </div>
-
-
-        <!--- popup สำหรับสแกนจ่าย -->
-        <div class="modal" id="popup-box-promppay">
-            <div class="content">
-                <h4 class="mb-5 text-center">เช็คบิล โต๊ะ ..... เลขที่ใบเสร็จ ..... <br> รูปแบบการจ่าย : สแกนจ่าย</h4>
-                <div class="list">
-                    <label>รวมทั้งสิ้น (บาท) :</label>
-                    <input type="text" class="mb-3" style="width: 50%;" >
-                    <hr>
-                    <h5>สำหรับสมาชิก</h5>
-                    <label>เบอร์โทร : </label>
-                    <input type="text" style="width: 50%;" class="mb-4">
-                    <div>
-                        <button class="btn btn-danger" onclick="printJS('printJS-form2', 'html')">เช็คสมาชิก</button>
-                        <button class="btn btn-warning" ">ใช้คะแนน</button>
-                    </div>
-
-                    <hr>
-                    <h1>ใส่ QR ตรงนี้เด้อจ่ะ</h1>
-
-                    <hr>
-                    <button class="btn btn-success" onclick="printJS('printJS-form2', 'html')">เช็คบิล</button>
-                    <a class="btn btn-secondary" href="#">ยกเลิก</a>
-                </div>
-                <a class="box-close" href="#">
-                    x
-                </a>
-            </div>
-        </div>
-
-
-        <!--- popup รับลูกค้าใหม่เข้าโต๊ะ -->
-
-        <div class="modal" id="popup-box-table1">
-            <div class="content">
-                <h3>โต๊ะที่ : A01</h3>
-                <hr>
-                <div class="list">
-                    <label>จำนวนคน : </label>
-                    <input style="width: 15%; font-size: 18px;" type="number">
-                    <hr>
-                    <a class="btn btn-success" href="#popup-box-table1.5">สั่งอาหาร</a>
-                </div>
-                <a class="box-close" href="#">
-                    x
-                </a>
-            </div>
-        </div>
-
-        <!--- popup QR สั่งอาหาร -->
-
-        <div class="modal" id="popup-box-table1.5">
-            <div class="content">
-                <h3>QR Code</h3>
-                <div class="list">
-                    <h1>ใส่ QR ตรงนี้เด้อจ่ะ</h1>
-                </div>
-                <a class="box-close" href="#">
-                    x
-                </a>
-            </div>
-        </div>
-
         
-    </div>
-
-
     <!---------- script สำหรับเปลี่ยนหน้า --------------->
     <script>
         function showmenu(btnvalue) {
@@ -257,7 +129,6 @@
         }
 
     </script>
-
 
 
 
