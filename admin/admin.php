@@ -6,14 +6,18 @@ include('../backend/includes/connectDB.php');
 $menu = $db->prepare("SELECT COUNT(menu_id) AS count_menu FROM Easyeat.Menus;");
 $user = $db->prepare("SELECT COUNT(user_id) AS count_users FROM Easyeat.Users;");
 $bill = $db->prepare("SELECT COUNT(Bill_id) AS count_bill FROM Easyeat.Bills;");
+$payment = $db->prepare("SELECT sum(payment_total) AS sum_pay  FROM Payments");
 
 $menu->execute();
 $user->execute();
 $bill->execute();
+$payment->execute();
 
 $rowMenu = $menu->fetch(PDO::FETCH_ASSOC);
 $rowUser = $user->fetch(PDO::FETCH_ASSOC);
 $rowBill = $bill->fetch(PDO::FETCH_ASSOC);
+$rowpayment = $payment->fetch(PDO::FETCH_ASSOC);
+
 
 session_start();
 ?>
@@ -192,27 +196,27 @@ session_start();
                     <div class="content-das">
                         <div class="show1 col-3 me-3">
                             <h3>ยอดขาย</h3>
-                            <h6>ทั้งหมด 188,365.00 บาท</h6>
+                            <h6>ทั้งหมด <?php echo number_format($rowpayment['sum_pay']); ?> บาท</h6>
 
                         </div>
 
                         <div class="show2 col-3 me-3">
                             <h3>จำนวนบิล</h3>
-                            <h6><?php echo $rowBill['count_bill'] ?> รายการ</h6>
+                            <h6><?php echo number_format($rowBill['count_bill']) ?> รายการ</h6>
 
 
                         </div>
 
                         <div class="show3 col-3 me-3">
                             <h3>จำนวนอาหาร</h3>
-                            <h6><?php echo $rowMenu['count_menu'] ?> รายการ</h6>
+                            <h6><?php echo number_format($rowMenu['count_menu']) ?> รายการ</h6>
 
 
                         </div>
 
                         <div class="show4 col-3">
                             <h3>สมาชิกทั้งหมด</h3>
-                            <h6><?php echo $rowUser['count_users'] ?> คน</h6>
+                            <h6><?php echo number_format($rowUser['count_users']) ?> คน</h6>
 
 
                         </div>
@@ -228,14 +232,8 @@ session_start();
                             <div style="height: 100%; overflow: auto;">
 
                                 <div class="title d-flex mb-3">
-                                    <h3>รายการอาหาร</h3>
+                                    <h3>รายการบิล</h3>
 
-                                    <a href="" class="ms-4">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="fs-5 bi bi-eye-fill"></i>
-                                            <span class="ms-1">ทั้งหมด</span>
-                                        </button>
-                                    </a>
                                 </div>
 
 
@@ -248,7 +246,7 @@ session_start();
                                         </tr>
                                     </thead>
                                     <?php
-                                    $select_bill = $db->prepare("SELECT * FROM Bills");
+                                    $select_bill = $db->prepare("SELECT * FROM Bills LIMIT 5");
                                     $select_bill->execute();
                                     $bills = $select_bill->fetchAll(PDO::FETCH_ASSOC);
                                     ?>
