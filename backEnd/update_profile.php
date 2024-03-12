@@ -48,15 +48,7 @@ if (isset($_POST['upbtn'])) {
         else {
             $_SESSION['err_update'] = "ไม่สามารถนำเข้าข้อมูลได้";
             header('location: ../profile.php');
-
-
         }
-
-
     }
-
-
 }
 
-
-?>
