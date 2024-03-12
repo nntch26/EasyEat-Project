@@ -186,8 +186,6 @@ try {
                         if (xhr.status == 200) {
                             // Reload the page after successful update
                             location.reload();
-                            // Open the popup box
-                            window.location.href = "#popup-box-table1.5<?php echo $table['table_id']; ?>";
                         } else {
                             alert('เกิดข้อผิดพลาดในการอัปเดตสถานะโต๊ะ');
                         }
