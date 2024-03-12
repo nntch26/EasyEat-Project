@@ -1,7 +1,6 @@
 <?php
 
 include('includes/connectDB.php');
-global $db;
 
 date_default_timezone_set('Asia/Bangkok');
 

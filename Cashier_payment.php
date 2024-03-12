@@ -1,6 +1,5 @@
 <?php
 
-global $db;
 include('backend/includes/connectDB.php');
 session_start();
 
@@ -114,22 +113,8 @@ $usepoint = 0;
                         <th style="width: 5%">จำนวน</th>
                         <th style="width: 10%">รวม</th>
                     </tr>
-                    <?php while ($row1 = $sql1->fetch(PDO::FETCH_ASSOC)) :
-
-                        while ($row2 = $sql1->fetch(PDO::FETCH_ASSOC)) :
-                            $sql2 = $db->prepare("SELECT * FROM Orders
-                                                    JOIN Menus ON Orders.menu_id = Menus.menu_id
-                                                    LEFT JOIN Bills ON Orders.Bill_id = Bills.Bill_id
-                                                    WHERE Bills.Bill_id = :Bill_id");
-                            $sql2->bindParam(':Bill_id', $row1['Bill_id']);
-
-                            $sql2->execute();
-
-
-
-                            $total += $row2['menu_price'] * $row2['order_quantity'];
-
-                            ?>
+                    <?php while ($row2 = $sql1->fetch(PDO::FETCH_ASSOC)) :
+                            $total += $row2['menu_price'] * $row2['order_quantity'];?>
 
                             <tr>
                                 <td><?php echo $num; ?></td>
@@ -142,7 +127,6 @@ $usepoint = 0;
                             <?php $num++ ?>
 
                         <?php endwhile; ?>
-                    <?php endwhile; ?>
 
                     <tr>
                         <th colspan="4">รวม</th>

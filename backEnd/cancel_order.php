@@ -2,7 +2,6 @@
 
 
 include('includes/connectDB.php');
-global $db;
 session_start();
 
 // เมื่อกดปุ่มยกเลิกรายการอาหารทั้งหมด
