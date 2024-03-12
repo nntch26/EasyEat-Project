@@ -72,7 +72,7 @@ foreach ($get_tables as $table) {
                 <p> รวม : <?php echo ($sum == 0) ? 'ไม่มีรายการอาหาร' : $sum . " บาท"; ?></p>
             <?php
             } else {
-                echo '<p>ยังไม่มีการรับลูกค้า</p>';
+                echo '<p></p>';
             }
             ?>
         </div>

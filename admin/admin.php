@@ -1,6 +1,5 @@
 <?php
 
-global $db;
 include('../backend/includes/connectDB.php');
 
 $menu = $db->prepare("SELECT COUNT(menu_id) AS count_menu FROM Easyeat.Menus;");
