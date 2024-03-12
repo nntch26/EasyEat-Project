@@ -1,6 +1,4 @@
 <?php
-
-
 include('includes/connectDB.php');
 session_start();
 
@@ -21,20 +19,13 @@ if (isset($_POST['cancelbtn'])) {
     $up_sql->execute();
     $up_sql2->execute();
 
-// ยกเลิกรายการอาหารแล้ว
+    // ยกเลิกรายการอาหารแล้ว
     if ($up_sql->rowCount() > 0 && $up_sql2->rowCount() > 0) {
         $_SESSION['order_cancel'] = "ยกเลิกรายการอาหารเรียบร้อยแล้ว";
         header('location: ../preparemenu.php');
-
-
-
     } // ไม่สำเร็จ
     else {
         $_SESSION['err_cancel'] = "เกิดข้อผิดพลาดโปรดลองใหม่";
         header('location: ../preparemenu.php');
-
     }
 }
-
-
-?>
