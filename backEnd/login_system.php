@@ -73,7 +73,7 @@ function loginUser($username, $password, $db)
 
         } else if ($rowuser['user_role'] == "Chef") {
 
-            header('location: ../ChefOrderedMenu.php');
+            header('location: ../ChefOrderedMenu.html');
 
         } else if ($rowuser['user_role'] == "Cashier") {
             header('location: ../Cashier.php');
