@@ -1,7 +1,7 @@
 <?php
 
 include('backEnd/includes/connectDB.php');
-$get_table_info = $db->prepare("SELECT `table_id`, `table_status` FROM `Tables`");
+$get_table_info = $db->prepare("SELECT * FROM `Tables`");
 $get_table_info->execute();
 $get_tables = $get_table_info->fetchAll(PDO::FETCH_ASSOC);
 
@@ -56,16 +56,54 @@ try {
         echo '</div>';
         echo '<hr>';
         echo '<div class="tinybox_bottom">';
-        echo '<a class="btn btn-warning me-3" href="#popup-box-table1">รับลูกค้า</a></button>';
+        if ($table['table_status'] == 'ไม่ว่าง') {
+            echo '<a class="btn btn-outline-secondary me-3 disabled" href="#">รับลูกค้า</a>';
+        } else if ($table['table_status'] == 'ว่าง') {
+            echo '<a class="btn btn-warning me-3" href="#popup-box-table' . $table['table_id'] . '">รับลูกค้า</a>';
+        } else {
+            echo '<a class="btn btn-warning me-3" href="#popup-box-table1.5' . $table['table_id'] . '">แสดง QR</a>';
+        }
         echo '<a class="';
         if ($table['table_status'] == "จอง") {
             echo "btn btn-outline-danger";
-        }else{
-            echo "btn btn-outline-secondary";
+        } else {
+            echo "btn btn-outline-secondary disabled";
         }
         echo '" href="#" id="cancelButton' . $table['table_id'] . '">ยกเลิก</a></button>';
         echo '</div>';
         echo '</div>';
+
+        echo '<div class="modal" id="popup-box-table' . $table['table_id'] . '">';
+?>
+        <div class="content">
+            <h3>โต๊ะที่ : <?php echo $table['table_id'] ?></h3>
+            <label style="color: red">*จำนวนคนที่รองรับในโต็ะ : <?php echo $table['table_cap'] ?> </label>
+            <hr>
+            <div class="list">
+                <label>จำนวนคน : </label>
+                <input style="width: 15%; font-size: 18px;" type="number">
+                <hr>
+                <a class="btn btn-success" id="orderButton<?php echo $table['table_id']; ?>">สั่งอาหาร</a>
+            </div>
+            <a class="box-close" href="#">
+                x
+            </a>
+        </div>
+        </div>
+
+        <div class="modal" id="popup-box-table1.5<?php echo $table['table_id']; ?>">
+            <div class="content">
+                <h3>QR Code สำหรับโต็ะ <?php echo $table['table_id']; ?></h3>
+                <hr>
+                <div class="list" style="text-align: center;">
+                    <?php echo '<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=http://10.0.15.21/it/65070117/G-09-EasyEat/order-menu.php?table_id=' . $table['table_id'] . '"/>'; ?>
+                </div>
+                <a class="box-close" href="#">
+                    x
+                </a>
+            </div>
+        </div>
+<?php
     }
 } catch (PDOException $e) {
     // If an error occurs, display the error message
@@ -92,6 +130,35 @@ try {
                     xhr.onload = function() {
                         if (xhr.status == 200) {
                             location.reload();
+                        } else {
+                            alert('เกิดข้อผิดพลาดในการอัปเดตสถานะโต๊ะ');
+                        }
+                    };
+                    xhr.send('table_id=' + tableId);
+                }
+            <?php endif; ?>
+        });
+    <?php endforeach; ?>
+
+    <?php foreach ($get_tables as $table) : ?>
+        document.getElementById('orderButton<?php echo $table['table_id']; ?>').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default action of the link
+
+            // Check if the table status is "ว่าง" or "จอง"
+            <?php if ($table['table_status'] == "ว่าง" || $table['table_status'] == "จอง") : ?>
+                var tableId = '<?php echo $table['table_id']; ?>';
+                var confirmation = confirm('ยืนยันการรับลูกค้าที่โต๊ะหมายเลข ' + tableId + ' ?');
+                if (confirmation) {
+                    // Send AJAX request to update table status
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'backEnd/changestatus.php', true);
+                    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    xhr.onload = function() {
+                        if (xhr.status == 200) {
+                            // Reload the page after successful update
+                            location.reload();
+                            // Open the popup box
+                            window.location.href = "#popup-box-table1.5<?php echo $table['table_id']; ?>";
                         } else {
                             alert('เกิดข้อผิดพลาดในการอัปเดตสถานะโต๊ะ');
                         }
