@@ -200,8 +200,8 @@ if (isset($_POST['ordered'])) {
                                         <div class="card-body">
                                             <h5 class="card-title">` + menu.menu_name + `</h5>
                                             <div class="back">
-                                                <h5 class="card-price">ราคา฿` + menu.menu_price + `</h5>
-                                                <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
+                                                <h5 class="card-price">ราคา ` + menu.menu_price + ` ฿</h5>
+                                                <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงตะกร้า</a>
                                             </div>
                                         </div>
                                     </div>
@@ -217,8 +217,8 @@ if (isset($_POST['ordered'])) {
                                         <div class="card-body">
                                             <h5 class="card-title">` + menu.menu_name + `</h5>
                                             <div class="back">
-                                                <h5 class="card-price">ราคา฿` + menu.menu_price + `</h5>
-                                                <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
+                                                <h5 class="card-price">ราคา ` + menu.menu_price + ` ฿</h5>
+                                                <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงตะกร้า</a>
                                             </div>
                                         </div>
                                     </div>
@@ -301,13 +301,13 @@ if (isset($_POST['ordered'])) {
         var check_menu = document.getElementById(id);
 
         if (check_menu !== null) {
-            alert("in cart");
+            alert("เพิ่มลงในตะกร้าแล้ว");
         } else {
             var showBill = document.getElementById("showBill");
             var row = `<div class="menubox" id = "` + menu_id + `">
                         <div class="onadd">
-                            <h4>ชื่ออาหาร ` + menu_name + `</h4>
-                            <label class="price">ราคา ฿` + menu_price + `</label>
+                            <h4>` + menu_name + `</h4>
+                            <label class="price">ราคา ` + menu_price + ` ฿</label>
                         </div>
                          <div class="add-de">
                     <label class="price">จำนวน</label>
@@ -348,8 +348,8 @@ if (isset($_POST['ordered'])) {
                      src="backEnd/menu_img/` + menu.menu_pic + `">
                 <div class="card-body">
                     <h4 class="card-title">` + menu.menu_name + `</h5>
-                    <h5 class="card-price">ราคา฿` + menu.menu_price + `</h5>
-                    <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงกะตร้า</a>
+                    <h5 class="card-price">ราคา ` + menu.menu_price + ` ฿</h5>
+                    <a class="btn btn-primary" onclick="addMenu('` + menu.menu_id + `', '` + menu.menu_name + `', ` + menu.menu_price + `)">ลงตะกร้า</a>
                 </div>
             </div>
             </div>
