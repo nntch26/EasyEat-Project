@@ -361,7 +361,6 @@ session_start();
         </div>
 
         <div class="col sale" id="sale">
-        Content area...4
             <?php include("admin_sale.php"); ?>
             
         </div>
