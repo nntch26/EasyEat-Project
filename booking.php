@@ -82,7 +82,7 @@ include('backEnd/includes/connectDB.php');
                                 $style = 'card-booking1';
                                 $btnClass = 'btn-warning';
                                 $btnbooking = 'btn-secondary disabled';
-                                $textLabel = ' ไม่ว่าง';
+                                $textLabel = 'จอง';
                             }
                         ?>
 
