@@ -1,4 +1,4 @@
-
+![image](https://github.com/nntch26/EasyEat-Project/assets/117381190/6856ed09-4bd1-4db5-bb47-586209514ad0)
 # EasyEat-Project
 
 โปรเจกต์รายวิชา Fundamental Web Programming (2/2566) การเขียนโปรแกรมเว็บพื้นฐาน ประเภทกลุ่ม
@@ -44,4 +44,26 @@ Easyeat คือ เว็บไซต์สำหรับจัดการ�
  - Figma 
  - PHP
  - MySQL	 
- - DBeaver 
+ - DBeaver
+
+# PROJECT DEMO VIDEO
+[DEMO-VIDEO](https://youtu.be/kVYMTmdv0yA?si=ert51TRhXAF0naJb)
+
+# Home page
+![image5](https://github.com/nntch26/EasyEat-Project/assets/117381190/67cdc6d3-78ba-4ac3-a365-aecf2b32fbb8)
+
+# จองโต๊ะล่วงหน้า
+![image6](https://github.com/nntch26/EasyEat-Project/assets/117381190/7c3e9413-499d-4403-b4c9-f998693aea12)
+
+#  สั่งอาหาร/ยกเลิกออเดอร์
+![Screenshot 2024-05-10 130245](https://github.com/nntch26/EasyEat-Project/assets/117381190/e8d3fdc9-78f4-4ec8-b669-451fbaba9569)
+![image](https://github.com/nntch26/EasyEat-Project/assets/117381190/af5d72e2-b19d-4bdb-8ffa-e1d69a1402ab)
+
+#  พ่อครัว / หลังร้าน (Chef)
+![image2](https://github.com/nntch26/EasyEat-Project/assets/117381190/18ac1d7e-2709-4cd1-8fe6-c218e43ad2a8)
+
+# Cashier
+![image3](https://github.com/nntch26/EasyEat-Project/assets/117381190/0f587c17-daf1-403b-9692-43f88b253383)
+
+
+
