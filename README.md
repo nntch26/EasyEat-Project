@@ -1,4 +1,3 @@
-![image](https://github.com/nntch26/EasyEat-Project/assets/117381190/6856ed09-4bd1-4db5-bb47-586209514ad0)
 # EasyEat-Project
 
 โปรเจกต์รายวิชา Fundamental Web Programming (2/2566) การเขียนโปรแกรมเว็บพื้นฐาน ประเภทกลุ่ม
