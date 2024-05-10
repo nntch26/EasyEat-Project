@@ -63,6 +63,7 @@ Easyeat คือ เว็บไซต์สำหรับจัดการ�
 
 # Cashier
 ![image3](https://github.com/nntch26/EasyEat-Project/assets/117381190/0f587c17-daf1-403b-9692-43f88b253383)
+![image8](https://github.com/nntch26/EasyEat-Project/assets/117381190/839d9c6f-d08a-4242-86ec-84b22136c9df)
 
 
 
