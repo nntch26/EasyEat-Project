@@ -57,7 +57,7 @@ Easyeat คือ เว็บไซต์สำหรับจัดการ�
 
 #  สั่งอาหาร/ยกเลิกออเดอร์
 ![Screenshot 2024-05-10 130245](https://github.com/nntch26/EasyEat-Project/assets/117381190/e8d3fdc9-78f4-4ec8-b669-451fbaba9569)
-![image](https://github.com/nntch26/EasyEat-Project/assets/117381190/af5d72e2-b19d-4bdb-8ffa-e1d69a1402ab)
+![image7](https://github.com/nntch26/EasyEat-Project/assets/117381190/50b8310b-44a2-48f1-a80f-cd0299fe670f)
 
 #  พ่อครัว / หลังร้าน (Chef)
 ![image2](https://github.com/nntch26/EasyEat-Project/assets/117381190/18ac1d7e-2709-4cd1-8fe6-c218e43ad2a8)
